@@ -6,3 +6,5 @@ dist/
 .taste-skill/inspect*/
 infra/cdk.out/
 .cache/
+src/data/bilty.json
+public/bilty.json

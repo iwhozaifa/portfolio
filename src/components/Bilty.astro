@@ -1,0 +1,95 @@
+---
+// The bilty: a consignment slip for this page, written by the pipeline that deployed it
+// (scripts/bilty.mjs). A stub sits bottom-right (clear of the left-aligned headings); it opens the full slip as a popover, with no script.
+import bilty from '../data/bilty.json';
+
+const statusWord: Record<string, string> = {
+  local: 'Local build',
+  'on-the-road': 'On the road',
+  delivered: 'Delivered',
+  held: 'Held at checkpost',
+};
+const shipped = new Intl.DateTimeFormat('en-GB', {
+  timeZone: 'Asia/Karachi',
+  day: 'numeric',
+  month: 'short',
+  year: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit',
+}).format(new Date(bilty.shipped));
+const consignment = bilty.run ? `#${bilty.run}` : 'local';
+const kb = bilty.bytes ? `${Math.round(bilty.bytes / 1024)} kB` : null;
+
+const rows = [
+  { label: 'Consignment', value: bilty.run ? `Run ${consignment}` : 'Local build', href: bilty.runUrl },
+  { label: 'Commit', value: bilty.sha?.slice(0, 7) ?? 'unknown', href: bilty.shaUrl },
+  { label: 'Shipped', value: `${shipped} PKT` },
+  bilty.checks && { label: 'Checks passed', value: `${bilty.checks.passed} of ${bilty.checks.total}` },
+  bilty.lighthouse && { label: 'Lighthouse', value: `Performance ${bilty.lighthouse.performance}, accessibility ${bilty.lighthouse.accessibility}` },
+  kb && { label: 'Load', value: `${kb} shipped` },
+  bilty.invalidation && { label: 'Invalidation', value: bilty.invalidation },
+].filter(Boolean) as { label: string; value: string; href?: string | null }[];
+---
+<div class="bilty" data-bilty data-repo={bilty.repo} data-workflow={bilty.workflow}>
+  <button class="stub field-paper" type="button" popovertarget="bilty-sheet" aria-haspopup="dialog">
+    <span class="stub-no">Bilty {consignment}</span>
+    <span class="stub-status" data-bilty-status>{statusWord[bilty.status] ?? bilty.status}</span>
+  </button>
+  <div id="bilty-sheet" class="sheet field-paper" popover role="dialog" aria-labelledby="bilty-title">
+    <div class="sheet-head">
+      <h2 id="bilty-title" class="sheet-title">Bilty for this page</h2>
+      <button class="close link strong" type="button" popovertarget="bilty-sheet" popovertargetaction="hide">Close</button>
+    </div>
+    <dl class="rows nums">
+      <div class="row status-row"><dt>Status</dt><dd data-bilty-status>{statusWord[bilty.status] ?? bilty.status}</dd></div>
+      {rows.map((r) => (
+        <div class="row">
+          <dt>{r.label}</dt>
+          <dd>{r.href ? <a class="link" href={r.href}>{r.value}</a> : r.value}</dd>
+        </div>
+      ))}
+    </dl>
+    <p class="small note">Written by the pipeline that deployed this page.</p>
+  </div>
+</div>
+
+<style>
+  .stub {
+    position: fixed;
+    right: var(--margin);
+    bottom: var(--margin);
+    z-index: 40;
+    display: grid;
+    gap: 0.15rem;
+    min-width: 7.5rem;
+    min-height: 3rem;
+    padding: 0.6rem 0.85rem;
+    text-align: left;
+    transition: transform var(--t-micro) var(--ease-out);
+  }
+  .stub-no { font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; font-size: var(--step-small); }
+  .stub-status { font-size: var(--step-small); }
+  @media (hover: hover) and (pointer: fine) {
+    .stub:hover { transform: translateY(-2px); }
+  }
+  .stub:active { transform: scale(0.97); }
+
+  .sheet {
+    position: fixed;
+    inset: auto var(--margin) var(--margin) auto;
+    margin: 0;
+    width: min(26rem, calc(100vw - 2 * var(--margin)));
+    max-height: calc(100svh - 2 * var(--margin));
+    overflow: auto;
+    padding: 1.5rem;
+    border: 0;
+  }
+  .sheet-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 1.25rem; }
+  .sheet-title { font-size: var(--step-lead); line-height: 1; letter-spacing: -0.03em; }
+  .rows { display: grid; gap: 0.25rem; }
+  .row { display: grid; grid-template-columns: 9rem 1fr; gap: 1rem; padding: 0.55rem 0.75rem; background: var(--paper-2); }
+  .row dt { font-weight: 700; }
+  .status-row { background: var(--night); color: var(--paper); }
+  .note { margin-top: 1rem; }
+  .sheet::backdrop { background: var(--night); opacity: 0.55; }
+</style>

@@ -28,6 +28,7 @@
   --peacock: oklch(0.46 0.09 205);  /* #006670 field */
   --dust: oklch(0.76 0.03 75);      /* #bdaf9d secondary text on night */
   --night-2: oklch(0.24 0.025 55);  /* one tone step up from night, for surfaces */
+  --paper-2: oklch(0.9 0.006 85);   /* one tone step down from bone, for rows on a paper slip */
 
   /* Roles */
   --bg: var(--night);

@@ -1,17 +1,16 @@
 ---
-// Milestone 0 placeholder: proves the build and the taste-skill inspector run end to end.
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import SiteNav from '../components/SiteNav.astro';
+import Bilty from '../components/Bilty.astro';
 ---
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ali Huzaifa</title>
-  </head>
-  <body>
-    <main>
-      <h1>Ali Huzaifa</h1>
-      <p>Scaffold check. The real page starts at milestone 2.</p>
-    </main>
-  </body>
-</html>
+<Base
+  title="Ali Huzaifa · cloud systems and pipelines"
+  description="Ali Huzaifa builds cloud systems on AWS and the pipelines that ship them. Case studies, proof and how to start a freelance project."
+>
+  <main id="main">
+    <Hero />
+    <SiteNav />
+  </main>
+  <Bilty />
+</Base>

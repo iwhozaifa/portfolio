@@ -46,6 +46,8 @@ const pairs = [
   ['paper', 'peacock', 4.5, 'peacock field text'],
   ['night', 'paper', 4.5, 'paper field text'],
   ['peacock', 'paper', 4.5, 'accent and links on paper'],
+  ['night', 'paper-2', 4.5, 'bilty rows'],
+  ['peacock', 'paper-2', 4.5, 'links in bilty rows'],
   ['paper', 'night', 4.5, 'button label on a night button (turmeric field)'],
   ['turmeric', 'night', 3, 'focus ring and button edge on night'],
   ['turmeric', 'peacock', 3, 'button edge on peacock'],

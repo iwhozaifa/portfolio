@@ -1,0 +1,61 @@
+---
+// Plain bar: wordmark, three links, one action. It starts below the hero (the blueprint keeps the first
+// screen free of navigation) and sticks from there. On a phone the links move into a full-screen
+// turmeric menu, opened with a popover so it works without script.
+const links = [
+  { href: '#work', label: 'Work' },
+  { href: '#how', label: 'How I ship' },
+  { href: '#about', label: 'About' },
+];
+const menu = [...links.slice(0, 2), { href: '#also', label: 'Also shipped' }, links[2], { href: '#contact', label: 'Contact' }];
+---
+<header class="site-nav">
+  <nav class="bar wrap" aria-label="Main">
+    <a class="wordmark" href="#main">Ali Huzaifa</a>
+    <ul class="links" role="list">
+      {links.map((l) => <li><a class="link-quiet" href={l.href}>{l.label}</a></li>)}
+    </ul>
+    <a class="button action" href="#contact">Start a project</a>
+    <button class="menu-open strong" type="button" popovertarget="site-menu">Menu</button>
+  </nav>
+  <div id="site-menu" class="menu field-turmeric" popover aria-label="Menu">
+    <div class="menu-head wrap">
+      <span class="wordmark">Ali Huzaifa</span>
+      <button class="strong" type="button" popovertarget="site-menu" popovertargetaction="hide">Close</button>
+    </div>
+    <ul class="menu-links wrap" role="list">
+      {menu.map((l) => <li><a href={l.href} data-menu-link>{l.label}</a></li>)}
+    </ul>
+  </div>
+</header>
+
+<script>
+  // Close the phone menu after a link is chosen (without script the anchor still navigates).
+  document.querySelectorAll<HTMLAnchorElement>('[data-menu-link]').forEach((a) =>
+    a.addEventListener('click', () => document.getElementById('site-menu')?.hidePopover()),
+  );
+</script>
+
+<style>
+  .site-nav { position: sticky; top: 0; z-index: 30; background: var(--night); }
+  .bar { display: flex; align-items: center; gap: 2rem; min-height: 4.5rem; }
+  .wordmark { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; font-size: var(--step-lead); text-decoration: none; white-space: nowrap; }
+  .links { display: flex; gap: 1.75rem; margin-left: auto; }
+  .link-quiet { font-weight: 700; text-decoration: none; display: inline-block; transition: transform var(--t-small) var(--ease-out); }
+  @media (hover: hover) and (pointer: fine) {
+    .link-quiet:hover { transform: translateY(-2px); }
+  }
+  .menu-open { display: none; min-height: 3rem; padding: 0 0.25rem; margin-left: auto; }
+
+  .menu { position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; }
+  .menu:popover-open { display: grid; grid-template-rows: auto 1fr; }
+  .menu-head { display: flex; justify-content: space-between; align-items: center; min-height: 4.5rem; }
+  .menu-head button { min-height: 3rem; }
+  .menu-links { display: grid; gap: 0.25rem; align-self: end; padding: 2rem var(--margin) 3rem; }
+  .menu-links a { display: block; font-family: var(--font-display); font-weight: 900; text-transform: uppercase; letter-spacing: -0.04em; line-height: 1; font-size: 12vw; text-decoration: none; padding-block: 0.15em; }
+
+  @media (max-width: 47.99em) {
+    .links, .action { display: none; }
+    .menu-open { display: inline-block; }
+  }
+</style>
