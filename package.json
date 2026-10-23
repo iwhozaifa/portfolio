@@ -12,8 +12,9 @@
     "preview": "astro preview",
     "check": "astro check",
     "taste:lint": "node .agents/skills/design-taste-frontend/scripts/lint.mjs src",
-    "taste:inspect": "node .agents/skills/design-taste-frontend/scripts/inspect.mjs dist/index.html",
-    "prepare": "git config core.hooksPath .githooks || true"
+    "taste:inspect": "CHROME_PATH=${CHROME_PATH:-$PWD/.cache/chrome-libs/chrome} node .agents/skills/design-taste-frontend/scripts/inspect.mjs dist/index.html",
+    "prepare": "git config core.hooksPath .githooks || true",
+    "setup:chrome": "sh scripts/setup-chrome.sh"
   },
   "dependencies": {
     "astro": "7.3.8",

@@ -12,7 +12,11 @@ npm ci
 npm run dev        # http://localhost:4321
 npm run build      # static output in dist/
 npm run taste:lint # house-style scan of src/
+npm run setup:chrome && npm run build && npm run taste:inspect  # real-browser check at 1440/768/390
 ```
+
+`setup:chrome` makes Playwright's Chromium run on WSL/Ubuntu without sudo (it unpacks NSS, NSPR and ALSA
+into `.cache/chrome-libs`). On a machine with Chrome installed, `taste:inspect` finds it on its own.
 
 Requires Node 22.12+ (see `.nvmrc`).
 
