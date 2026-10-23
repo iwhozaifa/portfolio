@@ -1,0 +1,91 @@
+---
+// An architecture drawn as roads: each lane is an ordered route of painted plates joined by a thick
+// turmeric road (a filled bar, never a hairline). Lanes run across on wide screens and down on phones.
+// It is real text in lists, so it reads in order without the picture.
+interface Stop { label: string; detail?: string }
+interface Props {
+  lanes: { name: string; stops: Stop[] }[];
+  beside: { name: string; items: Stop[] }[];
+  footnote: string;
+}
+const { lanes, beside, footnote } = Astro.props;
+---
+<figure class="arch">
+  {lanes.map((lane) => (
+    <div class="lane">
+      <h3 class="lane-name">{lane.name}</h3>
+      <ol class="route" style={`--n: ${lane.stops.length}`}>
+        {lane.stops.map((s) => (
+          <li class="stop">
+            <span class="plate">{s.label}</span>
+            {s.detail && <span class="detail">{s.detail}</span>}
+          </li>
+        ))}
+      </ol>
+    </div>
+  ))}
+  {beside.map((group) => (
+    <div class="lane beside">
+      <h3 class="lane-name">{group.name}</h3>
+      <ul class="depot" role="list">
+        {group.items.map((s) => (
+          <li class="stop">
+            <span class="plate plate-quiet">{s.label}</span>
+            {s.detail && <span class="detail">{s.detail}</span>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  ))}
+  <figcaption class="footnote">{footnote}</figcaption>
+</figure>
+
+<style>
+  .arch { display: grid; gap: clamp(2.5rem, 5vw, 4rem); }
+  .lane { display: grid; grid-template-columns: minmax(7rem, 1fr) 5fr; gap: var(--gutter); align-items: start; }
+  .lane-name { font-size: var(--step-lead); line-height: 1; letter-spacing: -0.03em; padding-top: 0.9rem; }
+  .route, .depot { position: relative; display: grid; gap: var(--gutter); margin: 0; padding: 0; list-style: none; }
+  .route { grid-template-columns: repeat(var(--n), minmax(0, 1fr)); }
+  .depot { grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); }
+  /* The road: one 6px bar behind the plates, from the first plate to the last. */
+  .route::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(1.5rem - 3px);
+    height: 6px;
+    background: var(--turmeric);
+  }
+  .stop { position: relative; display: grid; gap: 0.6rem; align-content: start; }
+  .plate {
+    display: flex;
+    align-items: center;
+    min-height: 3rem;
+    padding: 0.5rem 0.85rem;
+    background: var(--paper);
+    color: var(--night);
+    font-family: var(--font-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    font-size: var(--step-body);
+  }
+  .plate-quiet { background: var(--peacock); color: var(--paper); }
+  .detail { font-size: var(--step-small); line-height: 1.35; color: var(--muted); max-width: 22ch; }
+  .footnote { font-weight: 700; max-width: 62ch; }
+
+  @media (max-width: 63.99em) {
+    .lane { grid-template-columns: 1fr; }
+    .lane-name { padding-top: 0; }
+  }
+  @media (max-width: 47.99em) {
+    /* Down the screen: the road becomes a vertical bar on the left of the plates. */
+    .route { grid-template-columns: 1fr; gap: 1.25rem; padding-left: 1.5rem; }
+    .route::before { left: 0; right: auto; top: 0; bottom: 0; width: 6px; height: auto; }
+    .route .stop { grid-template-columns: auto 1fr; align-items: center; column-gap: 1rem; }
+    .route .detail { max-width: none; }
+    .depot { grid-template-columns: 1fr; }
+  }
+</style>

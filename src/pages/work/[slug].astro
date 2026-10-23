@@ -1,0 +1,177 @@
+---
+// One case study: title panel in the project's field colour, the real screen, problem, what was built,
+// the architecture as roads, the hard part, proof, stack, links, and the next project as a full panel.
+import { getCollection, type CollectionEntry } from 'astro:content';
+import { Picture } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import SiteNav from '../../components/SiteNav.astro';
+import Bilty from '../../components/Bilty.astro';
+import Architecture from '../../components/Architecture.astro';
+
+export async function getStaticPaths() {
+  const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
+  return work.map((entry, i) => ({
+    params: { slug: entry.id },
+    props: { entry, next: work[(i + 1) % work.length] },
+  }));
+}
+
+interface Props { entry: CollectionEntry<'work'>; next: CollectionEntry<'work'> }
+const { entry, next } = Astro.props;
+const d = entry.data;
+const [lead, beside, ...pair] = d.screens;
+---
+<Base title={`${d.title} · Ali Huzaifa`} description={d.description}>
+  <SiteNav base="/" />
+  <main id="main">
+    <header class={`title field-${d.field}`}>
+      <div class="wrap grid title-grid">
+        <h1 class="display title-name">{d.title}</h1>
+        {d.urdu && <p class="ur title-urdu" lang="ur" dir="rtl">{d.urdu}</p>}
+        <p class="lead title-sub">{d.subtitle}</p>
+        <div class="title-meta">
+          <p class="strong">{d.year}. {d.fact}.</p>
+          {d.note && <p>{d.note}</p>}
+          <p class="title-links">
+            {d.live && <a class="button" href={d.live}>Open the live site</a>}
+            {d.repo && <a class={d.live ? 'link strong' : 'button'} href={d.repo}>Read the code</a>}
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <figure class="screen wrap">
+      <div class="ui-crop"><Picture src={lead.src} formats={['avif', 'webp']} widths={[720, 1200, 1800, 2880]} sizes="(min-width: 90em) 86rem, (min-width: 48em) 100vw, 200vw" alt={lead.alt} loading="eager" /></div>
+      <figcaption class="small">{lead.caption}</figcaption>
+    </figure>
+
+    <section class="wrap section grid" aria-labelledby="problem-h">
+      <h2 id="problem-h" class="head col-head">Problem</h2>
+      <p class="statement col-body">{d.problem}</p>
+    </section>
+
+    <section class="wrap section grid built" aria-labelledby="built-h">
+      <div class="built-text">
+        <h2 id="built-h" class="head">What I built</h2>
+        {d.built.map((p) => <p>{p}</p>)}
+      </div>
+      {beside && (
+        <figure class="built-screen">
+          <div class="ui-crop"><Picture src={beside.src} formats={['avif', 'webp']} widths={[640, 1000, 1440]} sizes="(min-width: 48em) 55vw, 200vw" alt={beside.alt} /></div>
+          <figcaption class="small">{beside.caption}</figcaption>
+        </figure>
+      )}
+    </section>
+
+    {pair.length > 0 && (
+      <section class="wrap pair" aria-label="More screens">
+        {pair.map((s) => (
+          <figure>
+            <div class="ui-crop"><Picture src={s.src} formats={['avif', 'webp']} widths={[640, 1000, 1440]} sizes="(min-width: 48em) 48vw, 200vw" alt={s.alt} /></div>
+            <figcaption class="small">{s.caption}</figcaption>
+          </figure>
+        ))}
+      </section>
+    )}
+
+    <section class="arch-band" aria-labelledby="arch-h">
+      <div class="wrap section">
+        <h2 id="arch-h" class="head arch-head">Architecture</h2>
+        <Architecture {...d.architecture} />
+      </div>
+    </section>
+
+    <section class="wrap section grid" aria-labelledby="hard-h">
+      <h2 id="hard-h" class="head col-head">The hard part</h2>
+      <div class="col-body">
+        <p class="statement">{d.hard.statement}</p>
+        <p class="hard-body">{d.hard.body}</p>
+      </div>
+    </section>
+
+    <section class="field-paper proof-band" aria-labelledby="proof-h">
+      <div class="wrap section">
+        <h2 id="proof-h" class="head">Proof</h2>
+        <dl class="proof">
+          {d.proof.map((p) => (
+            <div class="proof-row">
+              <dt class="figure nums">{p.figure}</dt>
+              <dd>{p.label}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
+    <section class="wrap section grid" aria-labelledby="stack-h">
+      <h2 id="stack-h" class="head col-head">Stack</h2>
+      <ul class="stack col-body" role="list">
+        {d.stack.map((s) => <li>{s}</li>)}
+      </ul>
+    </section>
+
+    <a class={`next field-${next.data.field}`} href={`/work/${next.id}`}>
+      <span class="wrap next-inner">
+        <span class="display next-name">{next.data.title}</span>
+        <span class="lead next-sub"><span class="strong">Next project.</span> {next.data.subtitle}</span>
+      </span>
+    </a>
+  </main>
+  <Bilty />
+</Base>
+
+<style>
+  .title { min-height: 86svh; display: grid; align-items: end; padding-block: clamp(6rem, 12vw, 10rem) clamp(2.5rem, 5vw, 4rem); }
+  .title-grid { row-gap: 2rem; align-items: end; }
+  .title-name { grid-column: 1 / -1; }
+  .title-urdu { grid-column: 1 / -1; font-size: var(--step-head); line-height: 1.6; }
+  .title-sub { grid-column: 1 / 7; font-weight: 700; }
+  .title-meta { grid-column: 8 / 13; display: grid; gap: 1rem; }
+  .title-links { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: center; margin-top: 0.5rem; }
+
+  .screen { padding-top: clamp(3rem, 6vw, 5rem); }
+  .screen :global(img), .built-screen :global(img) { width: 100%; height: auto; }
+  .screen figcaption, .built-screen figcaption { margin-top: 0.75rem; color: var(--muted); }
+
+  .col-head { grid-column: 1 / 6; }
+  .col-body { grid-column: 6 / 13; }
+  .statement { font-size: clamp(1.25rem, 0.9rem + 1.3vw, 2.25rem); line-height: 1.2; letter-spacing: -0.02em; font-weight: 700; max-width: 38ch; }
+  .hard-body { margin-top: 1.5rem; }
+
+  .built { row-gap: 2rem; align-items: start; }
+  .built-text { grid-column: 1 / 6; display: grid; gap: 1rem; }
+  .built-text .head { margin-bottom: 0.5rem; }
+  .built-screen { grid-column: 6 / 13; }
+
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gutter); padding-bottom: calc(var(--section) / 2); }
+  .pair :global(img) { width: 100%; height: auto; }
+  .pair figcaption { margin-top: 0.75rem; color: var(--muted); }
+  .arch-band { background: var(--surface); }
+  .arch-head { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+
+  .proof { display: grid; gap: 0.35rem; margin-top: clamp(2rem, 4vw, 3rem); }
+  .proof-row { display: grid; grid-template-columns: minmax(6rem, 2fr) 5fr; gap: var(--gutter); align-items: center; padding: 1rem 1.25rem; background: var(--paper-2); }
+  .figure { font-family: var(--font-display); font-weight: 900; font-size: var(--step-head); line-height: 0.9; letter-spacing: -0.04em; }
+  .proof dd { font-size: var(--step-lead); line-height: 1.25; max-width: 40ch; }
+
+  .stack { columns: 2; column-gap: var(--gutter); }
+  .stack li { break-inside: avoid; padding-block: 0.35rem; font-weight: 700; font-size: var(--step-lead); line-height: 1.25; }
+
+  .next { display: block; text-decoration: none; padding-block: clamp(5rem, 12vw, 10rem); }
+  .next-inner { display: grid; gap: 1.5rem; }
+  .next-name { display: block; transition: transform var(--t-medium) var(--ease-out); }
+  @media (hover: hover) and (pointer: fine) {
+    .next:hover .next-name { transform: translateX(1.5rem); }
+  }
+
+  @media (max-width: 47.99em) {
+    .title-sub, .title-meta, .col-head, .col-body, .built-text, .built-screen { grid-column: 1 / -1; }
+    .col-body { margin-top: 1.5rem; }
+    .proof-row { grid-template-columns: 1fr; gap: 0.5rem; }
+    .stack { columns: 1; }
+    .pair { grid-template-columns: 1fr; }
+    /* Software screens: crop to the content column at twice the scale instead of shrinking the text. */
+    .ui-crop { overflow: hidden; aspect-ratio: 4 / 3; }
+    .ui-crop :global(img) { width: 200% !important; max-width: none; margin-left: -42%; }
+  }
+</style>
