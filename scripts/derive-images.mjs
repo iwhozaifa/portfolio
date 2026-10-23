@@ -8,13 +8,18 @@ const src = '.cache/found-originals/';
 const out = 'src/assets/found/';
 const jobs = [
   // The tailgate and its load, wide enough for a 16:10 hero; the painted panels ring the card.
-  { from: 'nathiagali-town-road-decorated-truck.jpg', to: 'tailgate-nathiagali.jpg', crop: { left: 500, top: 1173, width: 3130, height: 1956 }, width: 2400 },
+  { from: 'nathiagali-town-road-decorated-truck.jpg', to: 'tailgate-nathiagali.jpg', crop: { left: 500, top: 1173, width: 3130, height: 1956 }, width: 2400, blur: [{ left: 1800, top: 2040, width: 520, height: 190 }] },
   // The tiger painted on the mud flap, close: the footer's picture. Cropped below the number plate.
   { from: 'nathiagali-town-road-decorated-truck.jpg', to: 'tiger-mudflap.jpg', crop: { left: 1300, top: 2290, width: 1600, height: 920 }, width: 1600 },
   { from: 'decorated-bus-in-karachi.jpg', to: 'bus-karachi.jpg', width: 2400 },
 ];
 for (const j of jobs) {
   let img = sharp(src + j.from).rotate();
+  // Blur what identifies a real vehicle (its number plate) before cropping.
+  if (j.blur) {
+    const patches = await Promise.all(j.blur.map(async (r) => ({ input: await sharp(src + j.from).rotate().extract(r).blur(28).toBuffer(), left: r.left, top: r.top })));
+    img = sharp(await img.composite(patches).toBuffer());
+  }
   if (j.crop) img = img.extract(j.crop);
   await img.resize({ width: j.width, withoutEnlargement: true }).jpeg({ quality: 82, mozjpeg: true }).toFile(out + j.to);
   console.log('wrote', out + j.to);
@@ -23,6 +28,6 @@ for (const j of jobs) {
 const credits = JSON.parse(await readFile(out + 'credits.json', 'utf8'));
 for (const c of credits) {
   const done = jobs.filter((j) => c.original === j.from || c.file?.endsWith(j.from) || c.file?.endsWith(j.to));
-  if (done.length) Object.assign(c, { file: out + done[0].to, files: done.map((j) => out + j.to), original: done[0].from, altered: done.some((j) => j.crop) ? 'cropped and resized' : 'resized' });
+  if (done.length) Object.assign(c, { file: out + done[0].to, files: done.map((j) => out + j.to), original: done[0].from, altered: done.some((j) => j.blur) ? 'cropped, resized, number plate blurred' : done.some((j) => j.crop) ? 'cropped and resized' : 'resized' });
 }
 await writeFile(out + 'credits.json', JSON.stringify(credits, null, 1) + '\n');

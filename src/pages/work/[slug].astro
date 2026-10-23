@@ -24,8 +24,14 @@ const d = entry.data;
 const [first] = d.screens;
 const strip = first.kind === 'phone' ? d.screens.filter((s) => s.kind === 'phone').slice(0, 3) : [first];
 const [beside, ...pair] = d.screens.filter((s) => !strip.includes(s));
-// Display titles are sized from their longest word so a single long word never runs off a phone.
-const longest = (s: string) => Math.max(...s.split(/\s+/).map((w) => w.length));
+// Display titles are sized from their best two-line split (the longest line it needs), so they fit
+// the measure in two lines at most and a single long word never runs off a phone.
+const longest = (s: string) => {
+  const w = s.split(/\s+/);
+  let best = s.length;
+  for (let i = 1; i < w.length; i++) best = Math.min(best, Math.max(w.slice(0, i).join(' ').length, w.slice(i).join(' ').length));
+  return Math.max(best, ...w.map((x) => x.length));
+};
 ---
 <Base
   title={`${d.title} · Ali Huzaifa`}
@@ -125,8 +131,11 @@ const longest = (s: string) => Math.max(...s.split(/\s+/).map((w) => w.length));
 
     <a class={`next field-${next.data.field}`} href={`/work/${next.id}`}>
       <span class="wrap next-inner">
-        <span class="display next-name fit" style={`--chars: ${longest(next.data.title)}`}>{next.data.title}</span>
-        <span class="lead next-sub"><span class="strong">Next project.</span> {next.data.subtitle}</span>
+        <span class="next-text">
+          <span class="display next-name fit" style={`--chars: ${longest(next.data.title)}`}>{next.data.title}</span>
+          <span class="lead next-sub"><span class="strong">Next project.</span> {next.data.subtitle}</span>
+        </span>
+        <span class="next-shot" aria-hidden="true"><Screen screen={next.data.screens[0]} sizes="(min-width: 48em) 34vw, 80vw" /></span>
       </span>
     </a>
   </main>
@@ -173,7 +182,10 @@ const longest = (s: string) => Math.max(...s.split(/\s+/).map((w) => w.length));
   .stack li { break-inside: avoid; padding-block: 0.35rem; font-weight: 700; font-size: var(--step-lead); line-height: 1.25; }
 
   .next { display: block; text-decoration: none; padding-block: clamp(5rem, 12vw, 10rem); }
-  .next-inner { display: grid; gap: 1.5rem; }
+  .next-inner { display: grid; grid-template-columns: 7fr 5fr; gap: var(--gutter); align-items: end; }
+  .next-text { display: grid; gap: 1.5rem; }
+  .next-text .fit { font-size: min(var(--step-display), calc((58vw - var(--margin)) / (var(--chars) * 0.66))); }
+  .next-shot { display: block; justify-self: end; width: 100%; }
   .next-name { display: block; transition: transform var(--t-medium) var(--ease-out); }
   @media (hover: hover) and (pointer: fine) {
     .next:hover .next-name { transform: translateX(1.5rem); }
@@ -185,6 +197,8 @@ const longest = (s: string) => Math.max(...s.split(/\s+/).map((w) => w.length));
     .proof-row { grid-template-columns: 1fr; gap: 0.5rem; }
     .stack { columns: 1; }
     .pair { grid-template-columns: 1fr; }
+    .next-inner { grid-template-columns: 1fr; }
+    .next-text .fit { font-size: min(var(--step-display), calc((100vw - 2 * var(--margin)) / (var(--chars) * 0.66))); }
     .strip .strip-row { grid-template-columns: 1fr; justify-items: center; }
   }
 </style>

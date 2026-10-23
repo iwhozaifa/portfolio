@@ -64,6 +64,11 @@ const photo = credits.find((c) => c.file.endsWith('tailgate-nathiagali.jpg'))!;
     object-position: 49% 50%;
     filter: brightness(0.7);
   }
+  /* The one moving picture: the truck idling, a slow drift that never stops. */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero :global(.hero-photo) { animation: idle 26s var(--ease-soft) infinite alternate; }
+  }
+  @keyframes idle { from { transform: scale(1.02) translate3d(0, 0, 0); } to { transform: scale(1.08) translate3d(-1.2%, -0.8%, 0); } }
   .card {
     position: relative;
     grid-column: 4 / 11;
