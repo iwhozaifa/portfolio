@@ -1,0 +1,94 @@
+---
+title: CloudAttend
+subtitle: University attendance a screenshot can't fake.
+order: 2
+year: 2026
+field: peacock
+fact: QR codes that expire in 45 seconds
+description: Serverless attendance on AWS CDK, with QR codes signed with HMAC that expire after 45 seconds and every check-in validated server-side.
+repo: https://github.com/iwhozaifa/cloudattend
+note: Built and tested locally. Not yet deployed to an AWS account.
+screens:
+  - src: ../../assets/work/cloudattend/teacher-live.png
+    alt: "CloudAttend teacher view of a live CS101 session: a large QR code with its expiry bar, and the checked-in list showing one student."
+    caption: A live session in the local demo. The code is replaced 10 seconds before it expires.
+  - src: ../../assets/work/cloudattend/student-checked-in.png
+    kind: phone
+    alt: "CloudAttend on a phone: Attendance recorded, CS101 Introduction to Cloud Computing, checked in at 1:51 AM."
+    caption: The enrolled student scans and is recorded.
+  - src: ../../assets/work/cloudattend/not-enrolled.png
+    kind: phone
+    alt: "CloudAttend on a phone: Check-in failed, You are not enrolled in this course."
+    caption: The same code, scanned by a student who isn't on the roster.
+  - src: ../../assets/work/cloudattend/student-attendance.png
+    kind: phone
+    alt: "CloudAttend student attendance page on a phone: CS101 at 100 percent, 1 of 1 sessions, with the check-in listed as present."
+    caption: Each student sees their own rate per course.
+problem: Roll call wastes lecture time, and a static attendance code can be passed to friends who aren't in the room.
+built:
+  - A serverless attendance app. Teachers create courses, enrol students by email or roll number and open a session that shows a QR code signed with HMAC, valid for 45 seconds and replaced before it runs out.
+  - Students scan it in the app, open it from the phone camera, or paste it. Teachers watch the live list, close the session and download reports against an attendance threshold as CSV. Administrators promote users to teachers.
+architecture:
+  lanes:
+    - name: Check-in
+      stops:
+        - label: Student's phone
+        - label: CloudFront
+          detail: OAC, security headers
+        - label: API Gateway
+          detail: HTTP API, Cognito JWT authorizer
+        - label: Lambda
+          detail: one router, its own IAM role
+        - label: DynamoDB
+          detail: five tables, conditional writes
+    - name: Sign-up
+      stops:
+        - label: Browser
+        - label: Cognito
+          detail: email code, password reset
+        - label: PreSignUp Lambda
+          detail: reserves the roll number, rejects duplicates
+        - label: PostConfirmation Lambda
+          detail: writes the profile, adds the student group
+  beside:
+    - name: Beside the API
+      items:
+        - label: Secrets Manager
+          detail: the QR signing key
+        - label: S3
+          detail: the React app, private behind CloudFront
+        - label: CloudWatch
+          detail: Lambda error and API 5xx alarms
+  footnote: All of it is AWS CDK, with assertion tests on the synthesized template.
+hard:
+  statement: Saving a check-in only after six checks, with the duplicate check done atomically.
+  body: The API checks identity and role, course ownership and enrolment, the session's state, the token's signature and its expiry, then writes the check-in with a DynamoDB conditional write so the same student can't be counted twice. A local mode runs the real API router against in-memory data, so every journey is tested without AWS.
+proof:
+  - figure: "92"
+    label: API tests, run with Vitest
+  - figure: "86"
+    label: web component tests, with Testing Library and MSW
+  - figure: "11"
+    label: CDK assertion tests on the infrastructure
+  - figure: "54"
+    label: Playwright runs, 18 journeys at three screen sizes, each checked with axe
+  - figure: "0"
+    label: known vulnerabilities in production dependencies at v1.0.0
+stack:
+  - React 19
+  - Vite
+  - TypeScript
+  - shadcn/ui
+  - TanStack Query
+  - React Hook Form and Zod
+  - AWS Amplify Auth
+  - AWS CDK v2
+  - Cognito
+  - API Gateway
+  - Lambda
+  - DynamoDB
+  - Secrets Manager
+  - S3 and CloudFront
+  - CloudWatch
+  - Vitest, MSW, Playwright, axe-core
+---

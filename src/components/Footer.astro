@@ -1,0 +1,62 @@
+---
+// Footer: blueprint "Photograph half, menu half". The painted tiger from the hero's mud flap, close,
+// beside the menu set large; the name returns at full width, then the picture credits.
+import { Picture } from 'astro:assets';
+import tiger from '../assets/found/tiger-mudflap.jpg';
+import credits from '../assets/found/credits.json';
+import { site } from '../data/site';
+interface Props { base?: string }
+const { base = '' } = Astro.props;
+const menu = [
+  { href: `${base}#work`, label: 'Work' },
+  { href: `${base}#how`, label: 'How I ship' },
+  { href: `${base}#also`, label: 'Also shipped' },
+  { href: `${base}#about`, label: 'About' },
+  { href: `${base}#contact`, label: 'Contact' },
+];
+---
+<footer class="footer">
+  <div class="split">
+    <Picture src={tiger} formats={['avif', 'webp']} widths={[640, 1000, 1600]} sizes="(min-width: 48em) 50vw, 100vw" class="footer-photo" alt="A tiger painted on a goods truck's mud flap, with Urdu lettering on either side." />
+    <div class="menu-half">
+      <p class="wordmark-small">Ali Huzaifa</p>
+      <nav aria-label="Footer">
+        <ul class="menu" role="list">
+          {menu.map((m) => <li><a href={m.href}>{m.label}</a></li>)}
+        </ul>
+      </nav>
+      <div class="blocks">
+        <p><a class="link" href={`mailto:${site.email}`}>{site.email}</a></p>
+        <p><a class="link" href={site.github}>GitHub</a></p>
+      </div>
+    </div>
+  </div>
+  <p class="name wrap" aria-hidden="true">Ali Huzaifa</p>
+  <div class="wrap legal small">
+    <p>Pictures: {credits.map((c, i) => <>{i > 0 && '; '}<a class="link" href={c.page}>{c.title}</a> by {c.creator}, <a class="link" href={c.licenseUrl}>{c.license}</a>, {c.altered}</>)}. Shared under the same licences.</p>
+    <p>© 2026 Ali Huzaifa. Built with Astro.</p>
+  </div>
+</footer>
+
+<style>
+  .footer { background: var(--night); }
+  .split { display: grid; grid-template-columns: 1fr 1fr; min-height: 90svh; }
+  .footer :global(.footer-photo) { width: 100%; height: 100%; object-fit: cover; object-position: 30% 50%; }
+  .menu-half { display: grid; align-content: start; gap: 2.5rem; padding: 5rem var(--margin) 3rem calc(var(--gutter) * 2); }
+  .wordmark-small { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; }
+  .menu { display: grid; gap: 1.25rem; }
+  .menu a { display: inline-block; font-family: var(--font-display); font-weight: 900; text-transform: uppercase; letter-spacing: -0.04em; line-height: 1; font-size: var(--step-statement); text-decoration: none; transition: transform var(--t-small) var(--ease-out); }
+  @media (hover: hover) and (pointer: fine) {
+    .menu a:hover { transform: translateX(12px); }
+  }
+  .blocks { display: grid; gap: 0.5rem; }
+  .name { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; letter-spacing: -0.05em; line-height: 0.85; font-size: calc((100vw - 2 * var(--margin)) / 7.4); white-space: nowrap; color: var(--turmeric); padding-top: 3rem; }
+  .legal { display: grid; gap: 0.5rem; padding-block: 2rem 2.5rem; color: var(--muted); }
+  .legal p { max-width: 90ch; }
+  @media (max-width: 47.99em) {
+    .split { grid-template-columns: 1fr; min-height: 0; }
+    .footer :global(.footer-photo) { height: 50svh; }
+    .menu-half { padding: 2.5rem var(--margin); }
+    .menu a { font-size: 9vw; }
+  }
+</style>

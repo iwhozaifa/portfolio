@@ -9,6 +9,8 @@ const out = 'src/assets/found/';
 const jobs = [
   // The tailgate and its load, wide enough for a 16:10 hero; the painted panels ring the card.
   { from: 'nathiagali-town-road-decorated-truck.jpg', to: 'tailgate-nathiagali.jpg', crop: { left: 500, top: 1173, width: 3130, height: 1956 }, width: 2400 },
+  // The tiger painted on the mud flap, close: the footer's picture. Cropped below the number plate.
+  { from: 'nathiagali-town-road-decorated-truck.jpg', to: 'tiger-mudflap.jpg', crop: { left: 1300, top: 2290, width: 1600, height: 920 }, width: 1600 },
   { from: 'decorated-bus-in-karachi.jpg', to: 'bus-karachi.jpg', width: 2400 },
 ];
 for (const j of jobs) {
@@ -20,7 +22,7 @@ for (const j of jobs) {
 
 const credits = JSON.parse(await readFile(out + 'credits.json', 'utf8'));
 for (const c of credits) {
-  const job = jobs.find((j) => c.file?.endsWith(j.from) || c.file?.endsWith(j.to));
-  if (job) Object.assign(c, { file: out + job.to, original: job.from, altered: job.crop ? 'cropped and resized' : 'resized' });
+  const done = jobs.filter((j) => c.original === j.from || c.file?.endsWith(j.from) || c.file?.endsWith(j.to));
+  if (done.length) Object.assign(c, { file: out + done[0].to, files: done.map((j) => out + j.to), original: done[0].from, altered: done.some((j) => j.crop) ? 'cropped and resized' : 'resized' });
 }
 await writeFile(out + 'credits.json', JSON.stringify(credits, null, 1) + '\n');

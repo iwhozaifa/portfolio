@@ -14,7 +14,7 @@ headings are two to four words. Counts are in brackets.
 |---|---|---|---|
 | 1 | Hero | Ali Huzaifa builds cloud systems and the pipelines that ship them, and takes freelance builds. | The name, the plain line, the bilty from this site's own deploy |
 | 2 | On the road | Four systems, shipped with their receipts. | A full panel each: real screen, one checked fact, a case study |
-| 3 | How I ship | The same discipline in every project: code for infrastructure, tests before merge, drills before failure, gates for agents. | This site's real pipeline, state by state |
+| 3 | How I ship | The same discipline in every project: code for infrastructure, tests before merge, drills before failure, chores automated. | This site's real pipeline, state by state |
 | 4 | Also shipped | The range goes past the main four. | A short list with links |
 | 5 | Driver | Who he is and how to work with him. | Portrait, study, city, a short bio |
 | 6 | Book a load | Here is how to start a project. | Email, links, his local time, one button |
@@ -180,7 +180,7 @@ next project panel. Headings are the same words on every page.
 | 1 | **Infrastructure is code.** | Terraform for DevOps Tutor, CDK for CloudAttend and for this site. Nothing is clicked into a console. | `cdk diff` output for this site's stack |
 | 2 | **Nothing merges without a test.** | A pull request that changes code without a test fails. Golden images and recomputed maths count. | The checks list on a pull request, all green |
 | 3 | **Drill the failure first.** | Backups are restored on a schedule. A deploy that fails its health check rolls itself back. | Deploy step: health check passed, previous version kept |
-| 4 | **Agents work inside the gates.** | Coding agents follow written rules in the repo and pass the same checks as anyone else. | The rules file beside a passing check |
+| 4 | **Automate the chores.** | A $0 bot turns Google Classroom deadlines into Slack reminders, and Dependabot opens the weekly dependency updates. | The reminder bot's schedule and the Dependabot config |
 
 ## 7. Also shipped
 
@@ -243,3 +243,10 @@ OG image text: the page title on a turmeric panel with **ALI HUZAIFA** at the fo
 ## Sample and pending content (to confirm before launch)
 
 All `[[TBD]]` and `[[URDU]]` items above. No sample proof is used: every number is from a repo.
+
+## Revisions while building
+
+- How I ship, statement 4 is now **Automate the chores.** The repos hold no written agent rules (their `AGENTS.md` files are the block Next.js generates), so "Agents work inside the gates" had no proof without Mimus.
+- CloudAttend: tokens live 45 s (`QR_TOKEN_LIFETIME_SECONDS`) and the screen swaps in a new one 10 s before expiry (`QR_REFRESH_MARGIN_SECONDS`).
+- DevOps Tutor: backups are RDS automated backups kept at least 7 days, not AWS Backup.
+- Contact uses alihuzaifa7204@gmail.com; location is shown as "Pakistan". LinkedIn and studies are still pending.

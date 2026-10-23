@@ -1,0 +1,49 @@
+---
+// Contact: blueprint "Visit card on a photograph". A decorated bus in Karachi fills the screen; one
+// opaque bone card in the calm upper-right holds what someone needs to start a project.
+import { Picture } from 'astro:assets';
+import bus from '../assets/found/bus-karachi.jpg';
+import { site, projectMailto } from '../data/site';
+---
+<section id="contact" class="contact" aria-labelledby="contact-h">
+  <Picture src={bus} formats={['avif', 'webp']} widths={[640, 1000, 1600, 2400]} sizes="100vw" class="contact-photo" alt="A bus painted from roof to wheels in truck-art colours and mirror work, on a street in Karachi." />
+  <div class="card field-paper">
+    <h2 id="contact-h" class="card-title">Start a project</h2>
+    <p>Freelance builds on AWS: infrastructure as code, CI/CD pipelines, serverless apps and automation.</p>
+    <dl class="rows">
+      <div><dt>Email</dt><dd><a class="link" href={`mailto:${site.email}`}>{site.email}</a></dd></div>
+      <div><dt>GitHub</dt><dd><a class="link" href={site.github}>github.com/iwhozaifa</a></dd></div>
+      {site.linkedin && <div><dt>LinkedIn</dt><dd><a class="link" href={site.linkedin}>LinkedIn</a></dd></div>}
+      <div><dt>Time</dt><dd class="nums" data-local-time>Pakistan Standard Time, UTC+5</dd></div>
+    </dl>
+    <a class="button card-action" href={projectMailto}>Start a project</a>
+  </div>
+</section>
+
+<script>
+  // The live local time, so a visitor knows whether a reply can come today.
+  const el = document.querySelector<HTMLElement>('[data-local-time]');
+  if (el) {
+    const fmt = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Karachi', hour: '2-digit', minute: '2-digit' });
+    const tick = () => { el.textContent = `It's ${fmt.format(new Date())} in Pakistan`; };
+    tick();
+    setInterval(tick, 30_000);
+  }
+</script>
+
+<style>
+  .contact { position: relative; min-height: 100svh; display: grid; justify-items: end; align-items: start; padding: clamp(2rem, 4vw, 3.75rem) var(--margin); overflow: hidden; }
+  .contact :global(.contact-photo) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 35% 60%; }
+  .card { position: relative; width: min(26rem, 100%); padding: 2rem; display: grid; gap: 1.25rem; }
+  .card-title { font-size: var(--step-lead); line-height: 1; letter-spacing: -0.03em; }
+  .rows { display: grid; gap: 0.25rem; }
+  .rows > div { display: grid; grid-template-columns: 5.5rem 1fr; gap: 0.75rem; padding: 0.55rem 0.75rem; background: var(--paper-2); }
+  .rows dt { font-weight: 700; }
+  .rows dd { overflow-wrap: anywhere; }
+  .card-action { width: 100%; min-height: 3.25rem; }
+  @media (max-width: 47.99em) {
+    .contact { min-height: 0; padding: 0; display: block; }
+    .contact :global(.contact-photo) { position: relative; height: 70svh; object-position: 40% 55%; }
+    .card { width: auto; margin: -5rem var(--margin) 0; }
+  }
+</style>

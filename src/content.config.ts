@@ -21,7 +21,9 @@ const work = defineCollection({
       repo: z.url().optional(),
       live: z.url().optional(),
       note: z.string().optional(),
-      screens: z.array(z.object({ src: image(), alt: z.string(), caption: z.string() })).min(1),
+      screens: z
+        .array(z.object({ src: image(), alt: z.string(), caption: z.string(), kind: z.enum(['desktop', 'phone']).default('desktop') }))
+        .min(4),
       problem: z.string(),
       built: z.array(z.string()).min(1),
       architecture: z.object({

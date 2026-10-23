@@ -1,0 +1,110 @@
+---
+// "On the road": blueprint "Full panels, one midline row" under a pinned title (direction "The pinned
+// poster"). The title rides on a night board pinned under the nav, like the painted crown over a truck's
+// cab; each project passes beneath it as a full field-coloured panel with its real screen and one row
+// of facts held at the same height on every panel.
+import { getCollection } from 'astro:content';
+import { Picture } from 'astro:assets';
+
+const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
+---
+<section id="work" class="work" aria-labelledby="work-h">
+  <div class="board">
+    <h2 id="work-h" class="board-title wrap">On the road</h2>
+  </div>
+  <ol class="panels" role="list">
+    {work.map((w) => {
+      const phones = w.data.screens.filter((s) => s.kind === 'phone').slice(0, 2);
+      const shots = w.data.screens[0].kind === 'phone' ? phones : [w.data.screens[0]];
+      return (
+        <li class={`panel field-${w.data.field}`}>
+          <a class="panel-link" href={`/work/${w.id}`} aria-label={`${w.data.title}: ${w.data.subtitle} Read the case study.`}>
+            <div class:list={['shots', { phones: shots.length > 1 }]}>
+              {shots.map((s) => (
+                <Picture
+                  src={s.src}
+                  formats={['avif', 'webp']}
+                  widths={s.kind === 'phone' ? [360, 720] : [800, 1200, 1800, 2400]}
+                  sizes={s.kind === 'phone' ? '(min-width: 48em) 18rem, 40vw' : '(min-width: 48em) 60vw, 100vw'}
+                  alt={s.alt}
+                  class={s.kind === 'phone' ? 'shot shot-phone' : 'shot shot-wide'}
+                />
+              ))}
+            </div>
+            <p class="panel-sub">{w.data.subtitle}</p>
+            <div class="row nums">
+              <span class="row-year">{w.data.year}</span>
+              <span class="row-title">{w.data.title}</span>
+              <span class="row-fact">{w.data.fact}</span>
+            </div>
+            <span class="more strong">Read the case study <span class="arrow" aria-hidden="true">→</span></span>
+          </a>
+        </li>
+      );
+    })}
+  </ol>
+</section>
+
+<style>
+  .work { position: relative; }
+  .board {
+    position: sticky;
+    top: 4.5rem;
+    z-index: 5;
+    background: var(--night);
+    padding-block: 0.75rem 1rem;
+  }
+  .board-title { font-size: var(--step-head); line-height: 0.88; letter-spacing: -0.05em; color: var(--turmeric); }
+
+  .panels { margin: 0; padding: 0; list-style: none; }
+  .panel { position: relative; height: 62svh; min-height: 32rem; overflow: hidden; }
+  .panel-link { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); padding-inline: var(--margin); text-decoration: none; color: inherit; }
+
+  /* The screen sits in the right seven columns, cropped tight so a detail fills the panel. */
+  .shots { grid-column: 6 / 13; align-self: stretch; position: relative; overflow: hidden; margin-block: 2.5rem; }
+  .shots :global(.shot-wide) { width: 100%; height: 100%; object-fit: cover; object-position: 100% 0; transform: scale(1.12); transform-origin: 100% 0; }
+  .shots.phones { display: flex; gap: var(--gutter); justify-content: center; align-items: center; }
+  .shots :global(picture) { display: contents; }
+  .shots :global(.shot-phone) { width: auto; height: auto; max-height: calc(62svh - 5rem); max-width: 45%; background: none; }
+
+  /* The row: same height on every panel, on its own night band so it reads over any screen. */
+  .row {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    min-height: 5.5rem;
+    display: grid;
+    grid-template-columns: 1fr 4fr 3fr;
+    align-items: center;
+    gap: var(--gutter);
+    padding-inline: var(--margin);
+    background: var(--night);
+    color: var(--paper);
+  }
+  .row-year { font-size: var(--step-body); }
+  .row-title { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; font-size: var(--step-lead); line-height: 1; }
+  .row-fact { justify-self: end; text-align: right; font-size: var(--step-body); }
+  .panel-sub { position: absolute; left: var(--margin); bottom: 6rem; width: calc(41.6% - var(--margin)); font-size: var(--step-lead); line-height: 1.2; letter-spacing: -0.02em; font-weight: 700; max-width: 22ch; }
+  .more { position: absolute; left: var(--margin); bottom: 2.5rem; font-size: var(--step-lead); }
+  .more .arrow { display: inline-block; transition: transform var(--t-small) var(--ease-out); }
+  @media (hover: hover) and (pointer: fine) {
+    .panel-link:hover .arrow { transform: translateX(6px); }
+    .panel-link:hover :global(.shot-wide) { transform: scale(1.16); }
+    .shots :global(.shot-wide) { transition: transform var(--t-large) var(--ease-out); }
+  }
+
+  @media (max-width: 47.99em) {
+    .board-title { font-size: 13vw; }
+    .panel { height: 82svh; min-height: 30rem; }
+    .panel-sub { display: none; }
+    .shots { grid-column: 1 / -1; grid-row: 1; margin-block: 1.5rem 9.5rem; }
+    .shots.phones { gap: 0.75rem; }
+    .shots :global(.shot-phone) { max-height: calc(82svh - 12rem); max-width: 42%; }
+    .row { top: auto; bottom: 4.25rem; transform: none; grid-template-columns: 1fr auto; row-gap: 0.25rem; padding-block: 0.75rem; }
+    .row-title { grid-column: 1 / -1; grid-row: 1; font-size: 1.375rem; }
+    .row-year, .row-fact { font-size: var(--step-small); }
+    .more { bottom: 1.25rem; font-size: var(--step-body); }
+  }
+</style>

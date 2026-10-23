@@ -1,0 +1,34 @@
+---
+// About: who Ali Huzaifa is and what he works with, taken from the four projects. The portrait arrives
+// later; until then this section is set in type, as a split.
+import { site } from '../data/site';
+const aws = ['EC2', 'RDS', 'ALB', 'WAF', 'ECR', 'SSM', 'SES', 'CloudWatch', 'Lambda', 'API Gateway', 'DynamoDB', 'Cognito', 'Secrets Manager', 'S3', 'CloudFront'];
+const around = ['Terraform', 'AWS CDK', 'GitHub Actions with OIDC', 'Docker', 'Playwright and axe', 'Next.js and React', 'Flutter', 'PostgreSQL and Prisma'];
+---
+<section id="about" class="about wrap section grid" aria-labelledby="about-h">
+  <div class="about-text">
+    <h2 id="about-h" class="head">About Ali Huzaifa</h2>
+    <p class="statement">I'm a software engineering student in {site.place} who learns by building systems and shipping them.</p>
+    <p>I work across AWS, DevOps and automation, and I write the infrastructure, the pipeline and the tests with the app. Every project here is open on GitHub with its docs, so you can check the claims.</p>
+  </div>
+  <div class="about-lists">
+    <h3 class="list-head">On AWS, across these projects</h3>
+    <ul class="tags" role="list">{aws.map((t) => <li>{t}</li>)}</ul>
+    <h3 class="list-head">Around it</h3>
+    <ul class="tags" role="list">{around.map((t) => <li>{t}</li>)}</ul>
+  </div>
+</section>
+
+<style>
+  .about { row-gap: 3rem; align-items: start; }
+  .about-text { grid-column: 1 / 7; display: grid; gap: 1.5rem; }
+  .statement { font-size: var(--step-statement); line-height: 1.2; letter-spacing: -0.02em; font-weight: 700; max-width: 30ch; }
+  .about-lists { grid-column: 8 / 13; display: grid; gap: 1rem; padding-top: 0.5rem; }
+  .list-head { font-size: var(--step-body); letter-spacing: -0.01em; color: var(--turmeric); }
+  .list-head:not(:first-child) { margin-top: 1.5rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tags li { padding: 0.45rem 0.7rem; background: var(--surface); font-weight: 700; font-size: var(--step-small); }
+  @media (max-width: 47.99em) {
+    .about-text, .about-lists { grid-column: 1 / -1; }
+  }
+</style>

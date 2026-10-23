@@ -1,0 +1,81 @@
+---
+title: Aaj Kya Pakayen
+urdu: آج کیا پکائیں؟
+subtitle: Dinner, decided. An offline Flutter app for Pakistani home cooks.
+order: 3
+year: 2026
+field: turmeric
+fact: 78 dishes, Urdu first
+description: An offline, Urdu-first Flutter app that decides dinner for Pakistani home cooks, with golden tests in both Urdu and English.
+repo: https://github.com/iwhozaifa/aaj-kya-pakayen
+screens:
+  - src: ../../assets/work/aaj-kya-pakayen/pantry_ur.png
+    kind: phone
+    alt: "Aaj Kya Pakayen meat stock screen in Urdu: chicken 1.5 kilos, beef 750 grams marked low, mutton out of stock, mince 1 kilo, each with plus and minus buttons."
+    caption: The app's golden test images, in Urdu. Meat stock, the last seven days, and choosing a language.
+  - src: ../../assets/work/aaj-kya-pakayen/history_ur.png
+    kind: phone
+    alt: "Aaj Kya Pakayen history in Urdu: the last seven days as day badges, then every dinner, such as chicken karahi with bhindi masala and nihari ordered from outside."
+    caption: The last seven days and every dinner.
+  - src: ../../assets/work/aaj-kya-pakayen/onboarding_language_ur.png
+    kind: phone
+    alt: "Aaj Kya Pakayen first run: the app name in Urdu, step 1 of 3, and two buttons to choose Urdu or English."
+    caption: First run, step 1 of 3.
+  - src: ../../assets/work/aaj-kya-pakayen/pantry_en.png
+    kind: phone
+    alt: "The same meat stock screen in English: chicken 1.5 kg, beef 750 g low, mutton none in stock, mince 1 kg, and an Add purchase button."
+    caption: The same screen in English, checked against its own golden image.
+  - src: ../../assets/work/aaj-kya-pakayen/dishes_ur.png
+    kind: phone
+    alt: "Aaj Kya Pakayen dish list in Urdu: bhindi masala, chicken karahi, daal chawal and ammi ka qorma, each with its type, cooking time and an on/off switch."
+    caption: The dish list, with filters by type.
+problem: Every evening, the same question. The answer depends on this week's dinners, whether it's a sabzi or a gosht day, and the meat at home.
+built:
+  - A Flutter app in Urdu first and English second, with large text. It suggests tonight's dish with its reasons and a side, tracks chicken, beef, mutton and mince in 250 g steps, and uses the oldest meat first.
+  - It remembers 60 days of dinners, holds 78 Pakistani dishes you can switch off or add to, works fully offline, and every action can be undone.
+architecture:
+  lanes:
+    - name: Layers
+      stops:
+        - label: Screens
+          detail: Today, Stock, History, Dishes, Settings
+        - label: Riverpod
+          detail: state and providers
+        - label: Use cases
+          detail: domain logic
+        - label: Suggestion engine
+          detail: pure Dart, deterministic
+        - label: Drift
+          detail: SQLite on the device
+  beside:
+    - name: On the device
+      items:
+        - label: Seed data
+          detail: 78 dishes and their pairings
+        - label: Daily reminder
+          detail: 4:30 PM by default
+        - label: Urdu and English
+          detail: every string in both, chosen on first run
+  footnote: A layering test fails the build if the domain imports Flutter or a feature reaches into the database.
+hard:
+  statement: Setting Urdu properly, and proving it stays right on every change.
+  body: Nastaliq needs a line height near 1.9 and a right-to-left layout, and the smallest text anywhere is 18. Every key screen is checked against golden images in both Urdu and English. The engine has no Flutter in it, so it can move to a server later untouched.
+proof:
+  - figure: "62"
+    label: test files, from engine property tests to widget and golden tests
+  - figure: "2"
+    label: languages, each screen checked against its own golden image
+  - figure: "78"
+    label: Pakistani dishes in the seed, all switchable
+  - figure: "80%"
+    label: domain coverage required by CI before a merge
+stack:
+  - Flutter
+  - Dart
+  - Riverpod
+  - go_router
+  - Drift (SQLite)
+  - Noto Nastaliq Urdu
+  - Golden tests
+  - GitHub Actions
+---

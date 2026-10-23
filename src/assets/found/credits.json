@@ -23,7 +23,11 @@
   ],
   "saved": "2026-10-23T20:12:20.731Z",
   "original": "nathiagali-town-road-decorated-truck.jpg",
-  "altered": "cropped and resized"
+  "altered": "cropped and resized",
+  "files": [
+   "src/assets/found/tailgate-nathiagali.jpg",
+   "src/assets/found/tiger-mudflap.jpg"
+  ]
  },
  {
   "file": "src/assets/found/bus-karachi.jpg",
@@ -49,6 +53,9 @@
   ],
   "saved": "2026-10-23T20:12:53.793Z",
   "original": "decorated-bus-in-karachi.jpg",
-  "altered": "resized"
+  "altered": "resized",
+  "files": [
+   "src/assets/found/bus-karachi.jpg"
+  ]
  }
 ]
