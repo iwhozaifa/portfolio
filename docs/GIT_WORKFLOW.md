@@ -52,10 +52,26 @@ gh api -X PATCH repos/iwhozaifa/portfolio \
   -f squash_merge_commit_title=PR_TITLE -f squash_merge_commit_message=PR_BODY
 ```
 
-## Branch protection
+## Branch protection (applied)
 
-Applied once the `ci` check has run at least once (on the bootstrap PR): see the command in the
-bootstrap PR description, and re-run it if checks are added (Playwright, Lighthouse, inspect, cdk).
+`main`: pull request required, `ci` green and branch up to date, linear history, conversations resolved,
+no force pushes or deletions, admins included. Re-run with the new check names when checks are added
+(Playwright, Lighthouse, inspect, cdk).
+
+```bash
+gh api -X PUT repos/iwhozaifa/portfolio/branches/main/protection --input - <<'JSON'
+{
+  "required_status_checks": { "strict": true, "contexts": ["ci"] },
+  "enforce_admins": true,
+  "required_pull_request_reviews": { "required_approving_review_count": 0, "dismiss_stale_reviews": true },
+  "restrictions": null,
+  "required_linear_history": true,
+  "allow_force_pushes": false,
+  "allow_deletions": false,
+  "required_conversation_resolution": true
+}
+JSON
+```
 
 ## Local guard
 
