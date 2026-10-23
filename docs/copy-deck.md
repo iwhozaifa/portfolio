@@ -61,7 +61,7 @@ Midline row on each panel: year · title · one fact. Then a link: **Read the ca
 
 | Panel | Field | Year | Title | Fact | Screen | Urdu |
 |---|---|---|---|---|---|---|
-| 1 | chilli | 2026 | **DEVOPS TUTOR** | Backups restored every month | Day view with XP and streak, local seed data | [[URDU]] |
+| 1 | crimson | 2026 | **DEVOPS TUTOR** | Backups restored every month | Day view with XP and streak, local seed data | [[URDU]] |
 | 2 | peacock | 2026 | **CLOUDATTEND** | QR codes that expire in 45 seconds | Teacher's session screen: live QR and check-in list, demo accounts | [[URDU]] |
 | 3 | turmeric | 2026 | **AAJ KYA PAKAYEN** | 78 dishes, Urdu first | Golden image `dishes_ur.png` beside `dishes_en.png` | [[URDU]] |
 | 4 | paper | 2026 | **DAA STUDY HUB** | Every worked number checked by tests | Live site: a recurrence page, flashcard face | [[URDU]] |

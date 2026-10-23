@@ -1,0 +1,82 @@
+---
+// The design system on one page: every colour field, type step and control, as the site uses them.
+// Not linked from the site, noindex, and left out of the sitemap.
+import Base from '../layouts/Base.astro';
+
+const fields = [
+  { cls: 'field-crimson', name: 'Crimson', role: 'Field for the first work panel and the contact card', ink: 'Bone text, 4.61:1' },
+  { cls: 'field-peacock', name: 'Peacock', role: 'Field for panels and the accent on paper', ink: 'Bone text, 5.72:1' },
+  { cls: 'field-turmeric', name: 'Turmeric', role: 'The action, the painted hero panel, the phone menu', ink: 'Night text, 9.74:1' },
+  { cls: 'field-paper', name: 'Paper', role: 'Reading sections and the last work panel', ink: 'Night text, 15.78:1' },
+];
+---
+<Base title="Type and colour · Ali Huzaifa" description="The design system of Ali Huzaifa's portfolio." noindex>
+  <main id="main">
+    <header class="wrap intro">
+      <h1 class="display">Type and colour</h1>
+      <p class="lead">The palette, type and controls of this portfolio, taken from the painted goods trucks of Pakistan and set in Chivo and Gulzar.</p>
+    </header>
+
+    <section class="wrap section ground" aria-labelledby="ground-h">
+      <div class="grid">
+        <h2 id="ground-h" class="head col-head">Night and bone</h2>
+        <div class="col-body">
+          <p>The page sits on night, a chai-dark brown, and runs in bone. Running text is always the full bone ink at 16px or more; dust is kept for secondary notes.</p>
+          <p class="muted">Dust on night measures 8.61:1. Bone on night measures 15.78:1.</p>
+        </div>
+      </div>
+    </section>
+
+    {fields.map((f) => (
+      <section class={`${f.cls} band`} aria-labelledby={`${f.cls}-h`}>
+        <div class="wrap grid">
+          <h2 id={`${f.cls}-h`} class="head col-head">{f.name}</h2>
+          <div class="col-body">
+            <p class="lead">{f.role}</p>
+            <p>{f.ink}</p>
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <section class="wrap section" aria-labelledby="type-h">
+      <h2 id="type-h" class="head">Type</h2>
+      <div class="grid steps">
+        <p class="display col-wide" aria-hidden="true">Ali Huzaifa</p>
+        <p class="head col-wide" aria-hidden="true">On the road</p>
+        <p class="lead col-half">I build cloud systems on AWS and the pipelines that ship them.</p>
+        <p class="col-half">Body text is Chivo at 17 to 19px with leading 1.45, held to about 62 characters a line. Headlines are Chivo Black in capitals, tracked in at −0.05em, two lines at most at every width.</p>
+        <p class="small col-half">Small notes and credits sit at 13 to 14px, never smaller.</p>
+        <p class="ur urdu col-half" lang="ur" dir="rtl">آج کیا پکائیں؟ رات کا کھانا، طے!</p>
+      </div>
+    </section>
+
+    <section class="wrap section controls field-turmeric" aria-labelledby="controls-h">
+      <h2 id="controls-h" class="head">Controls</h2>
+      <div class="row">
+        <a class="button" href="#main">Start a project</a>
+        <a class="link strong" href="https://github.com/iwhozaifa">GitHub <span class="arrow" aria-hidden="true">→</span></a>
+      </div>
+      <p>One button shape on the whole site: square corners, 48px tall, a flat fill. Hover lifts it 2px, a press shrinks it, and the focus ring is 3px in the field's contrast colour.</p>
+    </section>
+  </main>
+</Base>
+
+<style>
+  .intro { padding-block: clamp(6rem, 12vw, 10rem) clamp(3rem, 6vw, 5rem); }
+  .intro .lead { margin-top: 2rem; }
+  .col-head { grid-column: 1 / 7; }
+  .col-body { grid-column: 7 / 13; align-self: end; }
+  .col-body p + p { margin-top: 1rem; }
+  .band { padding-block: clamp(4rem, 9vw, 8rem); }
+  .band:nth-of-type(odd) .col-head { grid-column: 1 / 8; }
+  .steps { row-gap: clamp(2rem, 4vw, 3.5rem); margin-top: clamp(2rem, 4vw, 3rem); }
+  .col-wide { grid-column: 1 / -1; }
+  .col-half { grid-column: span 6; }
+  .urdu { font-size: var(--step-lead); }
+  .controls .row { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem 2rem; margin-block: 2rem; }
+  @media (max-width: 47.99em) {
+    .col-head, .col-body, .band:nth-of-type(odd) .col-head, .col-half { grid-column: 1 / -1; }
+    .col-body { margin-top: 1.5rem; }
+  }
+</style>

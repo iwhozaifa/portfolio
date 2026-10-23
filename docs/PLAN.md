@@ -308,3 +308,16 @@ infra change ──────► infra.yml: cdk diff posted to PR → cdk depl
 - `src/scripts/motion.js` (taste `assets/scenes/stage.js` + GSAP recipes from taste `references/motion.md` "Masked line reveal", "Pinned story", "Reveal on scroll")
 - `infra/` (CDK app + `infra/tests/stack.test.ts`), `.github/workflows/{ci,deploy,preview,infra}.yml`
 - `docs/copy-deck.md`, `.taste-skill/` (sheet, inspect output, critiques), `public/credits` via `assets.mjs --credits`
+
+---
+
+## Revisions during the build
+
+- **M2, palette (2026-10-24).** taste-skill's inspector failed the specimen on `palette-claude`: the cream
+  paper (#f5eee0) with the orange-red chilli (#e54533) fell inside its cream and terracotta bands. Paper is
+  now **bone** `oklch(0.945 0.005 85)` #eeede9 and chilli is now **crimson** `oklch(0.55 0.21 22)` #d01a34,
+  the crimson of the trucks themselves. Crimson fields take bone text (4.61:1). Every pair is checked by
+  `npm run contrast` in CI.
+- **M2, fonts.** Gulzar subset to the Urdu actually used is 115 KB (Nastaliq keeps a large shaping
+  closure); it is never preloaded and never the LCP element. Subsetting uses `subset-font` (HarfBuzz
+  WASM) instead of Python fonttools, which is not installable here without sudo.
