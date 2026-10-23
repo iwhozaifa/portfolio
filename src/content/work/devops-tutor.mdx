@@ -1,0 +1,91 @@
+---
+title: DevOps Tutor
+subtitle: A DevOps course that runs on the infrastructure it teaches.
+order: 1
+year: 2026
+field: crimson
+fact: Backups restored every month
+description: A gamified DevOps course on Terraform-built AWS, with OIDC deploys over SSM, a monthly restore drill and 33 test files.
+repo: https://github.com/iwhozaifa/devops-tutor
+note: Infrastructure tested in CI. Not deployed publicly yet.
+screens:
+  - src: ../../assets/work/devops-tutor/day-7.png
+    alt: "DevOps Tutor, day 7 of the Linux Fundamentals module: networking basics, with five curated resources, a quiz and tasks."
+    caption: Day 7 of 14, Linux Fundamentals, with a sample learner's account.
+  - src: ../../assets/work/devops-tutor/cka-exam.png
+    alt: "DevOps Tutor, CKA Practice Exam 1: a 60-minute timer, a grid of 20 questions, and question 1 on which Kubernetes control-plane component persists cluster state."
+    caption: The timed CKA practice exam, modelled on the real certification.
+  - src: ../../assets/work/devops-tutor/cicd-project.png
+    alt: "DevOps Tutor guided project, Build a CI/CD Pipeline with GitHub Actions: eight steps down the left, and step 1 with its checkpoints on the right."
+    caption: A guided project, eight steps with checkpoints.
+  - src: ../../assets/work/devops-tutor/dashboard.png
+    alt: "DevOps Tutor dashboard for a sample learner: a six-day streak, level 2 with 480 XP, and 6 of 14 days of DevOps Engineering complete."
+    caption: The dashboard after six days. XP is an append-only ledger.
+problem: Learning DevOps means thousands of free resources, no order to them and nothing that tells you whether you learned anything.
+built:
+  - A day-by-day curriculum built from open resources, with a quiz after each day, a timed CKA practice exam, hands-on tasks with hints and solutions, and guided projects such as a CI/CD pipeline and a Linux server setup.
+  - Progress earns XP, badges and streaks. Subjects are JSON files, so adding one needs no code. An admin panel tracks learners and logs every admin action.
+architecture:
+  lanes:
+    - name: Request
+      stops:
+        - label: Learner
+        - label: ALB
+          detail: ACM certificate, WAF
+        - label: EC2
+          detail: the app in Docker
+        - label: RDS
+          detail: PostgreSQL over TLS
+    - name: Deploy
+      stops:
+        - label: GitHub Actions
+          detail: lint, test, build
+        - label: OIDC
+          detail: no stored keys
+        - label: ECR
+          detail: image pushed
+        - label: SSM Run Command
+          detail: deploy.sh on EC2
+        - label: Health check
+          detail: /api/health?ready=1, rollback on failure
+  beside:
+    - name: Around the instance
+      items:
+        - label: SSM Parameter Store
+          detail: config and secrets
+        - label: CloudWatch
+          detail: logs and alarms
+        - label: SES
+          detail: account email
+        - label: RDS backups
+          detail: kept at least 7 days, restored on the 3rd of every month
+  footnote: All of it is Terraform, with terraform test suites that run offline against mocked providers in CI.
+hard:
+  statement: Proving the production setup works without a live account to click around in.
+  body: The Terraform has offline test suites that run in CI against mocked providers. Deploys never use SSH or stored keys, only short-lived OIDC credentials and SSM. A scheduled workflow restores the latest backup every month to prove it can be restored, and a deploy that fails its health check rolls back on its own.
+proof:
+  - figure: "33"
+    label: test files across unit, integration and Playwright end-to-end, including the content security policy
+  - figure: "4"
+    label: Terraform test suites, for alarms, restore, WAF and setup
+  - figure: "0"
+    label: SSH sessions or long-lived AWS keys in a deploy
+  - figure: "12"
+    label: restore drills a year, at 06:00 UTC on the 3rd of each month
+  - figure: "14"
+    label: days of curriculum, all of it JSON, added without code
+stack:
+  - Next.js 16
+  - TypeScript
+  - Prisma 7
+  - PostgreSQL
+  - NextAuth v5
+  - Zod
+  - Vitest
+  - Playwright
+  - Docker
+  - Terraform
+  - AWS EC2, RDS, ALB, WAF, ECR
+  - AWS SSM, SES, CloudWatch
+  - GitHub Actions
+---

@@ -2,20 +2,25 @@
 // Plain bar: wordmark, three links, one action. It starts below the hero (the blueprint keeps the first
 // screen free of navigation) and sticks from there. On a phone the links move into a full-screen
 // turmeric menu, opened with a popover so it works without script.
+// On pages other than the home page, `base` is "/" so the links lead back to its sections.
+interface Props { base?: string }
+const { base = '' } = Astro.props;
 const links = [
-  { href: '#work', label: 'Work' },
-  { href: '#how', label: 'How I ship' },
-  { href: '#about', label: 'About' },
+  { href: `${base}#work`, label: 'Work' },
+  { href: `${base}#how`, label: 'How I ship' },
+  { href: `${base}#about`, label: 'About' },
 ];
-const menu = [...links.slice(0, 2), { href: '#also', label: 'Also shipped' }, links[2], { href: '#contact', label: 'Contact' }];
+const menu = [...links.slice(0, 2), { href: `${base}#also`, label: 'Also shipped' }, links[2], { href: `${base}#contact`, label: 'Contact' }];
+import BiltyStub from './BiltyStub.astro';
 ---
 <header class="site-nav">
   <nav class="bar wrap" aria-label="Main">
-    <a class="wordmark" href="#main">Ali Huzaifa</a>
+    <a class="wordmark" href={base || '#main'}>Ali Huzaifa</a>
     <ul class="links" role="list">
       {links.map((l) => <li><a class="link-quiet" href={l.href}>{l.label}</a></li>)}
     </ul>
-    <a class="button action" href="#contact">Start a project</a>
+    <BiltyStub class="bar-stub" />
+    <a class="button action" href={`${base}#contact`}>Start a project</a>
     <button class="menu-open strong" type="button" popovertarget="site-menu">Menu</button>
   </nav>
   <div id="site-menu" class="menu field-turmeric" popover aria-label="Menu">
@@ -41,11 +46,12 @@ const menu = [...links.slice(0, 2), { href: '#also', label: 'Also shipped' }, li
   .bar { display: flex; align-items: center; gap: 2rem; min-height: 4.5rem; }
   .wordmark { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; font-size: var(--step-lead); text-decoration: none; white-space: nowrap; }
   .links { display: flex; gap: 1.75rem; margin-left: auto; }
+  .bar :global(.bar-stub) { min-height: 2.75rem; }
   .link-quiet { font-weight: 700; text-decoration: none; display: inline-block; transition: transform var(--t-small) var(--ease-out); }
   @media (hover: hover) and (pointer: fine) {
     .link-quiet:hover { transform: translateY(-2px); }
   }
-  .menu-open { display: none; min-height: 3rem; padding: 0 0.25rem; margin-left: auto; }
+  .menu-open { display: none; min-height: 3rem; padding: 0 0.25rem; }
 
   .menu { position: fixed; inset: 0; width: 100%; height: 100%; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; }
   .menu:popover-open { display: grid; grid-template-rows: auto 1fr; }
@@ -57,5 +63,7 @@ const menu = [...links.slice(0, 2), { href: '#also', label: 'Also shipped' }, li
   @media (max-width: 47.99em) {
     .links, .action { display: none; }
     .menu-open { display: inline-block; }
+    .bar { gap: 1rem; }
+    .bar :global(.bar-stub) { margin-left: auto; }
   }
 </style>

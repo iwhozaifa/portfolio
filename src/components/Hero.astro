@@ -4,6 +4,7 @@
 import { Picture } from 'astro:assets';
 import tailgate from '../assets/found/tailgate-nathiagali.jpg';
 import credits from '../assets/found/credits.json';
+import BiltyStub from './BiltyStub.astro';
 
 const photo = credits.find((c) => c.file.endsWith('tailgate-nathiagali.jpg'))!;
 ---
@@ -38,6 +39,7 @@ const photo = credits.find((c) => c.file.endsWith('tailgate-nathiagali.jpg'))!;
       <a class="link strong github" href="https://github.com/iwhozaifa">GitHub <span class="arrow" aria-hidden="true">→</span></a>
     </div>
   </div>
+  <BiltyStub class="hero-stub" />
 </section>
 
 <style>
@@ -77,6 +79,7 @@ const photo = credits.find((c) => c.file.endsWith('tailgate-nathiagali.jpg'))!;
   .card-middle .lead { max-width: 30ch; font-weight: 700; }
   .card-bottom { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem; }
   .credit { max-width: 24ch; }
+  .hero :global(.hero-stub) { position: absolute; right: var(--margin); bottom: var(--margin); }
   .github { justify-self: end; }
 
   @media (max-width: 63.99em) {
