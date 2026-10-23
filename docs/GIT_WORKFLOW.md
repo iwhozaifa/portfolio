@@ -31,7 +31,7 @@ feat/* ──PR + green ci + preview──squash──▶ main ──▶ deploy 
 2. Open with `gh pr create --base main` and fill in the template. The PR title is a Conventional Commit,
    because it becomes the squash commit.
 3. One concern per PR, ideally under 500 changed lines excluding lockfiles and images.
-4. The `ci` check must be green and the branch up to date with `main`.
+4. The `ci` and `browsers` checks must be green and the branch up to date with `main`.
 5. Ali Huzaifa (@iwhozaifa) confirms before anything is merged.
 6. The next branch starts from an up-to-date `main` after the previous PR is merged.
 
@@ -54,14 +54,14 @@ gh api -X PATCH repos/iwhozaifa/portfolio \
 
 ## Branch protection (applied)
 
-`main`: pull request required, `ci` green and branch up to date, linear history, conversations resolved,
+`main`: pull request required, `ci` and `browsers` green and branch up to date, linear history, conversations resolved,
 no force pushes or deletions, admins included. Re-run with the new check names when checks are added
 (Playwright, Lighthouse, inspect, cdk).
 
 ```bash
 gh api -X PUT repos/iwhozaifa/portfolio/branches/main/protection --input - <<'JSON'
 {
-  "required_status_checks": { "strict": true, "contexts": ["ci"] },
+  "required_status_checks": { "strict": true, "contexts": ["ci", "browsers"] },
   "enforce_admins": true,
   "required_pull_request_reviews": { "required_approving_review_count": 0, "dismiss_stale_reviews": true },
   "restrictions": null,
