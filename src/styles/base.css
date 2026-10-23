@@ -79,10 +79,13 @@ p + p { margin-top: 0.9em; }
 .lines .line { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
 .lines [data-line] { display: block; }
 @media (prefers-reduced-motion: no-preference) {
-  .js [data-rise] { opacity: 0; transform: translateY(24px); animation: rise var(--t-reveal) var(--ease-out) forwards; animation-delay: calc(var(--i, 0) * var(--stagger-item) + 120ms); }
-  .js .lines [data-line] { transform: translateY(105%); animation: line 900ms var(--ease-out) forwards; animation-delay: calc(var(--i, 0) * var(--stagger-line) + 150ms); }
+  .js [data-rise] { opacity: 0; transform: translateY(24px); animation: rise var(--t-large) var(--ease-out) forwards; animation-delay: calc(var(--i, 0) * 60ms); }
+  .js .lines [data-line] { transform: translateY(105%); animation: line 700ms var(--ease-out) forwards; animation-delay: calc(var(--i, 0) * 90ms); }
   .js [data-reveal] { opacity: 0; transform: translateY(24px); transition-property: opacity, transform; transition-duration: 700ms, 900ms; transition-timing-function: var(--ease-out); }
   .js [data-reveal].is-in { opacity: 1; transform: none; }
 }
 @keyframes rise { to { opacity: 1; transform: none; } }
 @keyframes line { to { transform: none; } }
+
+/* Long pages: let the browser skip layout and paint for sections until they come near the screen. */
+.defer { content-visibility: auto; contain-intrinsic-size: auto 900px; }
