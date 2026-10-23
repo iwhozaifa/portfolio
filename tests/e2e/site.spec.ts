@@ -97,7 +97,7 @@ test.describe('reduced motion', () => {
     await open(page, '/');
     await expect(page.locator('[data-hero-card]')).toHaveCSS('opacity', '1');
     expect(await page.locator('[data-reveal]').count()).toBe(0);
-    await page.mouse.wheel(0, 2000);
+    await page.evaluate(() => window.scrollTo(0, 2000)); // mouse.wheel is not supported in mobile WebKit
     await page.waitForTimeout(600);
     await expect(page.locator('[data-hero-card]')).toHaveCSS('opacity', '1');
   });
