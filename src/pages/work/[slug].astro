@@ -2,11 +2,12 @@
 // One case study: title panel in the project's field colour, the real screen, problem, what was built,
 // the architecture as roads, the hard part, proof, stack, links, and the next project as a full panel.
 import { getCollection, type CollectionEntry } from 'astro:content';
-import { Picture } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import SiteNav from '../../components/SiteNav.astro';
 import Bilty from '../../components/Bilty.astro';
 import Architecture from '../../components/Architecture.astro';
+import Screen from '../../components/Screen.astro';
+import Footer from '../../components/Footer.astro';
 
 export async function getStaticPaths() {
   const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.order);
@@ -19,14 +20,19 @@ export async function getStaticPaths() {
 interface Props { entry: CollectionEntry<'work'>; next: CollectionEntry<'work'> }
 const { entry, next } = Astro.props;
 const d = entry.data;
-const [lead, beside, ...pair] = d.screens;
+// A phone-led study opens on a strip of three phone screens; a desktop-led one on a single wide screen.
+const [first] = d.screens;
+const strip = first.kind === 'phone' ? d.screens.filter((s) => s.kind === 'phone').slice(0, 3) : [first];
+const [beside, ...pair] = d.screens.filter((s) => !strip.includes(s));
+// Display titles are sized from their longest word so a single long word never runs off a phone.
+const longest = (s: string) => Math.max(...s.split(/\s+/).map((w) => w.length));
 ---
 <Base title={`${d.title} · Ali Huzaifa`} description={d.description}>
   <SiteNav base="/" />
   <main id="main">
     <header class={`title field-${d.field}`}>
       <div class="wrap grid title-grid">
-        <h1 class="display title-name">{d.title}</h1>
+        <h1 class="display title-name fit" style={`--chars: ${longest(d.title)}`}>{d.title}</h1>
         {d.urdu && <p class="ur title-urdu" lang="ur" dir="rtl">{d.urdu}</p>}
         <p class="lead title-sub">{d.subtitle}</p>
         <div class="title-meta">
@@ -40,9 +46,11 @@ const [lead, beside, ...pair] = d.screens;
       </div>
     </header>
 
-    <figure class="screen wrap">
-      <div class="ui-crop"><Picture src={lead.src} formats={['avif', 'webp']} widths={[720, 1200, 1800, 2880]} sizes="(min-width: 90em) 86rem, (min-width: 48em) 100vw, 200vw" alt={lead.alt} loading="eager" /></div>
-      <figcaption class="small">{lead.caption}</figcaption>
+    <figure class:list={['screen', 'wrap', { strip: strip.length > 1 }]}>
+      <div class="strip-row">
+        {strip.map((s) => <Screen screen={s} sizes="(min-width: 90em) 86rem, (min-width: 48em) 100vw, 200vw" eager />)}
+      </div>
+      <figcaption class="small">{first.caption}</figcaption>
     </figure>
 
     <section class="wrap section grid" aria-labelledby="problem-h">
@@ -57,7 +65,7 @@ const [lead, beside, ...pair] = d.screens;
       </div>
       {beside && (
         <figure class="built-screen">
-          <div class="ui-crop"><Picture src={beside.src} formats={['avif', 'webp']} widths={[640, 1000, 1440]} sizes="(min-width: 48em) 55vw, 200vw" alt={beside.alt} /></div>
+          <Screen screen={beside} sizes="(min-width: 48em) 55vw, 200vw" />
           <figcaption class="small">{beside.caption}</figcaption>
         </figure>
       )}
@@ -67,7 +75,7 @@ const [lead, beside, ...pair] = d.screens;
       <section class="wrap pair" aria-label="More screens">
         {pair.map((s) => (
           <figure>
-            <div class="ui-crop"><Picture src={s.src} formats={['avif', 'webp']} widths={[640, 1000, 1440]} sizes="(min-width: 48em) 48vw, 200vw" alt={s.alt} /></div>
+            <Screen screen={s} sizes="(min-width: 48em) 48vw, 200vw" />
             <figcaption class="small">{s.caption}</figcaption>
           </figure>
         ))}
@@ -112,11 +120,12 @@ const [lead, beside, ...pair] = d.screens;
 
     <a class={`next field-${next.data.field}`} href={`/work/${next.id}`}>
       <span class="wrap next-inner">
-        <span class="display next-name">{next.data.title}</span>
+        <span class="display next-name fit" style={`--chars: ${longest(next.data.title)}`}>{next.data.title}</span>
         <span class="lead next-sub"><span class="strong">Next project.</span> {next.data.subtitle}</span>
       </span>
     </a>
   </main>
+  <Footer base="/" />
   <Bilty />
 </Base>
 
@@ -124,18 +133,20 @@ const [lead, beside, ...pair] = d.screens;
   .title { min-height: 86svh; display: grid; align-items: end; padding-block: clamp(6rem, 12vw, 10rem) clamp(2.5rem, 5vw, 4rem); }
   .title-grid { row-gap: 2rem; align-items: end; }
   .title-name { grid-column: 1 / -1; }
+  .fit { font-size: min(var(--step-display), calc((100vw - 2 * var(--margin)) / (var(--chars) * 0.66))); }
   .title-urdu { grid-column: 1 / -1; font-size: var(--step-head); line-height: 1.6; }
   .title-sub { grid-column: 1 / 7; font-weight: 700; }
   .title-meta { grid-column: 8 / 13; display: grid; gap: 1rem; }
   .title-links { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: center; margin-top: 0.5rem; }
 
   .screen { padding-top: clamp(3rem, 6vw, 5rem); }
-  .screen :global(img), .built-screen :global(img) { width: 100%; height: auto; }
+  .strip-row { display: grid; gap: var(--gutter); }
+  .strip .strip-row { grid-template-columns: repeat(3, minmax(0, 22.5rem)); justify-content: space-between; }
   .screen figcaption, .built-screen figcaption { margin-top: 0.75rem; color: var(--muted); }
 
   .col-head { grid-column: 1 / 6; }
   .col-body { grid-column: 6 / 13; }
-  .statement { font-size: clamp(1.25rem, 0.9rem + 1.3vw, 2.25rem); line-height: 1.2; letter-spacing: -0.02em; font-weight: 700; max-width: 38ch; }
+  .statement { font-size: var(--step-statement); line-height: 1.2; letter-spacing: -0.02em; font-weight: 700; max-width: 38ch; }
   .hard-body { margin-top: 1.5rem; }
 
   .built { row-gap: 2rem; align-items: start; }
@@ -144,7 +155,6 @@ const [lead, beside, ...pair] = d.screens;
   .built-screen { grid-column: 6 / 13; }
 
   .pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gutter); padding-bottom: calc(var(--section) / 2); }
-  .pair :global(img) { width: 100%; height: auto; }
   .pair figcaption { margin-top: 0.75rem; color: var(--muted); }
   .arch-band { background: var(--surface); }
   .arch-head { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
@@ -170,8 +180,6 @@ const [lead, beside, ...pair] = d.screens;
     .proof-row { grid-template-columns: 1fr; gap: 0.5rem; }
     .stack { columns: 1; }
     .pair { grid-template-columns: 1fr; }
-    /* Software screens: crop to the content column at twice the scale instead of shrinking the text. */
-    .ui-crop { overflow: hidden; aspect-ratio: 4 / 3; }
-    .ui-crop :global(img) { width: 200% !important; max-width: none; margin-left: -42%; }
+    .strip .strip-row { grid-template-columns: 1fr; justify-items: center; }
   }
 </style>

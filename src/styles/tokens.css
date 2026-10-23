@@ -25,7 +25,7 @@
   --paper: oklch(0.945 0.005 85);   /* #eeede9 bone: ink on night (a low-chroma white, not cream) */
   --turmeric: oklch(0.80 0.165 80); /* #f5b005 accent, the action */
   --crimson: oklch(0.55 0.21 22);   /* #d01a34 truck crimson: field */
-  --peacock: oklch(0.46 0.09 205);  /* #006670 field */
+  --peacock: oklch(0.41 0.085 205); /* deep peacock teal: field */
   --dust: oklch(0.76 0.03 75);      /* #bdaf9d secondary text on night */
   --night-2: oklch(0.24 0.025 55);  /* one tone step up from night, for surfaces */
   --paper-2: oklch(0.9 0.006 85);   /* one tone step down from bone, for rows on a paper slip */
@@ -53,6 +53,7 @@
   --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
   --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
   --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --step-statement: clamp(1.375rem, 1rem + 1.2vw, 2.25rem); /* statements: paragraphs set large, 36px at most */
   --step-head: clamp(2.5rem, 1.2rem + 5vw, 5.5rem);
   --step-display: clamp(4rem, 12vw, 13rem);
 

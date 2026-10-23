@@ -1,0 +1,81 @@
+---
+title: DAA Study Hub
+subtitle: Algorithms notes whose numbers are checked by tests.
+order: 4
+year: 2026
+field: paper
+fact: Every worked number checked by tests
+description: Algorithms study notes for CS332 whose worked numbers are recomputed by tests on every build, published to GitHub Pages only when they pass.
+repo: https://github.com/iwhozaifa/daa-study-hub
+live: https://iwhozaifa.github.io/daa-study-hub/
+screens:
+  - src: ../../assets/work/daa-study-hub/recurrences.png
+    alt: "DAA Study Hub topic 8, recurrences: a one-sentence summary, an everyday analogy of a company org chart, and the recursion-tree level table."
+    caption: Topic 8 of the live site, recursion trees and guess-and-verify.
+  - src: ../../assets/work/daa-study-hub/flashcards.png
+    alt: "DAA Study Hub flashcards: card 1 of 70 asking what log base b of x equals y means, with topic filters and a shuffle button."
+    caption: 70 flashcards, also exported as an Anki deck.
+  - src: ../../assets/work/daa-study-hub/insertion.png
+    alt: "DAA Study Hub topic 4, insertion sort: a one-sentence summary, the playing-cards analogy, and the algorithm in pseudocode."
+    caption: Every topic opens with one sentence and an everyday analogy.
+  - src: ../../assets/work/daa-study-hub/home.png
+    alt: "DAA Study Hub home page: Design and Analysis of Algorithms, a countdown to the midterm, and the four ways to study each topic."
+    caption: The home page, with the countdown to the midterm.
+problem: CS332 Design and Analysis of Algorithms students need notes that are clear, correct and usable the week before a midterm.
+built:
+  - "A study site with nine topics, from logs and sums to recurrences. Each topic has four study modes, as tabs: visual, worked example, guided questions, and explanation with drills."
+  - There are two timed mock midterms, a cheatsheet, a "which technique?" guide, a common-mistakes page and 70 flashcards. A progress tracker stays in the reader's own browser, with no account.
+architecture:
+  lanes:
+    - name: Build
+      stops:
+        - label: MDX notes
+          detail: one file per topic
+        - label: Content tests
+          detail: recompute every worked number
+        - label: Static export
+          detail: Next.js and Fumadocs
+        - label: Browser tests
+          detail: Playwright with axe
+        - label: GitHub Pages
+          detail: published only if all pass
+    - name: Reading
+      stops:
+        - label: Student
+        - label: Static page
+          detail: KaTeX maths, Mermaid diagrams, search
+        - label: Progress tracker
+          detail: in the browser, export and import
+  beside:
+    - name: Also served
+      items:
+        - label: llms.txt
+          detail: the notes for language models
+        - label: Anki deck
+          detail: the 70 flashcards as CSV
+  footnote: The build also fails if a copyrighted lecture slide or textbook PDF is ever committed.
+hard:
+  statement: Being right. A study guide with one wrong number teaches the wrong thing.
+  body: The content tests recompute every number in the worked examples, so a typo in a sum or a recurrence fails the build before anyone reads it. The notes cite slides and the textbook by number instead of copying them, and CI refuses to publish if a source PDF slips into the repository.
+proof:
+  - figure: "9"
+    label: topics, each in four study modes
+  - figure: "70"
+    label: flashcards, on the site and as an Anki deck
+  - figure: "2"
+    label: timed mock midterms
+  - figure: "0"
+    label: accounts needed; progress stays in the reader's browser
+stack:
+  - Next.js 16 static export
+  - React 19
+  - TypeScript
+  - Fumadocs
+  - MDX
+  - KaTeX
+  - Mermaid
+  - Tailwind CSS 4
+  - Vitest
+  - Playwright and axe-core
+  - GitHub Pages
+---

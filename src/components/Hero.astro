@@ -5,6 +5,7 @@ import { Picture } from 'astro:assets';
 import tailgate from '../assets/found/tailgate-nathiagali.jpg';
 import credits from '../assets/found/credits.json';
 import BiltyStub from './BiltyStub.astro';
+import { site, projectMailto } from '../data/site';
 
 const photo = credits.find((c) => c.file.endsWith('tailgate-nathiagali.jpg'))!;
 ---
@@ -25,18 +26,18 @@ const photo = credits.find((c) => c.file.endsWith('tailgate-nathiagali.jpg'))!;
         <span class="line"><span data-line style="--i: 0">Ali</span></span>
         <span class="line"><span data-line style="--i: 1">Huzaifa</span></span>
       </h1>
-      <p class="ur urdu-name" lang="ur" dir="rtl">علی حذیفہ</p>
+      <p class="ur urdu-name" lang="ur" dir="rtl">{site.urduName}</p>
     </div>
     <div class="card-middle">
       <p class="lead" data-rise style="--i: 3">I build cloud systems on AWS and the pipelines that ship them. Freelance builds welcome.</p>
-      <p class="facts" data-rise style="--i: 4">Software engineering student in Pakistan.</p>
+      <p class="facts" data-rise style="--i: 4">{site.studies}</p>
     </div>
     <div class="card-bottom">
       <p class="small credit">
         Photo: <a class="link" href={photo.page}>{photo.creator}</a>, <a class="link" href={photo.licenseUrl}>{photo.license}</a>, cropped
       </p>
-      <a class="button" href="#contact">Start a project</a>
-      <a class="link strong github" href="https://github.com/iwhozaifa">GitHub <span class="arrow" aria-hidden="true">→</span></a>
+      <a class="button" href={projectMailto}>Start a project</a>
+      <a class="link strong github" href={site.github}>GitHub <span class="arrow" aria-hidden="true">→</span></a>
     </div>
   </div>
   <BiltyStub class="hero-stub" />

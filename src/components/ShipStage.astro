@@ -1,0 +1,179 @@
+---
+// "How I ship": blueprint "Pinned fragment, changing state". Four statements scroll on the left; on wide
+// screens a sticky stage on the right shows the matching real fragment from the repos, switched by the
+// statement nearest the middle of the screen. Without script, and below 64em, each fragment sits under
+// its own statement. Every fragment is an excerpt or a real result, quoted as it is.
+
+const steps = [
+  {
+    id: 'iac',
+    statement: 'Infrastructure is code.',
+    line: 'Terraform for DevOps Tutor, CDK for CloudAttend. Nothing is clicked into a console, and deploys trust GitHub through OIDC instead of stored keys.',
+    source: 'devops-tutor · infra/terraform/iam.tf',
+  },
+  {
+    id: 'tests',
+    statement: 'Nothing merges without a test.',
+    line: 'DevOps Tutor fails any pull request that changes code without changing a test. Golden images and recomputed maths do the same job elsewhere.',
+    source: 'devops-tutor · checks on main, 24 Oct 2026',
+  },
+  {
+    id: 'drill',
+    statement: 'Drill the failure first.',
+    line: 'The latest backup is restored on a schedule, and a deploy that fails its health check rolls itself back to the previous image.',
+    source: 'devops-tutor · restore-drill.yml and deploy/deploy.sh',
+  },
+  {
+    id: 'chores',
+    statement: 'Automate the chores.',
+    line: 'A $0 bot turns Google Classroom deadlines into Slack reminders, and Dependabot opens the weekly dependency updates.',
+    source: 'classroom-reminder-bot · devops-tutor/.github/dependabot.yml',
+  },
+];
+
+const checks = [
+  ['Lint, typecheck, test, audit', 'passed'],
+  ['Integration tests', 'passed'],
+  ['E2E tests', 'passed'],
+  ['Migrate, seed and build against Postgres', 'passed'],
+  ['Docker build', 'passed'],
+  ['Terraform fmt, validate, lint, test', 'passed'],
+  ['Tests required', 'runs on pull requests'],
+];
+
+const terraform = `resource "aws_iam_openid_connect_provider" "github" {
+  url            = "https://token.actions.githubusercontent.com"
+  client_id_list = ["sts.amazonaws.com"]
+}
+
+resource "aws_iam_role" "github_deploy" {
+  ...
+      Principal = { Federated = aws_iam_openid_connect_provider.github.arn }
+      Action    = "sts:AssumeRoleWithWebIdentity"
+      ...
+        # Only jobs in the repository's \`production\` environment
+        "token.actions.githubusercontent.com:sub" =
+          "repo:\${var.github_repo}:environment:production"`;
+
+const drill = `# restore-drill.yml
+schedule:
+  - cron: "0 6 3 * *" # 06:00 UTC on the 3rd of each month
+
+# deploy.sh
+if wait_ready; then
+  log "deployed $TAG"
+  exit 0
+fi
+log "$TAG did not become ready; recent logs:"
+if [[ -n "$PREVIOUS" && "$PREVIOUS" != "$TAG" ]]; then
+  log "rolling back to $PREVIOUS"`;
+---
+<section id="how" class="how wrap section" aria-labelledby="how-h" data-ship>
+  <div class="grid how-grid">
+    <div class="statements">
+      <h2 id="how-h" class="head">How I ship</h2>
+      {steps.map((s, i) => (
+        <article class="step" data-step={i} aria-labelledby={`step-${s.id}`}>
+          <p id={`step-${s.id}`} class="statement">{s.statement}</p>
+          <p class="line">{s.line}</p>
+          <div class="inline-fragment">
+            <figure class="fragment" data-ui>
+              {i === 0 && <pre><code>{terraform}</code></pre>}
+              {i === 1 && (
+                <ul class="checks" role="list">
+                  {checks.map(([name, state]) => (
+                    <li class="check">
+                      <span class="check-name">{name}</span>
+                      <span class="check-state">{state}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {i === 2 && <pre><code>{drill}</code></pre>}
+              {i === 3 && (
+                <dl class="bot">
+                  <div><dt>Every 4 hours</dt><dd>Apps Script reads pending coursework from each allow-listed Classroom course and diffs it against a Google Sheet.</dd></div>
+                  <div><dt>Reminders</dt><dd>24 h, 12 h, 2 h and 1 h before a deadline, scheduled with Slack's <code>chat.scheduleMessage</code>.</dd></div>
+                  <div><dt>Watching itself</dt><dd>A daily heartbeat and two-strikes failure alerts.</dd></div>
+                  <div><dt>Dependabot</dt><dd>npm, weekly, minor and patch updates grouped.</dd></div>
+                </dl>
+              )}
+              <figcaption>{s.source}</figcaption>
+            </figure>
+          </div>
+        </article>
+      ))}
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="stage-inner" data-stage></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Copy each statement's fragment onto the sticky stage, then light the statement nearest the middle
+  // of the screen and show its fragment there. Without script the fragments stay under their statements.
+  const root = document.querySelector<HTMLElement>('[data-ship]');
+  if (root) {
+    const steps = [...root.querySelectorAll<HTMLElement>('[data-step]')];
+    const stage = root.querySelector<HTMLElement>('[data-stage]')!;
+    steps.forEach((step) => {
+      const f = step.querySelector('.fragment');
+      if (f) stage.append(f.cloneNode(true));
+    });
+    const staged = [...stage.querySelectorAll<HTMLElement>('.fragment')];
+    const show = (i: number) => {
+      steps.forEach((s, j) => s.classList.toggle('is-active', i === j));
+      staged.forEach((f, j) => f.classList.toggle('is-active', i === j));
+    };
+    show(0);
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && show(Number((e.target as HTMLElement).dataset.step))),
+      { rootMargin: '-45% 0px -45% 0px' },
+    );
+    steps.forEach((s) => io.observe(s));
+    root.classList.add('is-staged');
+  }
+</script>
+
+<style>
+  .how-grid { align-items: start; }
+  .statements { grid-column: 1 / 6; min-width: 0; }
+  .statements .head { margin-bottom: 2rem; }
+  .step { min-height: 68vh; display: grid; align-content: center; gap: 1rem; padding-block: 2rem; }
+  .step:first-of-type { min-height: 52vh; align-content: start; }
+  .statement { font-size: var(--step-statement); line-height: 1.1; letter-spacing: -0.03em; font-weight: 900; max-width: 18ch; }
+  .line { color: var(--muted); max-width: 40ch; }
+  .is-staged .step.is-active .statement { color: var(--turmeric); }
+  .is-staged .step.is-active .line { color: var(--ink); }
+
+  .stage { grid-column: 7 / 13; position: sticky; top: 22vh; display: none; }
+  .stage-inner { display: grid; }
+  .is-staged .stage { display: block; }
+  .is-staged .inline-fragment { display: none; }
+  .stage :global(.fragment) { grid-area: 1 / 1; align-self: start; opacity: 0; transform: translateY(16px); transition: opacity var(--t-medium) var(--ease-out), transform var(--t-large) var(--ease-out); }
+  .stage :global(.fragment.is-active) { opacity: 1; transform: none; }
+
+  /* The fragments: real code and real results, in the repos' own terms. */
+  .how :global(.fragment) { margin: 0; background: var(--surface); padding: clamp(1.25rem, 2.5vw, 2rem); display: grid; align-content: start; gap: 1rem; }
+  .how :global(pre) { margin: 0; font-size: 0.875rem; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--paper); }
+  .how :global(.fragment) { min-width: 0; }
+  .how :global(pre), .how :global(code) { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+  .how :global(figcaption) { font-size: var(--step-small); color: var(--muted); }
+  .how :global(.checks), .how :global(.bot) { display: grid; gap: 0.35rem; margin: 0; padding: 0; }
+  .how :global(.check) { display: grid; grid-template-columns: 1fr auto; gap: 0.75rem; align-items: center; padding: 0.7rem 0.9rem; background: var(--night); font-size: var(--step-small); }
+  .how :global(.check-name) { font-weight: 700; color: var(--paper); }
+  .how :global(.check-state) { color: var(--turmeric); font-weight: 700; }
+  .how :global(.bot > div) { display: grid; grid-template-columns: 9rem 1fr; gap: 1rem; padding: 0.8rem 0.9rem; background: var(--night); font-size: var(--step-small); }
+  .how :global(.bot dt) { font-weight: 900; color: var(--turmeric); }
+
+  @media (max-width: 63.99em) {
+    .statements { grid-column: 1 / -1; }
+    .stage { display: none !important; }
+    .is-staged .inline-fragment { display: block; }
+    .step, .step:first-of-type { min-height: 0; }
+    .inline-fragment { margin-top: 0.5rem; }
+    .how :global(.bot > div) { grid-template-columns: 1fr; gap: 0.25rem; }
+    .how :global(.check) { grid-template-columns: 1fr; gap: 0.2rem; }
+  }
+</style>

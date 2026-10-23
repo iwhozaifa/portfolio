@@ -57,7 +57,7 @@ const { lanes, beside, footnote } = Astro.props;
     height: 6px;
     background: var(--turmeric);
   }
-  .stop { position: relative; display: grid; gap: 0.6rem; align-content: start; }
+  .stop { position: relative; display: grid; gap: 0.6rem; align-content: start; min-width: 0; }
   .plate {
     display: flex;
     align-items: center;
@@ -71,6 +71,7 @@ const { lanes, beside, footnote } = Astro.props;
     letter-spacing: -0.02em;
     line-height: 1.05;
     font-size: var(--step-body);
+    overflow-wrap: anywhere;
   }
   .plate-quiet { background: var(--peacock); color: var(--paper); }
   .detail { font-size: var(--step-small); line-height: 1.35; color: var(--muted); max-width: 22ch; }
