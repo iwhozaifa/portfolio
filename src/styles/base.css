@@ -86,3 +86,6 @@ p + p { margin-top: 0.9em; }
 }
 @keyframes rise { to { opacity: 1; transform: none; } }
 @keyframes line { to { transform: none; } }
+
+/* Long pages: let the browser skip layout and paint for sections until they come near the screen. */
+.defer { content-visibility: auto; contain-intrinsic-size: auto 900px; }

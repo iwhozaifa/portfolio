@@ -27,6 +27,9 @@ for (const path of pages) {
     await open(page, path);
     // Reveal everything that enters on scroll, so axe checks the finished page.
     await page.evaluate(() => document.querySelectorAll('[data-reveal]').forEach((el) => el.classList.add('is-in')));
+    // Sections below the fold skip rendering (content-visibility: auto) until a reader scrolls near them;
+    // render them all so axe reads the colours a reader sees.
+    await page.addStyleTag({ content: '.defer { content-visibility: visible !important; }' });
     await page.waitForTimeout(1000);
     const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze();
     const bad = results.violations.filter((v) => v.impact === 'serious' || v.impact === 'critical');

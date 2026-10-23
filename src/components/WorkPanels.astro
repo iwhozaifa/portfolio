@@ -17,7 +17,7 @@ const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.
       const phones = w.data.screens.filter((s) => s.kind === 'phone').slice(0, 2);
       const shots = w.data.screens[0].kind === 'phone' ? phones : [w.data.screens[0]];
       return (
-        <li class={`panel field-${w.data.field}`}>
+        <li class={`panel field-${w.data.field} defer`}>
           <a class="panel-link" href={`/work/${w.id}`} aria-label={`${w.data.title}: ${w.data.subtitle} Read the case study.`}>
             <div class:list={['shots', { phones: shots.length > 1 }]}>
               {shots.map((s) => (

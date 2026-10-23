@@ -34,12 +34,14 @@ chain back to the first; reduced motion leaves the page complete and still.
 
 | Page | Performance | Accessibility | Best practices | SEO | LCP |
 | --- | --- | --- | --- | --- | --- |
-| `/` | 96–97 | 100 | 100 | 100 | 2.4 s |
+| `/` | 98–99 | 100 | 100 | 100 | 2.3 s |
 | `/work/devops-tutor` | 99 | 100 | 100 | 100 | 1.9 s |
 | `/work/cloudattend` | 100 | 100 | 100 | 100 | 1.8 s |
 | `/work/aaj-kya-pakayen` | 98 | 100 | 100 | 100 | 2.2 s |
 
-CI floors: performance 90, accessibility 100, best practices 95, SEO 100. The home page's LCP (2.6 s)
+Below-the-fold sections use `content-visibility: auto`, which took the home page from 87 to 98 on a CPU slowed 10×.
+
+CI floors: performance 90, accessibility 100, best practices 95, SEO 100. The home page's LCP (2.3–2.6 s)
 misses the plan's 2.0 s budget because the name and lead enter with their load animation; dropping the
 entrance would buy back about half a second. That is a design decision for Ali Huzaifa.
 

@@ -5,7 +5,7 @@ import { Picture } from 'astro:assets';
 import bus from '../assets/found/bus-karachi.jpg';
 import { site, projectMailto } from '../data/site';
 ---
-<section id="contact" class="contact" aria-labelledby="contact-h">
+<section id="contact" class="contact defer" aria-labelledby="contact-h">
   <Picture src={bus} formats={['avif', 'webp']} widths={[640, 1000, 1600, 2400]} sizes="100vw" class="contact-photo" alt="A bus painted from roof to wheels in truck-art colours and mirror work, on a street in Karachi." />
   <div class="card field-paper">
     <h2 id="contact-h" class="card-title">Start a project</h2>
