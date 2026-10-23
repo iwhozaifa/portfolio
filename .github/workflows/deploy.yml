@@ -1,0 +1,83 @@
+name: deploy
+
+# Ships main to production. Dormant until the repository variables from the stack's outputs exist
+# (docs/DEPLOYMENT.md). Every run writes the page's bilty: run, commit, checks, bytes, invalidation.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  checks: read
+  id-token: write
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: vars.AWS_DEPLOY_ROLE_ARN != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: production
+      url: ${{ vars.SITE_URL }}
+    env:
+      SITE_URL: ${{ vars.SITE_URL }}
+      BILTY_WORKFLOW: deploy.yml
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+
+      - name: Count this commit's passed checks
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          runs=$(gh api "repos/${{ github.repository }}/commits/${{ github.sha }}/check-runs?per_page=100" --jq '[.check_runs[] | select(.name != "deploy")]')
+          echo "BILTY_CHECKS_TOTAL=$(echo "$runs" | jq 'length')" >> "$GITHUB_ENV"
+          echo "BILTY_CHECKS_PASSED=$(echo "$runs" | jq '[.[] | select(.conclusion == "success")] | length')" >> "$GITHUB_ENV"
+
+      - name: Build
+        env:
+          BILTY_STATUS: on-the-road
+        run: npm run build
+      - name: Link-preview images
+        run: npm run og
+
+      - uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: us-east-1
+
+      - name: Upload
+        run: |
+          # Hashed assets never change: cache for a year. Everything else revalidates on every visit.
+          aws s3 sync dist/_astro "s3://${{ vars.SITE_BUCKET }}/_astro" --cache-control "public,max-age=31536000,immutable"
+          aws s3 sync dist "s3://${{ vars.SITE_BUCKET }}" --delete --exclude "_astro/*" --cache-control "public,max-age=0,must-revalidate"
+          echo "BILTY_BYTES=$(du -sb dist | cut -f1)" >> "$GITHUB_ENV"
+
+      - name: Invalidate
+        run: |
+          id=$(aws cloudfront create-invalidation --distribution-id "${{ vars.SITE_DISTRIBUTION_ID }}" --paths "/*" --query Invalidation.Id --output text)
+          aws cloudfront wait invalidation-completed --distribution-id "${{ vars.SITE_DISTRIBUTION_ID }}" --id "$id"
+          echo "BILTY_INVALIDATION=$id" >> "$GITHUB_ENV"
+
+      - name: Smoke test
+        run: |
+          curl -fsS -o /dev/null -w "home %{http_code}\n" "$SITE_URL/"
+          curl -fsS -o /dev/null -w "case study %{http_code}\n" "$SITE_URL/work/devops-tutor"
+          curl -fsSI "$SITE_URL/" | grep -i "^strict-transport-security:"
+          curl -fsSI "$SITE_URL/" | grep -i "^content-security-policy:"
+
+      - name: Issue the bilty
+        env:
+          BILTY_STATUS: delivered
+        run: |
+          node scripts/bilty.mjs
+          aws s3 cp public/bilty.json "s3://${{ vars.SITE_BUCKET }}/bilty.json" --cache-control "no-cache" --content-type application/json

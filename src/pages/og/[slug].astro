@@ -1,0 +1,33 @@
+---
+// A 1200×630 card per page, photographed by scripts/og.mjs into dist/og/<slug>.png for link previews.
+import { getCollection } from 'astro:content';
+import '../../styles/tokens.css';
+import '../../styles/base.css';
+
+export async function getStaticPaths() {
+  const work = await getCollection('work');
+  return [
+    { params: { slug: 'home' }, props: { title: 'Ali Huzaifa', line: 'Cloud systems on AWS and the pipelines that ship them.', field: 'turmeric' } },
+    ...work.map((w) => ({ params: { slug: w.id }, props: { title: w.data.title, line: w.data.subtitle, field: w.data.field } })),
+  ];
+}
+const { title, line, field } = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><meta name="robots" content="noindex" /><title>{title}</title></head>
+  <body>
+    <div class={`card field-${field}`}>
+      <p class="title">{title}</p>
+      <p class="line">{line}</p>
+      <p class="by">Ali Huzaifa</p>
+    </div>
+  </body>
+</html>
+<style>
+  body { margin: 0; }
+  .card { width: 1200px; height: 630px; box-sizing: border-box; padding: 64px; display: grid; grid-template-rows: 1fr auto auto; gap: 24px; }
+  .title { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; letter-spacing: -0.05em; line-height: 0.86; font-size: 132px; align-self: end; margin: 0; max-width: 1072px; }
+  .line { font-weight: 700; font-size: 34px; line-height: 1.2; margin: 0; max-width: 30ch; }
+  .by { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; font-size: 26px; margin: 0; }
+</style>

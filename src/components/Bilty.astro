@@ -40,3 +40,28 @@ import { bilty, rows, status } from '../lib/bilty';
   .note { margin-top: 1rem; }
   .sheet::backdrop { background: var(--night); opacity: 0.55; }
 </style>
+
+<script>
+  // The live part of the bilty: the slip this deploy wrote (/bilty.json) and the latest run of the deploy
+  // workflow on GitHub. If either can't be read, the slip built into the page stays as it is.
+  const sheet = document.getElementById('bilty-sheet');
+  const words: Record<string, string> = { delivered: 'Delivered', 'on-the-road': 'On the road', held: 'Held at checkpost', local: 'Local build' };
+  const setStatus = (s: string) => document.querySelectorAll('[data-bilty-status]').forEach((el) => { el.textContent = words[s] ?? s; });
+  async function live() {
+    if (!sheet || location.hostname === 'localhost' || location.hostname === '127.0.0.1') return;
+    try {
+      const slip = await fetch('/bilty.json', { cache: 'no-store' }).then((r) => (r.ok ? r.json() : null));
+      if (slip?.status) setStatus(slip.status);
+      const key = 'bilty-run';
+      const cached = sessionStorage.getItem(key);
+      const run = cached ? JSON.parse(cached) : await fetch(`https://api.github.com/repos/${sheet.dataset.repo}/actions/workflows/${sheet.dataset.workflow}/runs?per_page=1`, { headers: { Accept: 'application/vnd.github+json' } }).then((r) => (r.ok ? r.json() : null)).then((j) => j?.workflow_runs?.[0] ?? null);
+      if (!run) return;
+      if (!cached) sessionStorage.setItem(key, JSON.stringify({ status: run.status, conclusion: run.conclusion }));
+      if (run.status !== 'completed') setStatus('on-the-road');
+      else if (run.conclusion && run.conclusion !== 'success') setStatus('held');
+    } catch {
+      /* the built-in slip stands */
+    }
+  }
+  live();
+</script>

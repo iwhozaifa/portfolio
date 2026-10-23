@@ -1,0 +1,24 @@
+---
+// CloudFront serves this for any missing path. A truck that took a wrong turn.
+import Base from '../layouts/Base.astro';
+import SiteNav from '../components/SiteNav.astro';
+import Bilty from '../components/Bilty.astro';
+---
+<Base title="Wrong turn · Ali Huzaifa" description="This page does not exist." noindex>
+  <SiteNav base="/" />
+  <main id="main" class="lost field-turmeric">
+    <div class="wrap grid">
+      <h1 class="display lost-title">Wrong turn</h1>
+      <p class="lead lost-line">There is no page at this address. The work is still on the road.</p>
+      <p class="lost-links"><a class="button" href="/#work">See the work</a> <a class="link strong" href="/">Home</a></p>
+    </div>
+  </main>
+  <Bilty />
+</Base>
+
+<style>
+  .lost { min-height: calc(100svh - 4.5rem); display: grid; align-items: end; padding-block: 8rem 4rem; }
+  .lost-title { grid-column: 1 / -1; font-size: min(var(--step-display), calc((100vw - 2 * var(--margin)) / 6.6)); }
+  .lost-line { grid-column: 1 / 7; margin-top: 2rem; font-weight: 700; }
+  .lost-links { grid-column: 1 / -1; display: flex; gap: 1.5rem; align-items: center; margin-top: 2rem; }
+</style>

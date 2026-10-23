@@ -27,7 +27,12 @@ const [beside, ...pair] = d.screens.filter((s) => !strip.includes(s));
 // Display titles are sized from their longest word so a single long word never runs off a phone.
 const longest = (s: string) => Math.max(...s.split(/\s+/).map((w) => w.length));
 ---
-<Base title={`${d.title} · Ali Huzaifa`} description={d.description}>
+<Base
+  title={`${d.title} · Ali Huzaifa`}
+  description={d.description}
+  og={entry.id}
+  jsonld={{ '@type': 'CreativeWork', name: d.title, description: d.description, dateCreated: String(d.year), creator: { '@type': 'Person', name: 'Ali Huzaifa' }, codeRepository: d.repo, url: d.live }}
+>
   <SiteNav base="/" />
   <main id="main">
     <header class={`title field-${d.field}`}>

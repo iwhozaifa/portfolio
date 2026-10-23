@@ -8,5 +8,5 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'never',
   build: { format: 'directory' },
-  integrations: [mdx(), sitemap({ filter: (page) => !page.includes('/specimen') })],
+  integrations: [mdx(), sitemap({ filter: (page) => !page.includes('/specimen') && !page.includes('/og/') })],
 });

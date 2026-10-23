@@ -1,0 +1,74 @@
+name: infra
+
+# Infrastructure changes: the diff is posted on the pull request, and main deploys the stack after the
+# production environment's approval. Dormant until AWS_INFRA_ROLE_ARN exists (docs/DEPLOYMENT.md).
+on:
+  pull_request:
+    paths: ['infra/**']
+  push:
+    branches: [main]
+    paths: ['infra/**']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+  pull-requests: write
+
+env:
+  CDK_DISABLE_CLI_TELEMETRY: 'true'
+  DOMAIN_NAME: ${{ vars.DOMAIN_NAME }}
+  HOSTED_ZONE_ID: ${{ vars.HOSTED_ZONE_ID }}
+  PREVIEWS: ${{ vars.PREVIEWS }}
+  GITHUB_OIDC_PROVIDER_ARN: ${{ vars.GITHUB_OIDC_PROVIDER_ARN }}
+  BUDGET_EMAIL: ${{ vars.BUDGET_EMAIL }}
+
+jobs:
+  diff:
+    if: vars.AWS_INFRA_ROLE_ARN != '' && github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: infra
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: infra/package-lock.json
+      - run: npm ci
+      - uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ vars.AWS_INFRA_ROLE_ARN }}
+          aws-region: us-east-1
+      - name: Diff
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          npx cdk diff 2>&1 | tee diff.txt || true
+          { echo '```'; tail -c 60000 diff.txt; echo '```'; } > body.md
+          gh pr comment "${{ github.event.pull_request.number }}" --body-file body.md
+
+  deploy:
+    if: vars.AWS_INFRA_ROLE_ARN != '' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: production
+    defaults:
+      run:
+        working-directory: infra
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: infra/package-lock.json
+      - run: npm ci
+      - uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ vars.AWS_INFRA_ROLE_ARN }}
+          aws-region: us-east-1
+      - run: npx cdk deploy --require-approval never

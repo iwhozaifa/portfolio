@@ -17,7 +17,8 @@
     "setup:chrome": "sh scripts/setup-chrome.sh",
     "fonts": "node scripts/fonts.mjs",
     "contrast": "node scripts/contrast.mjs",
-    "prebuild": "node scripts/bilty.mjs"
+    "prebuild": "node scripts/bilty.mjs",
+    "og": "CHROME_PATH=${CHROME_PATH:-$PWD/.cache/chrome-libs/chrome} node scripts/og.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "8.0.3",

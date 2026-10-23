@@ -1,0 +1,59 @@
+name: preview
+
+# A preview of every pull request at https://pr-<n>.preview.<domain>, removed when the PR closes.
+# Dormant until AWS_PREVIEW_ROLE_ARN exists (a domain is needed for preview hosts).
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+
+permissions:
+  contents: read
+  id-token: write
+  pull-requests: write
+
+concurrency:
+  group: preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    if: vars.AWS_PREVIEW_ROLE_ARN != '' && github.event.action != 'closed' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PREFIX: pr-${{ github.event.pull_request.number }}
+      SITE_URL: https://pr-${{ github.event.pull_request.number }}.preview.${{ vars.DOMAIN_NAME }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm run og
+      - uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ vars.AWS_PREVIEW_ROLE_ARN }}
+          aws-region: us-east-1
+      - name: Upload
+        run: |
+          aws s3 sync dist "s3://${{ vars.PREVIEW_BUCKET }}/$PREFIX" --delete --cache-control "public,max-age=0,must-revalidate"
+          aws cloudfront create-invalidation --distribution-id "${{ vars.PREVIEW_DISTRIBUTION_ID }}" --paths "/*" > /dev/null
+      - name: Comment the preview address
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          body="Preview: $SITE_URL (commit ${GITHUB_SHA::7})"
+          gh pr comment "${{ github.event.pull_request.number }}" --edit-last --body "$body" || gh pr comment "${{ github.event.pull_request.number }}" --body "$body"
+
+  remove:
+    if: vars.AWS_PREVIEW_ROLE_ARN != '' && github.event.action == 'closed' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ vars.AWS_PREVIEW_ROLE_ARN }}
+          aws-region: us-east-1
+      - run: aws s3 rm "s3://${{ vars.PREVIEW_BUCKET }}/pr-${{ github.event.pull_request.number }}" --recursive

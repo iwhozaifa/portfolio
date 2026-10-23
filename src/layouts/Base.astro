@@ -1,14 +1,32 @@
 ---
 import '../styles/tokens.css';
 import '../styles/base.css';
+import { site } from '../data/site';
 
 interface Props {
   title: string;
   description: string;
   noindex?: boolean;
+  /** The /og/<slug> card for link previews (scripts/og.mjs photographs it at deploy). */
+  og?: string;
+  /** Structured data for this page, beside the Person that every page carries. */
+  jsonld?: Record<string, unknown>;
 }
-const { title, description, noindex = false } = Astro.props;
+const { title, description, noindex = false, og = 'home', jsonld } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(`/og/${og}.png`, Astro.site);
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: site.name,
+  alternateName: site.urduName,
+  url: new URL('/', Astro.site).href,
+  email: `mailto:${site.email}`,
+  sameAs: [site.github, site.linkedin].filter(Boolean),
+  jobTitle: 'Software engineering student',
+  knowsAbout: ['AWS', 'DevOps', 'Terraform', 'AWS CDK', 'CI/CD', 'Automation'],
+};
+const graph = jsonld ? [person, { '@context': 'https://schema.org', ...jsonld }] : [person];
 ---
 <!doctype html>
 <html lang="en">
@@ -20,8 +38,18 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex" />}
     <meta name="theme-color" content="#1d1109" />
+    <meta property="og:type" content={jsonld ? 'article' : 'website'} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="preload" href="/fonts/chivo-latin-wght.woff2" as="font" type="font/woff2" crossorigin />
     <script is:inline>document.documentElement.classList.add('js');</script>
+    <script type="application/ld+json" set:html={JSON.stringify(graph)} />
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
