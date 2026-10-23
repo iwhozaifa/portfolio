@@ -34,7 +34,7 @@ chain back to the first; reduced motion leaves the page complete and still.
 
 | Page | Performance | Accessibility | Best practices | SEO | LCP |
 | --- | --- | --- | --- | --- | --- |
-| `/` | 93–96 | 100 | 100 | 100 | 2.6 s |
+| `/` | 96–97 | 100 | 100 | 100 | 2.4 s |
 | `/work/devops-tutor` | 99 | 100 | 100 | 100 | 1.9 s |
 | `/work/cloudattend` | 100 | 100 | 100 | 100 | 1.8 s |
 | `/work/aaj-kya-pakayen` | 98 | 100 | 100 | 100 | 2.2 s |
@@ -43,7 +43,7 @@ CI floors: performance 90, accessibility 100, best practices 95, SEO 100. The ho
 misses the plan's 2.0 s budget because the name and lead enter with their load animation; dropping the
 entrance would buy back about half a second. That is a design decision for Ali Huzaifa.
 
-Weight: one JS bundle, GSAP + ScrollTrigger, 44 kB gzip; CSS inlined, under 7 kB gzip; Chivo 33 kB
+Weight: 2.7 kB of script on first load; GSAP + ScrollTrigger (44 kB gzip) load lazily once the browser is idle after load; CSS inlined, under 7 kB gzip; Chivo 33 kB
 (preloaded); Gulzar subset 115 kB (Urdu only, not preloaded).
 
 ## Slop checklist (docs/PLAN.md §7), checked by grep over `src/` and `dist/`
