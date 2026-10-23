@@ -3,6 +3,6 @@ dist/
 .astro/
 .env*
 !.env.example
-.taste-skill/inspect/
+.taste-skill/inspect*/
 infra/cdk.out/
 .cache/
