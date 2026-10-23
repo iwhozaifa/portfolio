@@ -8,3 +8,6 @@ infra/cdk.out/
 .cache/
 src/data/bilty.json
 public/bilty.json
+test-results/
+playwright-report/
+C:*

@@ -16,7 +16,7 @@ jobs:
   ci:
     name: ci
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -30,6 +30,20 @@ jobs:
       - run: npm run build
       - run: npm run contrast
       - run: npm run taste:lint
+      - name: Browsers (Chromium, Firefox, WebKit; desktop and phone)
+        run: |
+          npx playwright install --with-deps chromium firefox webkit
+          npm run test:e2e
+      - name: Lighthouse (mobile)
+        run: npm run lighthouse
+      - uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: playwright-report
+          path: |
+            test-results
+            playwright-report
+          retention-days: 7
       - name: Infrastructure (typecheck, assertions, synth)
         working-directory: infra
         env:

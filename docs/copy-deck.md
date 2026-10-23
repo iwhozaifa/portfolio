@@ -246,7 +246,7 @@ All `[[TBD]]` and `[[URDU]]` items above. No sample proof is used: every number 
 
 ## Revisions while building
 
-- How I ship, statement 4 is now **Automate the chores.** The repos hold no written agent rules (their `AGENTS.md` files are the block Next.js generates), so "Agents work inside the gates" had no proof without Mimus.
+- How I ship, statement 4 is now **Automate the chores.** The repos hold no written agent rules (their `AGENTS.md` files are the block Next.js generates), so "Agents work inside the gates" had no proof in the four featured projects.
 - CloudAttend: tokens live 45 s (`QR_TOKEN_LIFETIME_SECONDS`) and the screen swaps in a new one 10 s before expiry (`QR_REFRESH_MARGIN_SECONDS`).
 - DevOps Tutor: backups are RDS automated backups kept at least 7 days, not AWS Backup.
 - Contact uses alihuzaifa7204@gmail.com; location is shown as "Pakistan". LinkedIn and studies are still pending.
