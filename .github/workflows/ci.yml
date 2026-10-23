@@ -16,14 +16,26 @@ jobs:
   ci:
     name: ci
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            infra/package-lock.json
       - run: npm ci
       - run: npm run build
       - run: npm run contrast
       - run: npm run taste:lint
+      - name: Infrastructure (typecheck, assertions, synth)
+        working-directory: infra
+        env:
+          CDK_DISABLE_CLI_TELEMETRY: 'true'
+        run: |
+          npm ci
+          npm run typecheck
+          npm test
+          npm run synth
