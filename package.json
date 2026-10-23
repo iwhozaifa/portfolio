@@ -14,13 +14,20 @@
     "taste:lint": "node .agents/skills/design-taste-frontend/scripts/lint.mjs src",
     "taste:inspect": "CHROME_PATH=${CHROME_PATH:-$PWD/.cache/chrome-libs/chrome} node .agents/skills/design-taste-frontend/scripts/inspect.mjs dist/index.html",
     "prepare": "git config core.hooksPath .githooks || true",
-    "setup:chrome": "sh scripts/setup-chrome.sh"
+    "setup:chrome": "sh scripts/setup-chrome.sh",
+    "fonts": "node scripts/fonts.mjs",
+    "contrast": "node scripts/contrast.mjs"
   },
   "dependencies": {
-    "astro": "7.3.8",
     "@astrojs/mdx": "8.0.3",
     "@astrojs/sitemap": "3.7.4",
+    "astro": "7.3.8",
     "gsap": "3.15.0",
     "lenis": "1.3.26"
+  },
+  "devDependencies": {
+    "@fontsource-variable/chivo": "^5.3.0",
+    "@fontsource/gulzar": "^5.3.0",
+    "subset-font": "^2.9.0"
   }
 }

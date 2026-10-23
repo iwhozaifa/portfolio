@@ -1,0 +1,2113 @@
+{
+ "url": "http://127.0.0.1:4321/specimen",
+ "at": "2026-10-23T20:06:47.246Z",
+ "allow": [
+  "few-pictures",
+  "still-page"
+ ],
+ "viewports": [
+  {
+   "width": 1440,
+   "height": 900,
+   "load": "load",
+   "screens": 5,
+   "filled": [
+    0.32,
+    0.87,
+    0.88,
+    0.37,
+    0.65
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "page": {
+     "height": 4007,
+     "screens": 4.5,
+     "words": 231,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 0,
+     "sections": 7,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "TYPE AND COLOUR",
+     "words": 3,
+     "chars": 15,
+     "lines": 2,
+     "size": 172.8,
+     "vw": 12,
+     "font": "Chivo",
+     "weight": 900,
+     "tracking": -0.05,
+     "leading": 0.88,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.97,
+     "top": 160,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "TYPE AND COLOUR",
+     "words": 3,
+     "lines": 2,
+     "size": 172.8,
+     "font": "Chivo"
+    },
+    "headings": [
+     {
+      "text": "TYPE AND COLOUR",
+      "words": 3,
+      "chars": 15,
+      "lines": 2,
+      "size": 172.8,
+      "vw": 12,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.05,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.97,
+      "top": 160,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "NIGHT AND BONE",
+      "words": 3,
+      "chars": 14,
+      "lines": 1,
+      "size": 88,
+      "vw": 6.1,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 812,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "CRIMSON",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 88,
+      "vw": 6.1,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 1140,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "PEACOCK",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 88,
+      "vw": 6.1,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.56,
+      "top": 1507,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "TURMERIC",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 88,
+      "vw": 6.1,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 1921,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "PAPER",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 88,
+      "vw": 6.1,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.56,
+      "top": 2288,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "TYPE",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 88,
+      "vw": 6.1,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.97,
+      "top": 2675,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "ALI HUZAIFA",
+      "words": 2,
+      "chars": 11,
+      "lines": 1,
+      "size": 172.8,
+      "vw": 12,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.05,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.97,
+      "top": 2804,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "ON THE ROAD",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 88,
+      "vw": 6.1,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.97,
+      "top": 3091,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "CONTROLS",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 88,
+      "vw": 6.1,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.97,
+      "top": 3658,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 10,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 2,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Chivo",
+       "share": 0.97,
+       "mono": false
+      },
+      {
+       "family": "Gulzar",
+       "share": 0.03,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      14,
+      19,
+      26,
+      88,
+      173
+     ],
+     "sizeCount": 5,
+     "notLoaded": [],
+     "body": {
+      "font": "Chivo",
+      "size": 19,
+      "leading": 1.45,
+      "weight": 400,
+      "tracking": -0.01,
+      "contrast": 15.8
+     },
+     "measureChars": 72,
+     "max": {
+      "size": 172.8,
+      "vw": 12,
+      "font": "Chivo",
+      "text": "Type and colour"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.07,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#1d1109",
+     "bodyBgHsl": {
+      "h": 24,
+      "s": 0.53,
+      "l": 0.07
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#d01a34",
+       "top": 1012,
+       "hsl": {
+        "h": 351,
+        "s": 0.78,
+        "l": 0.46
+       }
+      },
+      {
+       "color": "#006670",
+       "top": 1379,
+       "hsl": {
+        "h": 185,
+        "s": 1,
+        "l": 0.22
+       }
+      },
+      {
+       "color": "#f5b005",
+       "top": 1793,
+       "hsl": {
+        "h": 43,
+        "s": 0.96,
+        "l": 0.49
+       }
+      },
+      {
+       "color": "#eeede9",
+       "top": 2160,
+       "hsl": {
+        "h": 48,
+        "s": 0.13,
+        "l": 0.92
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#eeede9",
+       "share": 0.67
+      },
+      {
+       "color": "#1d1109",
+       "share": 0.28
+      },
+      {
+       "color": "#bdaf9d",
+       "share": 0.05
+      }
+     ],
+     "button": {
+      "bg": "#f5b005",
+      "hsl": {
+       "h": 43,
+       "s": 0.96,
+       "l": 0.49
+      },
+      "fg": "#1d1109"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 2,
+     "inHero": 1,
+     "radius": 0,
+     "height": 52,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to content"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 711,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "chivo",
+     "gulzar"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 1440,
+     "h": 900
+    },
+    "pageH": 4007,
+    "margins": {
+     "left": 24,
+     "right": 45
+    },
+    "sections": [
+     {
+      "sel": "header.wrap.intro",
+      "tag": "header",
+      "top": 0,
+      "height": 711,
+      "words": 25,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Type and colour",
+       "size": 173,
+       "tag": "h1"
+      },
+      "left": 24,
+      "right": 660,
+      "textLeft": 24,
+      "textRight": 660,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.wrap.section",
+      "tag": "section",
+      "top": 711,
+      "height": 300,
+      "words": 41,
+      "media": 0,
+      "middle": 31,
+      "heading": {
+       "text": "Night and bone",
+       "size": 88,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 45,
+      "textLeft": 24,
+      "textRight": 45,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.field-crimson.band",
+      "tag": "section",
+      "top": 1012,
+      "height": 367,
+      "words": 14,
+      "media": 0,
+      "middle": 306,
+      "heading": {
+       "text": "Crimson",
+       "size": 88,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 264,
+      "textLeft": 24,
+      "textRight": 264,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.field-peacock.band",
+      "tag": "section",
+      "top": 1379,
+      "height": 414,
+      "words": 12,
+      "media": 0,
+      "middle": 319,
+      "heading": {
+       "text": "Peacock",
+       "size": 88,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 219,
+      "textLeft": 24,
+      "textRight": 219,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.field-turmeric.band",
+      "tag": "section",
+      "top": 1793,
+      "height": 367,
+      "words": 13,
+      "media": 0,
+      "middle": 266,
+      "heading": {
+       "text": "Turmeric",
+       "size": 88,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 242,
+      "textLeft": 24,
+      "textRight": 242,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.field-paper.band",
+      "tag": "section",
+      "top": 2160,
+      "height": 414,
+      "words": 11,
+      "media": 0,
+      "middle": 444,
+      "heading": {
+       "text": "Paper",
+       "size": 88,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 208,
+      "textLeft": 24,
+      "textRight": 208,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.wrap.section",
+      "tag": "section",
+      "top": 2574,
+      "height": 983,
+      "words": 70,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Ali Huzaifa",
+       "size": 173,
+       "tag": "p"
+      },
+      "left": 24,
+      "right": 24,
+      "textLeft": 24,
+      "textRight": 24,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.wrap.section",
+      "tag": "section",
+      "top": 3558,
+      "height": 450,
+      "words": 35,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Controls",
+       "size": 88,
+       "tag": "h2"
+      },
+      "left": 24,
+      "right": 696,
+      "textLeft": 24,
+      "textRight": 696,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "TYPE AND COLOUR",
+      "size": 173,
+      "top": 160,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 24,
+      "n": 11
+     },
+     {
+      "x": 734,
+      "n": 3
+     }
+    ],
+    "leftBlocks": 14,
+    "bodySize": 19,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0.34,
+    "voidBox": {
+     "x": 780,
+     "y": 120,
+     "w": 660,
+     "h": 660
+    }
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 768,
+   "height": 1024,
+   "load": "load",
+   "screens": 3,
+   "filled": [
+    0.54,
+    0.91,
+    0.53
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "page": {
+     "height": 2849,
+     "screens": 2.8,
+     "words": 231,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 0,
+     "sections": 7,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "TYPE AND COLOUR",
+     "words": 3,
+     "chars": 15,
+     "lines": 2,
+     "size": 92.2,
+     "vw": 12,
+     "font": "Chivo",
+     "weight": 900,
+     "tracking": -0.05,
+     "leading": 0.88,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.96,
+     "top": 96,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "TYPE AND COLOUR",
+     "words": 3,
+     "lines": 2,
+     "size": 92.2,
+     "font": "Chivo"
+    },
+    "headings": [
+     {
+      "text": "TYPE AND COLOUR",
+      "words": 3,
+      "chars": 15,
+      "lines": 2,
+      "size": 92.2,
+      "vw": 12,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.05,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 96,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "NIGHT AND BONE",
+      "words": 3,
+      "chars": 14,
+      "lines": 2,
+      "size": 57.6,
+      "vw": 7.5,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 518,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "CRIMSON",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 57.6,
+      "vw": 7.5,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 819,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "PEACOCK",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 57.6,
+      "vw": 7.5,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.55,
+      "top": 1059,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "TURMERIC",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 57.6,
+      "vw": 7.5,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.47,
+      "top": 1351,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "PAPER",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 57.6,
+      "vw": 7.5,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "left",
+      "widthRatio": 0.55,
+      "top": 1591,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "TYPE",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 57.6,
+      "vw": 7.5,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 1875,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "ALI HUZAIFA",
+      "words": 2,
+      "chars": 11,
+      "lines": 1,
+      "size": 92.2,
+      "vw": 12,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.05,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 1960,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "ON THE ROAD",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 57.6,
+      "vw": 7.5,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 2125,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "CONTROLS",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 57.6,
+      "vw": 7.5,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.96,
+      "top": 2572,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 10,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 2,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Chivo",
+       "share": 0.97,
+       "mono": false
+      },
+      {
+       "family": "Gulzar",
+       "share": 0.03,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      18,
+      23,
+      58,
+      92
+     ],
+     "sizeCount": 5,
+     "notLoaded": [],
+     "body": {
+      "font": "Chivo",
+      "size": 17.9,
+      "leading": 1.45,
+      "weight": 400,
+      "tracking": -0.01,
+      "contrast": 15.8
+     },
+     "measureChars": 40,
+     "max": {
+      "size": 92.2,
+      "vw": 12,
+      "font": "Chivo",
+      "text": "Type and colour"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.07,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#1d1109",
+     "bodyBgHsl": {
+      "h": 24,
+      "s": 0.53,
+      "l": 0.07
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#f5b005",
+       "top": 2512,
+       "hsl": {
+        "h": 43,
+        "s": 0.96,
+        "l": 0.49
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#eeede9",
+       "share": 0.67
+      },
+      {
+       "color": "#1d1109",
+       "share": 0.28
+      },
+      {
+       "color": "#bdaf9d",
+       "share": 0.05
+      }
+     ],
+     "button": {
+      "bg": "#f5b005",
+      "hsl": {
+       "h": 43,
+       "s": 0.96,
+       "l": 0.49
+      },
+      "fg": "#1d1109"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 2,
+     "inHero": 1,
+     "radius": 0,
+     "height": 50,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to content"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 458,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "chivo",
+     "gulzar"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 768,
+     "h": 1024
+    },
+    "pageH": 2849,
+    "margins": {
+     "left": 16,
+     "right": 19
+    },
+    "sections": [
+     {
+      "sel": "header.wrap.intro",
+      "tag": "header",
+      "top": 0,
+      "height": 458,
+      "words": 25,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Type and colour",
+       "size": 92,
+       "tag": "h1"
+      },
+      "left": 16,
+      "right": 334,
+      "textLeft": 16,
+      "textRight": 334,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.wrap.section",
+      "tag": "section",
+      "top": 458,
+      "height": 292,
+      "words": 41,
+      "media": 0,
+      "middle": 108,
+      "heading": {
+       "text": "Night and bone",
+       "size": 58,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 28,
+      "textLeft": 16,
+      "textRight": 28,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.field-crimson.band",
+      "tag": "section",
+      "top": 750,
+      "height": 240,
+      "words": 14,
+      "media": 0,
+      "middle": 111,
+      "heading": {
+       "text": "Crimson",
+       "size": 58,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 26,
+      "textLeft": 16,
+      "textRight": 26,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.field-peacock.band",
+      "tag": "section",
+      "top": 989,
+      "height": 293,
+      "words": 12,
+      "media": 0,
+      "middle": 120,
+      "heading": {
+       "text": "Peacock",
+       "size": 58,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 48,
+      "textLeft": 16,
+      "textRight": 48,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.field-turmeric.band",
+      "tag": "section",
+      "top": 1282,
+      "height": 240,
+      "words": 13,
+      "media": 0,
+      "middle": 85,
+      "heading": {
+       "text": "Turmeric",
+       "size": 58,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 76,
+      "textLeft": 16,
+      "textRight": 76,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.field-paper.band",
+      "tag": "section",
+      "top": 1522,
+      "height": 293,
+      "words": 11,
+      "media": 0,
+      "middle": 202,
+      "heading": {
+       "text": "Paper",
+       "size": 58,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 62,
+      "textLeft": 16,
+      "textRight": 62,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.wrap.section",
+      "tag": "section",
+      "top": 1815,
+      "height": 697,
+      "words": 70,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Ali Huzaifa",
+       "size": 92,
+       "tag": "p"
+      },
+      "left": 16,
+      "right": 16,
+      "textLeft": 16,
+      "textRight": 16,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.wrap.section",
+      "tag": "section",
+      "top": 2512,
+      "height": 337,
+      "words": 35,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Controls",
+       "size": 58,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 73,
+      "textLeft": 16,
+      "textRight": 73,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "TYPE AND COLOUR",
+      "size": 92,
+      "top": 96,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 16,
+      "n": 11
+     },
+     {
+      "x": 392,
+      "n": 3
+     }
+    ],
+    "leftBlocks": 14,
+    "bodySize": 18,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  },
+  {
+   "width": 390,
+   "height": 844,
+   "load": "load",
+   "screens": 4,
+   "filled": [
+    0.59,
+    1,
+    0.54,
+    0.61
+   ],
+   "motion": {
+    "elements": 0,
+    "css": 0,
+    "transitions": 0,
+    "scripted": 0,
+    "videos": 0,
+    "playingVideos": 0
+   },
+   "metrics": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "page": {
+     "height": 3066,
+     "screens": 3.6,
+     "words": 231,
+     "img": 0,
+     "video": 0,
+     "canvas": 0,
+     "svg": 0,
+     "sections": 7,
+     "horizontalOverflow": 0,
+     "overflowCulprits": [],
+     "uiFragments": 0,
+     "uiAbuse": false,
+     "realPictures": 0,
+     "videoCount": 0,
+     "uiPictures": 0,
+     "pictureSamples": [],
+     "blendText": 0,
+     "sideScrollers": 0,
+     "brokenImages": [],
+     "emoji": [],
+     "videosNoPoster": 0
+    },
+    "hero": {
+     "text": "TYPE AND COLOUR",
+     "words": 3,
+     "chars": 15,
+     "lines": 2,
+     "size": 64,
+     "vw": 16.4,
+     "font": "Chivo",
+     "weight": 900,
+     "tracking": -0.05,
+     "leading": 0.88,
+     "upper": true,
+     "italic": false,
+     "mono": false,
+     "align": "left",
+     "position": "center",
+     "widthRatio": 0.92,
+     "top": 96,
+     "tag": "h1",
+     "kind": "heading"
+    },
+    "h1": {
+     "text": "TYPE AND COLOUR",
+     "words": 3,
+     "lines": 2,
+     "size": 64,
+     "font": "Chivo"
+    },
+    "headings": [
+     {
+      "text": "TYPE AND COLOUR",
+      "words": 3,
+      "chars": 15,
+      "lines": 2,
+      "size": 64,
+      "vw": 16.4,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.05,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 96,
+      "tag": "h1",
+      "kind": "heading"
+     },
+     {
+      "text": "NIGHT AND BONE",
+      "words": 3,
+      "chars": 14,
+      "lines": 1,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 454,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "CRIMSON",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 803,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "PEACOCK",
+      "words": 1,
+      "chars": 7,
+      "lines": 1,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 1085,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "TURMERIC",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 1368,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "PAPER",
+      "words": 1,
+      "chars": 5,
+      "lines": 1,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 1650,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "TYPE",
+      "words": 1,
+      "chars": 4,
+      "lines": 1,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 1928,
+      "tag": "h2",
+      "kind": "heading"
+     },
+     {
+      "text": "ALI HUZAIFA",
+      "words": 2,
+      "chars": 11,
+      "lines": 2,
+      "size": 64,
+      "vw": 16.4,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.05,
+      "leading": 0.88,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 1997,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "ON THE ROAD",
+      "words": 3,
+      "chars": 11,
+      "lines": 1,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 2178,
+      "tag": "p",
+      "kind": "statement"
+     },
+     {
+      "text": "CONTROLS",
+      "words": 1,
+      "chars": 8,
+      "lines": 1,
+      "size": 40,
+      "vw": 10.3,
+      "font": "Chivo",
+      "weight": 900,
+      "tracking": -0.04,
+      "leading": 0.92,
+      "upper": true,
+      "italic": false,
+      "mono": false,
+      "align": "left",
+      "position": "center",
+      "widthRatio": 0.92,
+      "top": 2759,
+      "tag": "h2",
+      "kind": "heading"
+     }
+    ],
+    "headingSummary": {
+     "count": 10,
+     "maxLines": 2,
+     "over2Lines": 0,
+     "statements": 2,
+     "centered": 0,
+     "medianWords": 1,
+     "mixedFontHeadings": 0
+    },
+    "type": {
+     "families": [
+      {
+       "family": "Chivo",
+       "share": 0.97,
+       "mono": false
+      },
+      {
+       "family": "Gulzar",
+       "share": 0.03,
+       "mono": false
+      }
+     ],
+     "familyCount": 2,
+     "sizes": [
+      13,
+      17,
+      20,
+      40,
+      64
+     ],
+     "sizeCount": 5,
+     "notLoaded": [],
+     "body": {
+      "font": "Chivo",
+      "size": 17,
+      "leading": 1.45,
+      "weight": 400,
+      "tracking": -0.01,
+      "contrast": 15.8
+     },
+     "measureChars": 42,
+     "max": {
+      "size": 64,
+      "vw": 16.4,
+      "font": "Chivo",
+      "text": "Type and colour"
+     },
+     "monoShare": 0,
+     "monoProseShare": 0,
+     "monoFamilies": [],
+     "monoSamples": [],
+     "microLabels": 0,
+     "microLabelShare": 0,
+     "microSamples": [],
+     "upperShare": 0.07,
+     "centerShare": 0,
+     "smallText": 0
+    },
+    "eyebrows": [],
+    "numbered": [],
+    "color": {
+     "bodyBg": "#1d1109",
+     "bodyBgHsl": {
+      "h": 24,
+      "s": 0.53,
+      "l": 0.07
+     },
+     "dark": true,
+     "sectionBgs": [
+      {
+       "color": "#d01a34",
+       "top": 739,
+       "hsl": {
+        "h": 351,
+        "s": 0.78,
+        "l": 0.46
+       }
+      },
+      {
+       "color": "#006670",
+       "top": 1021,
+       "hsl": {
+        "h": 185,
+        "s": 1,
+        "l": 0.22
+       }
+      },
+      {
+       "color": "#f5b005",
+       "top": 1304,
+       "hsl": {
+        "h": 43,
+        "s": 0.96,
+        "l": 0.49
+       }
+      },
+      {
+       "color": "#eeede9",
+       "top": 1586,
+       "hsl": {
+        "h": 48,
+        "s": 0.13,
+        "l": 0.92
+       }
+      }
+     ],
+     "textColors": [
+      {
+       "color": "#eeede9",
+       "share": 0.67
+      },
+      {
+       "color": "#1d1109",
+       "share": 0.28
+      },
+      {
+       "color": "#bdaf9d",
+       "share": 0.05
+      }
+     ],
+     "button": {
+      "bg": "#f5b005",
+      "hsl": {
+       "h": 43,
+       "s": 0.96,
+       "l": 0.49
+      },
+      "fg": "#1d1109"
+     },
+     "lowContrast": []
+    },
+    "buttons": {
+     "count": 2,
+     "inHero": 1,
+     "radius": 0,
+     "height": 49,
+     "withShadow": 0,
+     "withGradient": 0,
+     "mono": 0,
+     "upper": 0,
+     "heroLabels": [
+      "Skip to content"
+     ]
+    },
+    "surfaces": {
+     "shadowStatic": 0,
+     "shadowOverlay": 0,
+     "shadowSamples": [],
+     "gradients": 0,
+     "scrims": 0,
+     "gradientSamples": [],
+     "gradientText": 0,
+     "hairlines": 0,
+     "hairlineSamples": [],
+     "outlinedBoxes": 0,
+     "dashed": 0,
+     "blurred": 0,
+     "roundedBoxes": 0,
+     "boxRadius": 0,
+     "squareMedia": 0,
+     "roundedMedia": 0,
+     "mediaRadius": 0,
+     "textShadow": 0,
+     "cardRows": []
+    },
+    "heroMedia": [],
+    "nav": {
+     "links": 0,
+     "fixed": false,
+     "height": 394,
+     "floatingPill": false,
+     "blur": false
+    },
+    "fontsLoaded": [
+     "chivo",
+     "gulzar"
+    ]
+   },
+   "layout": {
+    "viewport": {
+     "w": 390,
+     "h": 844
+    },
+    "pageH": 3066,
+    "margins": {
+     "left": 16,
+     "right": 17
+    },
+    "sections": [
+     {
+      "sel": "header.wrap.intro",
+      "tag": "header",
+      "top": 0,
+      "height": 394,
+      "words": 25,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Type and colour",
+       "size": 64,
+       "tag": "h1"
+      },
+      "left": 16,
+      "right": 30,
+      "textLeft": 16,
+      "textRight": 30,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.wrap.section",
+      "tag": "section",
+      "top": 394,
+      "height": 345,
+      "words": 41,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Night and bone",
+       "size": 40,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 17,
+      "textLeft": 16,
+      "textRight": 17,
+      "fullBleed": false,
+      "footer": false,
+      "hero": true,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.field-crimson.band",
+      "tag": "section",
+      "top": 739,
+      "height": 282,
+      "words": 14,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Crimson",
+       "size": 40,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 30,
+      "textLeft": 16,
+      "textRight": 30,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.field-peacock.band",
+      "tag": "section",
+      "top": 1021,
+      "height": 282,
+      "words": 12,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Peacock",
+       "size": 40,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 84,
+      "textLeft": 16,
+      "textRight": 84,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.field-turmeric.band",
+      "tag": "section",
+      "top": 1304,
+      "height": 282,
+      "words": 13,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Turmeric",
+       "size": 40,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 47,
+      "textLeft": 16,
+      "textRight": 47,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.field-paper.band",
+      "tag": "section",
+      "top": 1586,
+      "height": 282,
+      "words": 11,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Paper",
+       "size": 40,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 96,
+      "textLeft": 16,
+      "textRight": 96,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.wrap.section",
+      "tag": "section",
+      "top": 1868,
+      "height": 831,
+      "words": 70,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Ali Huzaifa",
+       "size": 64,
+       "tag": "p"
+      },
+      "left": 16,
+      "right": 16,
+      "textLeft": 16,
+      "textRight": 16,
+      "fullBleed": false,
+      "footer": false,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     },
+     {
+      "sel": "section.wrap.section",
+      "tag": "section",
+      "top": 2699,
+      "height": 367,
+      "words": 35,
+      "media": 0,
+      "middle": 0,
+      "heading": {
+       "text": "Controls",
+       "size": 40,
+       "tag": "h2"
+      },
+      "left": 16,
+      "right": 18,
+      "textLeft": 16,
+      "textRight": 18,
+      "fullBleed": false,
+      "footer": true,
+      "hero": false,
+      "continues": false,
+      "pinned": false
+     }
+    ],
+    "gaps": [],
+    "h1s": [
+     {
+      "text": "TYPE AND COLOUR",
+      "size": 64,
+      "top": 96,
+      "firstScreen": true
+     }
+    ],
+    "edgeText": [],
+    "edges": [
+     {
+      "x": 16,
+      "n": 14
+     }
+    ],
+    "leftBlocks": 14,
+    "bodySize": 17,
+    "stage": false,
+    "explains": true,
+    "slivers": [],
+    "voidShare": 0,
+    "voidBox": null
+   },
+   "app": null,
+   "consoleErrors": []
+  }
+ ],
+ "findings": [
+  {
+   "level": "WARN",
+   "id": "no-footage",
+   "width": 1440,
+   "message": "No video anywhere on the page.",
+   "fix": "Look for one honest clip with scripts/assets.mjs --video (the place, the material, the process) and use it as a muted loop with a poster frame. Defend its absence only if no clip fits the subject."
+  },
+  {
+   "level": "WARN",
+   "id": "off-centre",
+   "width": 1440,
+   "message": "The margins differ: 24px on the left, 45px on the right, at 1440px.",
+   "fix": "Put the navigation and the content on one pair of margins; check for padding on one side only, a scrollbar gutter, or a header on another inset than the page."
+  },
+  {
+   "level": "WARN",
+   "id": "hero-void",
+   "width": 1440,
+   "message": "34% of the first screen is one empty block (660×660px at 780,120).",
+   "fix": "Place the void on purpose or fill it: move the picture, the film or one fact into it, grow the headline to meet it, or shrink the screen to its content. A void reads as placed only when something closes it on the far side and it is the screen's one rest."
+  }
+ ],
+ "images": [
+  {
+   "viewport": "desktop",
+   "width": 1440,
+   "fold": "/home/whusan/Portfolio/.taste-skill/inspect-specimen/desktop-fold.jpg",
+   "pages": [
+    "/home/whusan/Portfolio/.taste-skill/inspect-specimen/desktop-page-01.jpg",
+    "/home/whusan/Portfolio/.taste-skill/inspect-specimen/desktop-page-02.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "tablet",
+   "width": 768,
+   "fold": "/home/whusan/Portfolio/.taste-skill/inspect-specimen/tablet-fold.jpg",
+   "pages": [
+    "/home/whusan/Portfolio/.taste-skill/inspect-specimen/tablet-page-01.jpg"
+   ],
+   "film": []
+  },
+  {
+   "viewport": "mobile",
+   "width": 390,
+   "fold": "/home/whusan/Portfolio/.taste-skill/inspect-specimen/mobile-fold.jpg",
+   "pages": [
+    "/home/whusan/Portfolio/.taste-skill/inspect-specimen/mobile-page-01.jpg"
+   ],
+   "film": []
+  }
+ ]
+}
