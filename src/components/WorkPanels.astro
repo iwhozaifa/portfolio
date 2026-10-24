@@ -18,7 +18,7 @@ const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.
       const shots = w.data.screens[0].kind === 'phone' ? phones : [w.data.screens[0]];
       return (
         <li class={`panel field-${w.data.field} defer`}>
-          <a class="panel-link" href={`/work/${w.id}`} aria-label={`${w.data.title}: ${w.data.subtitle} Read the case study.`}>
+          <a class="panel-link" href={`/work/${w.id}`}>
             <div class:list={['shots', { phones: shots.length > 1 }]}>
               {shots.map((s) => (
                 <Picture
@@ -51,10 +51,10 @@ const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.
     position: sticky;
     top: 4.5rem;
     z-index: 5;
-    background: var(--night);
+    background: var(--ink);
     padding-block: 0.75rem 1rem;
   }
-  .board-title { font-size: var(--step-head); line-height: 0.88; letter-spacing: -0.05em; color: var(--turmeric); }
+  .board-title { font-size: var(--step-head); line-height: 0.88; letter-spacing: -0.005em; color: var(--station); }
 
   .panels { margin: 0; padding: 0; list-style: none; }
   .panel { position: relative; height: 62svh; min-height: 32rem; overflow: hidden; }
@@ -80,13 +80,13 @@ const work = (await getCollection('work')).sort((a, b) => a.data.order - b.data.
     align-items: center;
     gap: var(--gutter);
     padding-inline: var(--margin);
-    background: var(--night);
-    color: var(--paper);
+    background: var(--ink);
+    color: var(--enamel);
   }
   .row-year { font-size: var(--step-body); }
-  .row-title { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; font-size: var(--step-lead); line-height: 1; }
+  .row-title { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; letter-spacing: -0.005em; font-size: var(--step-lead); line-height: 1; }
   .row-fact { justify-self: end; text-align: right; font-size: var(--step-body); }
-  .panel-sub { position: absolute; left: var(--margin); bottom: 6rem; width: calc(41.6% - var(--margin)); font-size: var(--step-lead); line-height: 1.2; letter-spacing: -0.02em; font-weight: 700; max-width: 22ch; }
+  .panel-sub { position: absolute; left: var(--margin); bottom: 6rem; width: calc(41.6% - var(--margin)); font-size: var(--step-lead); line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; max-width: 22ch; }
   .more { position: absolute; left: var(--margin); bottom: 2.5rem; font-size: var(--step-lead); }
   .more .arrow { display: inline-block; transition: transform var(--t-small) var(--ease-out); }
   @media (hover: hover) and (pointer: fine) {

@@ -108,7 +108,7 @@ const longest = (s: string) => {
       </div>
     </section>
 
-    <section class="field-paper proof-band defer" aria-labelledby="proof-h">
+    <section class="proof-band defer" aria-labelledby="proof-h">
       <div class="wrap section">
         <h2 id="proof-h" class="head">Proof</h2>
         <dl class="proof">
@@ -149,7 +149,7 @@ const longest = (s: string) => {
   .title-name { grid-column: 1 / -1; }
   .fit { font-size: min(var(--step-display), calc((100vw - 2 * var(--margin)) / (var(--chars) * 0.66))); }
   .title-urdu { grid-column: 1 / -1; font-size: var(--step-head); line-height: 1.6; }
-  .title-sub { grid-column: 1 / 7; font-weight: 700; }
+  .title-sub { grid-column: 1 / 7; font-weight: 600; }
   .title-meta { grid-column: 8 / 13; display: grid; gap: 1rem; }
   .title-links { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: center; margin-top: 0.5rem; }
 
@@ -160,7 +160,7 @@ const longest = (s: string) => {
 
   .col-head { grid-column: 1 / 6; }
   .col-body { grid-column: 6 / 13; }
-  .statement { font-size: var(--step-statement); line-height: 1.2; letter-spacing: -0.02em; font-weight: 700; max-width: 38ch; }
+  .statement { font-size: var(--step-statement); line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; max-width: 38ch; }
   .hard-body { margin-top: 1.5rem; }
 
   .built { row-gap: 2rem; align-items: start; }
@@ -170,16 +170,16 @@ const longest = (s: string) => {
 
   .pair { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gutter); padding-bottom: calc(var(--section) / 2); }
   .pair figcaption { margin-top: 0.75rem; color: var(--muted); }
-  .arch-band { background: var(--surface); }
+  .arch-band, .proof-band { background: var(--surface); }
   .arch-head { margin-bottom: clamp(2.5rem, 5vw, 4rem); }
 
   .proof { display: grid; gap: 0.35rem; margin-top: clamp(2rem, 4vw, 3rem); }
-  .proof-row { display: grid; grid-template-columns: minmax(6rem, 2fr) 5fr; gap: var(--gutter); align-items: center; padding: 1rem 1.25rem; background: var(--paper-2); }
-  .figure { font-family: var(--font-display); font-weight: 900; font-size: var(--step-head); line-height: 0.9; letter-spacing: -0.04em; }
+  .proof-row { display: grid; grid-template-columns: minmax(6rem, 2fr) 5fr; gap: var(--gutter); align-items: center; padding: 1rem 1.25rem; background: var(--enamel); }
+  .figure { font-family: var(--font-display); font-weight: 800; font-size: var(--step-head); line-height: 0.9; letter-spacing: -0.005em; }
   .proof dd { font-size: var(--step-lead); line-height: 1.25; max-width: 40ch; }
 
   .stack { columns: 2; column-gap: var(--gutter); }
-  .stack li { break-inside: avoid; padding-block: 0.35rem; font-weight: 700; font-size: var(--step-lead); line-height: 1.25; }
+  .stack li { break-inside: avoid; padding-block: 0.35rem; font-weight: 600; font-size: var(--step-lead); line-height: 1.25; }
 
   .next { display: block; text-decoration: none; padding-block: clamp(5rem, 12vw, 10rem); }
   .next-inner { display: grid; grid-template-columns: 7fr 5fr; gap: var(--gutter); align-items: end; }

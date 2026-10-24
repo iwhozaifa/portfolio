@@ -7,7 +7,7 @@ import '../../styles/base.css';
 export async function getStaticPaths() {
   const work = await getCollection('work');
   return [
-    { params: { slug: 'home' }, props: { title: 'Ali Huzaifa', line: 'Cloud systems on AWS and the pipelines that ship them.', field: 'turmeric' } },
+    { params: { slug: 'home' }, props: { title: 'Ali Huzaifa', line: 'Cloud systems on AWS and the pipelines that ship them.', field: 'station' } },
     ...work.map((w) => ({ params: { slug: w.id }, props: { title: w.data.title, line: w.data.subtitle, field: w.data.field } })),
   ];
 }
@@ -27,7 +27,7 @@ const { title, line, field } = Astro.props;
 <style>
   body { margin: 0; }
   .card { width: 1200px; height: 630px; box-sizing: border-box; padding: 64px; display: grid; grid-template-rows: 1fr auto auto; gap: 24px; }
-  .title { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; letter-spacing: -0.05em; line-height: 0.86; font-size: 132px; align-self: end; margin: 0; max-width: 1072px; }
-  .line { font-weight: 700; font-size: 34px; line-height: 1.2; margin: 0; max-width: 30ch; }
-  .by { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; font-size: 26px; margin: 0; }
+  .title { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; letter-spacing: -0.005em; line-height: 0.86; font-size: 132px; align-self: end; margin: 0; max-width: 1072px; }
+  .line { font-weight: 600; font-size: 34px; line-height: 1.2; margin: 0; max-width: 30ch; }
+  .by { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; letter-spacing: -0.005em; font-size: 26px; margin: 0; }
 </style>

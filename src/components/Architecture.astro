@@ -43,7 +43,7 @@ const { lanes, beside, footnote } = Astro.props;
 <style>
   .arch { display: grid; gap: clamp(2.5rem, 5vw, 4rem); }
   .lane { display: grid; grid-template-columns: minmax(7rem, 1fr) 5fr; gap: var(--gutter); align-items: start; }
-  .lane-name { font-size: var(--step-lead); line-height: 1; letter-spacing: -0.03em; padding-top: 0.9rem; }
+  .lane-name { font-size: var(--step-lead); line-height: 1; letter-spacing: -0.005em; padding-top: 0.9rem; }
   .route, .depot { position: relative; display: grid; gap: var(--gutter); margin: 0; padding: 0; list-style: none; }
   .route { grid-template-columns: repeat(var(--n), minmax(0, 1fr)); }
   .depot { grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr)); }
@@ -55,7 +55,7 @@ const { lanes, beside, footnote } = Astro.props;
     right: 0;
     top: calc(1.5rem - 3px);
     height: 6px;
-    background: var(--turmeric);
+    background: var(--ink);
   }
   .stop { position: relative; display: grid; gap: 0.6rem; align-content: start; min-width: 0; }
   .plate {
@@ -63,19 +63,19 @@ const { lanes, beside, footnote } = Astro.props;
     align-items: center;
     min-height: 3rem;
     padding: 0.5rem 0.85rem;
-    background: var(--paper);
-    color: var(--night);
+    background: var(--station);
+    color: var(--ink);
     font-family: var(--font-display);
-    font-weight: 900;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.005em;
     line-height: 1.05;
     font-size: var(--step-body);
     overflow-wrap: anywhere;
   }
-  .plate-quiet { background: var(--peacock); color: var(--paper); }
+  .plate-quiet { background: var(--slate); color: var(--enamel); }
   .detail { font-size: var(--step-small); line-height: 1.35; color: var(--muted); max-width: 22ch; }
-  .footnote { font-weight: 700; max-width: 62ch; }
+  .footnote { font-weight: 600; max-width: 62ch; }
 
   @media (max-width: 63.99em) {
     .lane { grid-template-columns: 1fr; }

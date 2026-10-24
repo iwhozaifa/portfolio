@@ -1,7 +1,7 @@
 {
  "version": 1,
- "at": "2026-10-23T19:56:31.489Z",
- "seed": 4127,
+ "at": "2026-10-24T10:22:53.436Z",
+ "seed": 1953796102,
  "redraws": 0,
  "input": {
   "brief": "Ali Huzaifa, a Pakistani software engineering student who builds and ships real systems on AWS: Terraform/CDK infrastructure, CI/CD pipelines, serverless QR attendance, an Urdu-first dinner app",
@@ -19,119 +19,128 @@
    "contact",
    "footer"
   ],
-  "direction": "pinned-poster"
+  "direction": "name-as-monument"
  },
  "imagery": "atmosphere",
  "allow": [],
  "direction": {
-  "id": "pinned-poster",
-  "name": "The pinned poster",
+  "id": "name-as-monument",
+  "name": "The name as a monument",
   "sectors": [
-   "culture",
-   "music",
-   "event",
-   "fashion",
-   "personal-portfolio",
+   "agency",
    "studio-portfolio",
-   "physical-product",
-   "ecommerce",
+   "personal-portfolio",
    "hospitality",
-   "consumer-app"
+   "restaurant",
+   "music",
+   "culture",
+   "fashion",
+   "event",
+   "architecture",
+   "real-estate",
+   "physical-product",
+   "consumer-app",
+   "other"
   ],
   "tones": [
    "bold",
-   "editorial"
+   "editorial",
+   "luxury"
   ],
   "needs": [],
-  "idea": "Something stays put while everything else changes. A title holds its place across the viewport and the images beneath it swap; the name is split to two opposite corners and the page passes between the halves; a single frame stays centred while its contents change. Every scroll step is a new cover of the same magazine. The idea suits subjects that are a series (a book of portraits, a line-up, a collection, a set of projects): the fixed element says what the series is, the changing element shows its members.",
-  "composition": "A sticky layer holds the fixed element for the height of two to three viewports: usually the title at 10–14vw across the middle or top of the screen, or two words pinned to the top-left and bottom-right corners. Under it, a stack of full-height panels scrolls by, each a single large photograph (portrait 4:5, centred, 40–50% of the viewport wide) with one line of caption at the same small size everywhere. The title sits above the images in the stacking order and uses `mix-blend-mode: difference` or a solid colour that reads on every panel. When the pinned run ends, the page releases into ordinary flowing sections with a narrow measure. Build with `position: sticky`; never hijack the scroll.",
-  "typography": "The pinned title is the only large type on the page. Captions and body share one small size (15–17px). Tight tracking and solid weight so the title reads over photographs.",
+  "idea": "The name is the headline. Set it so large that it becomes architecture: as wide as the viewport, cropped by an edge, or stacked to fill the screen. Nothing else on the first screen competes; the description of what this is drops to a single small sentence. The idea comes from treating the name's letters as material. Ask what the subject can do to its own name: a photograph of the work sits inside a counter or replaces a letter, the name repeats down the page like a reel, the letters are split to opposite corners and the page happens between them. In the study this was the single most common device among sites scoring 7.5 or more.",
+  "composition": "First screen: the wordmark spans 88–100% of the viewport width (font-size 16–24vw, set with a clamp so it never wraps), anchored either to the bottom edge with its descenders nearly touching it, or dead centre with everything else pushed to the corners. One line of supporting text at 16–20px sits in a corner on a shared margin; navigation is three or four words in the opposite corner. After the hero the page is deliberately small and calm: a narrow text column or a simple two-column grid, so the contrast with the monument holds. The name returns once more at full width as the footer, in the inverse colours. Margins are tight (20–32px) so the type reaches the edges. Two type sizes do nearly all the work: the monument and a small text size, with one mid size for section headings.",
+  "typography": "One family. The display cut must survive enormous sizes: tight tracking (-0.04 to -0.07em), leading 0.8–0.9, optical kerning on. Section headings are modest (28–40px) on purpose.",
   "typeClasses": [
    "grotesk-tight",
    "condensed-heavy",
+   "extended-heavy",
    "heavy-black",
-   "extended-heavy"
+   "serif-display"
   ],
-  "colour": "One strong title colour against a pale or dark ground. Each panel may take its own flat ground colour sampled from its photograph.",
+  "colour": "Two values carry the page (ground and ink). The accent, if used at all, appears on one thing only: the single action or the inset image frame. The footer inverts ground and ink.",
   "paletteTags": [
+   "light-neutral",
+   "dark-neutral",
    "two-tone",
-   "photographic-neutral",
-   "single-field"
+   "mono-accent"
   ],
-  "imagery": "A series of photographs with the same crop ratio and the same framing (all portraits, all objects, all rooms), so that swapping them reads as one image changing. Five to eight in the pinned run.",
+  "imagery": "Few images, used as inserts in the typography rather than as illustrations beside it: one photograph inside or behind the name (a 4:5 or 1:1 frame replacing a letter, or tucked between two words), then a short run of large full-width or half-width photographs further down. Square corners. No collage of small thumbnails.",
   "sectionTags": [
-   "photo-led",
-   "poster",
-   "type-led"
+   "type-led",
+   "quiet",
+   "poster"
   ],
-  "motion": "pinned-story",
-  "richness": "Repetition with change. The fixed title makes each new photograph feel like an event, so the photographs must be good and consistent.",
-  "pitfalls": "If the title is not legible over every panel, the idea fails: test each one. Keep the pinned run under six viewports or it feels like a trap. On a phone the title shrinks to 16–18vw and stays pinned at the top; panels become full-width. A pin longer than three screens, or one where the screens under it are nearly empty, read in blind tests as a stuck page. Every screen under the pin needs its own content, and nothing may pass over the pinned words.",
+  "motion": "scaling-wordmark",
+  "richness": "Scale. The size of the name against the smallness of everything else is the entire visual event, so protect both ends: do not shrink the name to make room, and do not let body text creep above 20px.",
+  "pitfalls": "A long name set small is just a logo. If the name has more than about 12 characters, stack it on two lines or crop it with the viewport edge; never drop below 12vw. Do not add a second big headline under the name. Do not decorate the letters.",
   "seenIn": [
-   "opl-city-of-angels",
-   "aww-normal-is-boring",
-   "aww-glitch-grit",
-   "aww-revelatio-studio"
+   "aww-nothin",
+   "opl-kereliott",
+   "aww-paul-kalkbrenner",
+   "opl-nia-creative",
+   "aww-house-of-honey-1",
+   "aww-produx-design"
   ],
-  "allow": [],
-  "needsPictures": true
+  "allow": []
  },
  "hero": {
-  "id": "card-over-dim-room",
-  "name": "Card over a dim room",
-  "archetype": "artefact",
+  "id": "title-from-top-to-bottom-edge",
+  "name": "Title from the top edge to the bottom edge",
+  "archetype": "bottom-anchored-type",
   "directions": [
-   "page-is-the-object",
-   "pinned-poster",
+   "place-carries-it",
+   "name-as-monument",
    "dark-room"
   ],
   "needs": [],
-  "blueprint": "A full-bleed, low-key photograph of the room fills the viewport, darkened with `filter: brightness(0.7)` so it reads as atmosphere. Centred over it is one square-cornered panel in a flat warm tone taken from the photograph: columns 4–10, about 55% of the width and 62% of the height, a filled programme card with 32px padding. Along its top edge the three words of the title are spread to the left, centre and right in bold condensed capitals at clamp(28px, 2.5vw, 38px); that line is the headline. Under it sit two left-aligned blocks in the same face and size, line-height 1.0: the facts (date, time, place) as three short lines, then one supporting sentence held to 30ch. Along the card's bottom edge: a credit at left in 14px, the single action as a solid rectangular button in the centre, one text link at right. There is no navigation outside the card. The card is `position: sticky`: as the page scrolls it shrinks with `transform: scale` toward the bottom-left corner and stays there as a ticket-sized stub while photographs of differing sizes pass on a flat ground.",
-  "mobile": "The photograph fills 100svh and the card sits centred at full width minus 16px margins, 70svh tall. The title words stack as a two-line heading at 9vw at the card's top-left. The facts and the supporting sentence follow at 5.2vw in the condensed face. The action button spans the card's bottom edge. On scroll the card shrinks to a 120px stub pinned bottom-left.",
-  "headline": "The event or venue name, three words at most and up to about 8 characters each, spread across the card's top edge; two lines on a phone.",
-  "motion": "pinned-story",
+  "blueprint": "One full-bleed photograph or film at 100vw by 100svh, with a horizon near half height and empty sky or darkness above. The headline is two lines in a heavy face at clamp(140px, 13vw, 200px), leading 0.85, pulled as far apart as the screen allows: line one flush to the 32px left margin with its cap line 72px from the top; line two indented 28vw (403px) and anchored to the bottom, its baseline 24px above the lower edge, running towards the right margin. Lay the hero out as a grid of three rows (`grid-template-rows: auto 1fr auto`): line one in the first row, line two in the third, both spans of one `h1` with `display: contents`. The middle row leaves the picture clear apart from one supporting sentence at 18px, max 44ch, crossing the horizon at 48% of the height from 30vw, and the single action directly beneath it as a solid rectangular button with its label at 18px. The wordmark and two text links sit top-right on the 32px margin at 15px; the top-left belongs to line one. Choose a picture whose upper-left and lower-right are calm enough for the type, or lay a neutral scrim under those two corners only.",
+  "mobile": "Keep the two lines at 19vw: line one flush left on a 16px margin 88px down, line two right-aligned to the 16px margin with its baseline 20px above the bottom. The sentence at 17px and the action button sit between them on the left margin, at 46% of the height. The picture is re-cropped to portrait around the horizon.",
+  "headline": "Two words or short phrases, one per line, at most about 8 characters each.",
+  "motion": "masked-headline",
   "seenIn": [
-   "opl-the-deep-end"
+   "aww-the-state-of-the-gallery"
   ]
  },
  "type": {
-  "id": "chivo-black",
-  "name": "Chivo",
-  "class": "heavy-black",
+  "id": "big-shoulders-public",
+  "name": "Big Shoulders / Public Sans",
+  "class": "condensed-heavy",
   "display": {
-   "family": "Chivo",
+   "family": "Big Shoulders",
    "source": "google",
    "weights": [
-    900
+    800
    ],
    "italic": false,
-   "settings": "weight 900 · tracking -0.05em · leading 0.88 · uppercase",
-   "css": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&display=swap\" rel=\"stylesheet\">"
+   "settings": "weight 800 · tracking -0.005em · leading 0.88 · uppercase",
+   "css": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@800&family=Public+Sans:wght@400;600&display=swap\" rel=\"stylesheet\">"
   },
   "text": {
-   "family": "Chivo",
+   "family": "Public Sans",
    "source": "google",
    "weights": [
     400,
-    700
+    600
    ],
    "italic": false,
-   "settings": "400 for paragraphs, 700 for navigation, tags and links · leading 1.35 · tracking -0.01em",
-   "css": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&display=swap\" rel=\"stylesheet\">"
+   "settings": "400 for body, 600 for emphasis · leading 1.5 · tracking 0",
+   "css": "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n<link href=\"https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@800&family=Public+Sans:wght@400;600&display=swap\" rel=\"stylesheet\">"
   },
   "standsInFor": [
-   "Elza",
-   "ABC Diatype Heavy",
-   "Suisse Intl Black"
+   "Founders Grotesk Condensed",
+   "PP Neue York",
+   "Knockout"
   ],
-  "note": "A black grotesque in capitals with letters nearly colliding, and only two sizes on the page: enormous and small. Suits agencies, city and culture projects and musicians who want the type to land like a headline.",
+  "note": "A tall American gothic taken from city signage, blunt and civic, over a plain public-service sans. Suits culture indexes, community projects, bars, sport clubs and local campaigns.",
   "seenIn": [
-   "aww-glitch-grit",
-   "opl-city-of-angels",
-   "aww-warm-fuzzy"
+   "aww-mosbys-files",
+   "opl-the-sapphic-bar-index",
+   "opl-the-deep-end",
+   "aww-colonia-zacamil"
   ],
   "links": [
-   "https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&display=swap"
+   "https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@800&family=Public+Sans:wght@400;600&display=swap"
   ],
   "scale": {
    "step-small": "clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem)",
@@ -141,28 +150,31 @@
   }
  },
  "palette": {
-  "id": "three-stones",
-  "name": "Three stones",
+  "id": "plum-black-pink",
+  "name": "Plum-black and pink",
   "tags": [
-   "light-neutral",
-   "photographic-neutral"
+   "mono-accent",
+   "dark-neutral"
   ],
-  "bg": "#eeecea",
-  "surface": "#e4e1dd",
-  "ink": "#333231",
-  "muted": "#6b6763",
-  "accent": "#5c6b54",
-  "accentInk": "#ffffff",
+  "bg": "#0d060b",
+  "surface": "#1b0e17",
+  "ink": "#ffffff",
+  "muted": "#9a8f97",
+  "accent": "#ff488b",
+  "accentInk": "#0d060b",
   "fields": [
    {
-    "bg": "#cdc3b6",
-    "ink": "#333231"
+    "bg": "#470c35",
+    "ink": "#ffffff"
+   },
+   {
+    "bg": "#ffffff",
+    "ink": "#101421"
    }
   ],
-  "note": "Three close stone tones share the interface: the lightest for the page, the middle one for panels, the darkest for a single band, all with charcoal type. Saturated colour is left to the photographs and their backdrops; the grey-green fills the button only.",
+  "note": "Near-black and plum at the top and bottom bracket a white middle with navy-black text. Hot pink is reserved for primary buttons, bars in charts and map markers; it never fills a section.",
   "seenIn": [
-   "aww-noho",
-   "aww-vero-new-york"
+   "aww-cerebrium"
   ]
  },
  "photos": {
@@ -210,22 +222,6 @@
     "page": "https://unsplash.com/photos/busqfOj6i80"
    },
    {
-    "id": 520,
-    "alt": "Suspension bridge tower framed between red brick buildings",
-    "tone": "mid",
-    "colours": [
-     "brick red",
-     "sky blue",
-     "steel grey"
-    ],
-    "mono": false,
-    "calm": "none",
-    "quality": 4,
-    "ratio": 0.67,
-    "by": "Dorothee Hübner",
-    "page": "https://unsplash.com/photos/4vPPtrfLRcs"
-   },
-   {
     "id": 193,
     "alt": "Gothic stone college building facing a striped green lawn",
     "tone": "mid",
@@ -242,6 +238,22 @@
     "page": "https://unsplash.com/photos/d6ebY-faOO0"
    },
    {
+    "id": 520,
+    "alt": "Suspension bridge tower framed between red brick buildings",
+    "tone": "mid",
+    "colours": [
+     "brick red",
+     "sky blue",
+     "steel grey"
+    ],
+    "mono": false,
+    "calm": "none",
+    "quality": 4,
+    "ratio": 0.67,
+    "by": "Dorothee Hübner",
+    "page": "https://unsplash.com/photos/4vPPtrfLRcs"
+   },
+   {
     "id": 859,
     "alt": "Red brick building with a cream door, red shutters and a parked bicycle",
     "tone": "mid",
@@ -255,21 +267,6 @@
     "ratio": 1,
     "by": "Brennan Ehrhardt",
     "page": "https://unsplash.com/photos/HALe2SmkWAI"
-   },
-   {
-    "id": 101,
-    "alt": "Concrete bunker-like building against a pale teal sky",
-    "tone": "mid",
-    "colours": [
-     "pale teal",
-     "concrete grey"
-    ],
-    "mono": false,
-    "calm": "top",
-    "quality": 4,
-    "ratio": 1.5,
-    "by": "Christian Bardenhorst",
-    "page": "https://unsplash.com/photos/8lMhzUjD1Wk"
    },
    {
     "id": 951,
@@ -288,79 +285,92 @@
     "page": "https://unsplash.com/photos/4aQY2CrXsa8"
    },
    {
-    "id": 893,
-    "alt": "Curved latticed building facade forming sweeping lines, black and white",
+    "id": 315,
+    "alt": "View straight up a dark building lightwell to bright sky",
     "tone": "dark",
     "colours": [
-     "black",
+     "dark brown",
      "white",
-     "grey"
+     "olive"
     ],
-    "mono": true,
+    "mono": false,
     "calm": "none",
     "quality": 4,
+    "ratio": 1.4,
+    "by": "Liam Andrew",
+    "page": "https://unsplash.com/photos/W7CopGaHkEM"
+   },
+   {
+    "id": 743,
+    "alt": "Narrow wedge-shaped building corner seen from below against a teal sky",
+    "tone": "mid",
+    "colours": [
+     "teal blue",
+     "sandstone",
+     "warm brown"
+    ],
+    "mono": false,
+    "calm": "left",
+    "quality": 4,
     "ratio": 1.5,
-    "by": "Samuel Zeller",
-    "page": "https://unsplash.com/photos/j0g8taxHZa0"
+    "by": "Anthony DELANOIX",
+    "page": "https://unsplash.com/photos/Aa8_X_YgrO4"
    }
   ]
  },
  "motion": {
-  "id": "pinned-story",
-  "name": "Pinned story",
-  "description": "One element holds its place with `position: sticky` (a title, a frame, a product fragment) while the items that belong to it scroll past or swap inside it. The page's ordinary scrolling does the work; nothing is hijacked. Hold it for about one screen per step and three screens at most, two held stages per page at most, with a line of text on every held screen. Recipe: 'Pinned story' in references/motion.md."
+  "id": "masked-headline",
+  "name": "Masked headline",
+  "description": "On load, each line of the headline rises from behind its own baseline, about 900ms with a strong ease-out, the second line 110ms after the first; the supporting sentence and the action then fade up together. Nothing else on the page performs. Because headlines are two lines at most, you author the line breaks and wrap each line yourself. Recipe: 'Masked line reveal' in references/motion.md."
  },
  "sections": [
   {
-   "id": "work-panels-midline-row",
+   "id": "work-names-pass-a-held-square",
    "role": "work",
-   "name": "Full panels, one midline row",
-   "shape": "full-bleed",
+   "name": "Names passing a held square",
+   "shape": "index",
    "tags": [
+    "type-led",
     "photo-led",
     "poster"
    ],
    "directions": [
-    "place-carries-it",
+    "name-as-monument",
+    "loud-flat-poster",
     "pinned-poster",
-    "dark-room",
-    "borrowed-category",
-    "hero-object"
+    "specimen-catalogue"
    ],
    "needs": [],
-   "blueprint": "Four to seven consecutive panels, each 100vw by 100svh, butted together with no gap. Each panel is one photograph of the project cropped much tighter than its frame (`object-fit: cover` with the image scaled to 130%), so a detail fills the screen. The same three-part text row sits at exactly 50% of the height on every panel, in white with `mix-blend-mode: difference` or over a neutral dark scrim band 90px tall: the date or year at the left margin at 15px, the project title in capitals at clamp(22px, 2vw, 30px) starting 10% in from the left, and one fact (location, client, number of pieces) at the right margin at 15px. Because the row never moves, scrolling reads like turning plates in a book. Panels may be `position: sticky; top: 0` so each slides over the last. There is no section heading; the first panel's title row is the heading.",
-   "mobile": "Panels are 100vw by 82svh. The row drops to the bottom of each panel, 20px above its edge: the title at 22px on the first line, then date at the left and fact at the right on a second line at 13px, over the same scrim band.",
+   "blueprint": "A flat ground and one centred column of very large names: eight to fourteen project or product names in condensed capitals at clamp(96px, 14vw, 200px), leading 0.85, one per line and each line centred, so long names run nearly to the margins and short ones leave wide ground either side. A square frame 450px across (31vw), square corners, holds at the centre of the viewport behind the list: a sticky element (`position: sticky; top: calc(50svh - 225px)`) at the head of the list with a negative bottom margin equal to its height, centred, below the names in the stacking order, so the passing names cross the picture and are never hidden by it. Choose pictures with a calm centre, or lay a flat 30% scrim inside the frame, so the crossing name keeps 3:1. In the study the picture sits on top of the names; here nothing lies on top of large type. It shows the picture of whichever name is crossing its centre (an IntersectionObserver with a thin root margin at the viewport's middle sets the current name) and swaps with a 200ms crossfade. Level with the frame's middle, 48px to its left and right, two facts about the current item sit at 16px, the kind of work on the left and the year or price on the right, changing with it. The heading opens the list as its first line, at the same size in the soft ink, two words at most. Every name is a link. The section runs about three screens, so each name holds the centre for about a quarter of a screen.",
+   "mobile": "Names drop to 15vw and may wrap to two lines, still centred. The frame shrinks to a 60vw square and stays sticky at the centre; the two facts move into one row at 16px directly under it. The heading line stays first.",
    "seenIn": [
-    "aww-julien-calot",
-    "aww-milledollars",
-    "aww-depo-luxe",
-    "aww-risk"
+    "aww-decathlon-yestalgia"
    ]
   },
   {
-   "id": "how-it-works-pinned-fragment-changing-state",
+   "id": "how-it-works-run-in-column",
    "role": "how-it-works",
-   "name": "Pinned fragment, changing state",
-   "shape": "pinned",
+   "name": "Run-in column",
+   "shape": "list",
    "tags": [
-    "ui-led",
-    "quiet"
+    "quiet",
+    "type-led"
    ],
    "directions": [
-    "product-performs",
     "quiet-instrument",
+    "name-as-monument",
+    "editorial-report",
+    "contact-sheet",
     "split-stage",
-    "pinned-poster"
+    "product-performs"
    ],
-   "needs": [
-    "product-ui"
-   ],
-   "blueprint": "Two columns. Right, columns 7–12: a stage that is position: sticky; top: 14vh, holding one fragment of the real interface at true size on a single flat stage colour, about 520px square. Left, columns 1–5: three statements, each in its own block 80vh tall, so one is in view at a time. A statement is a two-line sentence at 28–32px that begins with its order word ('Paste a link.', 'Then pick the parts you want.', 'Share it when it looks right.') plus one supporting line at 16px. The statement nearest the viewport's centre is in full ink; the others sit at 30%. As each statement becomes active the fragment changes to the matching state: an empty field, a filled list with two rows selected, a finished result with its confirmation. Build the states in HTML and switch a class; do not swap screenshots. The heading, two to four words at 24–28px, sits above the first statement.",
-   "mobile": "The stage is sticky at the top, 46svh tall, the fragment fitted by cropping to its active region, not by shrinking its text. Statements scroll beneath it in blocks 60svh tall at 22px. The stage releases after the third statement.",
+   "needs": [],
+   "blueprint": "The quietest sequence: one reading column and good typography. A single column 520–600px wide starts at about 30% of the viewport width (or sits on the page's text axis). The heading is a two-to-five-word question or statement at 28–32px, 48px above the first paragraph. Three to five paragraphs follow at 17–18px with line-height 1.6. Each opens with a bold run-in phrase in full ink that names its moment ('To begin,', 'Within a day,', 'After that,', 'From then on,') while the rest of the paragraph runs in the soft ink; there are no subheads, bullets or markers. After each paragraph, 20px lower, comes one small piece of evidence exactly as wide as the column: a cropped interface fragment, a photograph at 16:9, or a row of three small frames 96px tall. 72px separates stages. Nothing in the section is wider than the column, and the space to its left stays empty.",
+   "mobile": "The column fills the width between 20px margins. Type stays at 17px. Evidence pieces keep the column width; the row of three frames becomes a single sideways-scrolling row 88px tall. 56px between stages. The heading drops to 24px.",
    "seenIn": [
-    "opl-juggle",
-    "aww-cerebrium",
-    "opl-vessa"
+    "opl-the-queue",
+    "opl-rows",
+    "opl-dialkit"
    ]
   },
   {
@@ -389,190 +399,181 @@
    ]
   },
   {
-   "id": "contact-visit-card-on-photograph",
+   "id": "contact-email-display",
    "role": "contact",
-   "name": "Visit card on a photograph",
-   "shape": "full-bleed",
+   "name": "The email as display type",
+   "shape": "statement",
    "tags": [
-    "photo-led",
-    "object-led"
+    "type-led",
+    "poster"
    ],
    "directions": [
-    "place-carries-it",
+    "name-as-monument",
+    "type-only-statement",
     "dark-room",
-    "page-is-the-object",
     "pinned-poster",
-    "hero-object"
+    "sentence-as-layout"
    ],
    "needs": [],
-   "blueprint": "A full-bleed photograph of the place, 100vw by 100svh, carries one solid card and nothing else. The card is a filled panel in the paper colour, fully opaque, 380px wide with 8px corners and 32px padding, placed in the upper-right corner 60px from the top and right edges (or the upper-left: pick the corner where the photograph is calmest). It holds, top to bottom: a two- or three-word title at 28px in a light weight; the address on two lines at 16px; the opening hours as three rows with days at the left and times right-aligned in tabular figures; the phone number; then, flush with the card's bottom edge and spanning its width, a solid booking button 52px tall. The card may be `position: sticky; top: 60px` inside a taller section so it holds while the photograph scrolls beneath it. The photograph's focal point must stay clear of the card. No heading outside the card.",
-   "mobile": "The photograph is 100vw by 70svh. The card leaves the corner: it spans the width with 16px margins and overlaps the photograph's bottom edge by 80px, so image and card interlock. The booking button is full width, 56px tall, at the card's bottom.",
+   "blueprint": "The section is 100svh in the inverse of the page's colours. A single email address is set as one line of display type spanning the content width: the font-size is fitted so the address runs from margin to margin (about 7–9vw for 20 characters; break after the @ onto two lines if it is longer than 26), light or regular weight, tight tracking, sitting on a baseline 12vh above the bottom edge. It is a `mailto:` link; on hover the whole line takes the accent ink. In the top-left corner, a sentence of up to 12 words at 20–22px says what to write about. In the two bottom corners at 14px: phone and city at the left, two or three social links at the right. No heading and no form. For a pinned ending, make the section `position: sticky; bottom: 0` beneath the page so the previous section lifts off it.",
+   "mobile": "The address breaks after the @ onto two lines at 11.5vw, left-aligned, sitting at 55% of an 86svh screen. The sentence sits at the top-left at 18px. Phone, city and social links stack at the bottom-left at 15px with 12px between them.",
    "seenIn": [
-    "opl-the-deep-end",
-    "opl-madie"
+    "aww-bleibtgleich26"
    ]
   },
   {
-   "id": "footer-photograph-and-large-menu",
+   "id": "footer-wordmark-first-places-below",
    "role": "footer",
-   "name": "Photograph half, menu half",
-   "shape": "split",
+   "name": "Name first, places under it",
+   "shape": "list",
    "tags": [
-    "photo-led",
     "type-led"
    ],
    "directions": [
-    "split-stage",
-    "loud-flat-poster",
-    "hero-object",
-    "uneven-photographs",
+    "name-as-monument",
+    "editorial-report",
+    "type-only-statement",
+    "colour-chapters",
     "pinned-poster",
-    "place-carries-it"
+    "uneven-photographs"
    ],
    "needs": [],
-   "blueprint": "A split footer one viewport tall. The left half is a single photograph filling columns 1–6 edge to edge, cropped hard by the left and bottom viewport edges: a close crop of the page's main subject, larger than it appeared anywhere above. The right half, on a flat field, is the site's menu set large: five or six section names stacked as links at about 2.6vw bold, 28px apart, starting at column 8 and 80px from the top. Rows are separated by space only; on hover a row's label shifts right by 12px and the others drop to the softer ink. Under the menu, 64px lower, two short blocks at 15px side by side: contact and social. The legal line runs along the very bottom of the right half at 12px. The wordmark sits small at the top of the right half, on the menu's left edge.",
-   "mobile": "The photograph leads at full width and 50svh, cropped tight. The menu follows on the flat field at 8vw per item with 20px between items, then contact and social stacked at 15px, then the legal line at 12px. The wordmark sits small above the menu.",
+   "blueprint": "The wordmark opens the footer instead of closing it. On a full-bleed field in the page's inverse or final chapter colour, the name spans the full content width as the first thing, its cap line pushed 8% above the footer's top edge so the tops of the letters are sliced off by the section (`overflow: hidden` and a negative top margin in `em`). 72px beneath, a two-part row: columns 1–5 list the places or ways to reach the studio (cities, or email and telephone), one per line at 32–36px in the accent ink, each a link; columns 7–12 hold three columns of small links at 15px, top-aligned with the first place. A final row 96px lower carries the legal line at the left and a back-to-top text link at the right, both 13px. The field is about 90svh tall, and nothing sits between the wordmark and the row but space.",
+   "mobile": "The sliced wordmark stays at the top, fitted to the width. Places follow as a list at 26px, then the link columns two across at 15px. Legal line and back-to-top link share the last row at 12px, at opposite margins.",
    "seenIn": [
-    "aww-trevor-noah",
-    "aww-monolog"
+    "aww-alethia",
+    "aww-hilden-kaira",
+    "aww-px-push",
+    "aww-pensatori-irrazionali"
    ]
   }
  ],
  "references": [
   {
-   "id": "aww-revelatio-studio",
-   "name": "Revelatio Studio",
-   "url": "https://revelatio.studio/",
+   "id": "aww-house-of-honey-1",
+   "name": "House of Honey",
+   "url": "https://www.houseofhoney.com/",
    "source": "Awwwards Site of the Day",
-   "kind": "agency",
-   "score": 7.6,
-   "idea": "The team photograph is the hero: it starts as a small CRT-curved mosaic of typographic glyphs and resolves into a full-bleed group portrait as you scroll.",
+   "kind": "studio-portfolio",
+   "score": 8.4,
+   "idea": "A block-heavy wordmark pierced by a hairline script: the bold-against-delicate contrast is repeated at every scale, with giant pink script behind quiet serif statements.",
    "mood": [
-    "dark",
-    "restrained",
-    "technical",
-    "human"
-   ],
-   "archetype": "bottom-anchored-type",
-   "hero": "Pure black viewport. Centred, about 58% of the width and 57% of the height, is a canvas showing a group photo rebuilt from tiny coloured glyphs, its edges barrel-distorted like a CRT tube; it is dim, so black dominates. The headline is modest: two lines at 2.5vw in regular-weight grotesk, flush to the bottom-left corner with a 30px margin. Navigation is split into two small dark-grey rounded rectangles: logo mark plus four links top-left, language switch and contact top-right. Nothing else; roughly 80% of the screen is black.",
-   "type": "Neue Haas Grotesk Text 55 Roman is the only face and weight. Headline just 36px with -0.03em tracking against 15px body; hierarchy comes from position and grey value. The footer city list jumps to roughly 5vw; the digest records a 12.5vw maximum.",
-   "colour": "#000000 #ffffff #2b2b2b #8a8a8a — Black intro and footer, white work and capabilities sections. The interface has no accent; all colour comes from project thumbnails and the faint tints inside the glyph mosaic.",
-   "imagery": "A studio group portrait rendered as a glyph mosaic on canvas, then as a dim near-full-bleed photograph; project tiles are square-cornered brand visuals in saturated flat colours, set on white with caption rows beneath.",
-   "layout": "About 30px side margins throughout. Black full-screen opening, then a white work grid mixing one large tile with a narrow companion and a three-up row, a three-column plain-text capabilities list, and a black footer of oversized dim text. Captions sit under images, tags right-aligned.",
-   "sections": [
-    {
-     "role": "intro",
-     "description": "Pinned for about two viewports: the hero canvas grows with scroll from a centred 58%-wide mosaic to a near full-bleed image with a thin black margin, while the glyph cells shrink until the picture reads as a dim photograph of about twenty people. The headline scrolls away and only the two nav boxes remain in the top corners."
-    },
-    {
-     "role": "work",
-     "description": "White background. First row: one large landscape tile spanning roughly two-thirds of the width beside a narrower tile about one-third wide and half as tall, top-aligned. Second row: three equal tiles. All square-cornered with about 16px gutters. Beneath each: project name at left, two tiny grey tags right-aligned on the same line, then a two-line grey description at about 11px. A small underlined see-all link with an arrow sits below the grid at left."
-    },
-    {
-     "role": "features",
-     "description": "White section opened by a hairline and a tiny label. Three text columns, each with a small grey category title and beneath it a tight stack of eight to ten service names in 15px regular grotesk at about 1.2 line-height, with no bullets, icons or cards. Columns share the work grid's left edges, leaving the right third partly empty."
-    },
-    {
-     "role": "footer",
-     "description": "Black full-viewport block filled with a run-on, comma-separated list of client cities set at about 5vw in very dark grey, barely visible against black, wrapping over seven flush-left lines. Exactly one city, the last, is lit white, which implies a cycling highlight. The nav boxes stay fixed at the top corners."
-    }
-   ],
-   "steal": [
-    "Render a photograph as a grid of small coloured glyphs on canvas and let scroll increase its size and resolution until it becomes the real photo.",
-    "Hold the hero headline at 2.5vw in a bottom corner and let a dim central image and empty black carry the scale.",
-    "Set a long list in near-invisible dark grey at display size and light one item at a time."
-   ],
-   "media": "A centred 16:10 canvas covering 60% of the width and height plays the team film as a dot matrix with a curved, tube-like outline, and grows to cover the whole screen over three screens of scroll. Below: an asymmetric two-plus-one then three-up grid of 16:9 work cards (video players scaled to 133% of the card so the letterboxing is cropped), a cursor image trail over a pinned city list, a draggable marquee of result cards, and a slider of cards with staggered image heights bleeding off the right edge; square corners.",
-   "motion": "No preloader was seen and the hero is composed at 400ms (load 23s); Lenis then holds two sticky 900px stages, the hero screen scaling from 60% to full bleed over 2700px and one city at a time lighting up over 3600px. The ground flips black, white, black by section with a 0.35s ease on colour across about 11,000 nodes, stat numerals roll like an odometer, and transforms run 0.4s on cubic-bezier(0.625,0.05,0,1) with 0.8s exits on (0.625,0,0.875,0)."
-  },
-  {
-   "id": "aww-normal-is-boring",
-   "name": "NORMAL IS BORING",
-   "url": "https://normalisboring.es/",
-   "source": "Awwwards Site of the Day",
-   "kind": "real-estate",
-   "score": 7.3,
-   "idea": "The brand name is split and half of it turned upside down: a plain sans first word top-left and a serif last word flipped 180 degrees bottom-right stay fixed while panels slide sideways between them.",
-   "mood": [
-    "refined",
-    "playful",
+    "glamorous",
     "warm",
-    "editorial"
+    "playful",
+    "editorial",
+    "confident"
    ],
-   "archetype": "split-text-media",
-   "hero": "A white panel fills the left 80%; a full-height interior photo takes the right 20%. Top-left: the first word of the name in light geometric capitals, about 56px. Bottom-right of the white panel: an italic 'is' above the last word in bold didone, rotated 180 degrees so it reads upside down. Three small caps nav links run vertically up the panel's right edge. The 50px headline is broken into three two-line fragments on different columns and baselines: one at 21% from the left, one a line lower at 42%, one back at 21% whose last word turns bold italic didone. A seven-line 13px paragraph hangs beneath the middle fragment.",
-   "type": "Izmir, a light geometric sans in capitals, for wordmark, hero fragments and 13px body; Juana, a high-contrast didone, bold italic for accent words and huge roman capitals (10-12vw and larger, cropped) for scrolling statements; Editorial New ultralight for the reversed paragraph.",
-   "colour": "#ffffff #000000 #ece4da #c7d7e9 #db5c59 #1f9aa0 — White and black panels alternate with warm beige; pale blue and coral panels appear deeper in. Type stays black or white. A single teal dot acts as cursor; photos bring wood and plant tones.",
-   "imagery": "Warm interior and garden photography of finished homes in natural light, wood and linen tones. Square-cornered; used as full-height strips, full-bleed panels and smaller insets laid over larger photos by about a third.",
-   "layout": "Reads as a sideways journey: white, black and beige panels slide horizontally with photos and oversized words cropped by panel edges. Text fragments sit on an irregular grid; the two halves of the logo stay fixed in opposite corners.",
+   "archetype": "giant-wordmark",
+   "hero": "Top 42% is a flat blush-pink band; the bottom 58% is a full-bleed photograph of a bright living room, arched window on the centre axis, butting against the band with no margin. A tiny nav row sits at the very top with 8px side margins: block logo glyph and five links left, contact link with a small square arrow box far right. The wordmark fills the width edge to edge: two words in ultra-black extended caps, about 120px cap height, dark aubergine, with a hairline script 'of' 230px tall between them, overshooting above and below. Directly beneath, two two-line serif uppercase taglines at 31px, one flush left, one flush right.",
+   "type": "Wordmark in ultra-black extended caps; statements in noeText serif, uppercase, 31–40px, tight tracking; nav and captions in neueHaasGrotesk around 14px; 'canora' hairline script for the connecting word and for cropped background words at 37vw. Three contrasting voices, each with one job.",
+   "colour": "#edccbe #331917 #0e0e0e #f26fcb #ffffff — Blush pink and dark aubergine-brown alternate as full fields and as each other's text colour. Hot pink appears only in the oversized script and a 2px divider. Photographs bring saturated colour.",
+   "imagery": "Editorial interior photography, saturated and daylight-lit. Hero is a full-bleed landscape crop; projects are portrait crops about 5:6 in a three-column grid with 4px gutters and square corners.",
+   "layout": "Edge-to-edge with 8px outer margins. Typographic sections (small centred label, serif statement, cropped giant script) alternate with a three-column image grid. Blush and brown fields swap each section; hairline link rows close blocks. The footer is a full-width logo glyph.",
    "sections": [
     {
-     "role": "gallery",
-     "description": "The photo strip from the hero grows to a full-height panel while a second, smaller interior photo slides over it, overlapping by roughly a third. To the right a white panel carries a four-line statement in didone capitals about 90px tall, set so the lines run off the panel edge and are completed only as scrolling continues. A small 12px paragraph sits under the statement's left edge."
-    },
-    {
      "role": "intro",
-     "description": "Full black panel. A nine-line paragraph in an ultralight serif at about 32px starts 70% of the way across and runs off the right edge; its words fade from white through grey to near-black line by line as a scroll-driven reveal. A single photo of a pool at dusk, roughly 300px square, sits alone in the lower-left third. The menu pill and flipped logo invert to white."
+     "description": "Dark aubergine field under the hero photo, separated by a 2px hot-pink line. A small sans label centred, then a three-line centred serif uppercase statement at about 31px in blush, 45% of the width. Behind it a hot-pink script phrase set near 37vw runs off both sides and is cut by the section's bottom edge, its ascenders rising into the statement. A smaller serif line follows."
     },
     {
      "role": "other",
-     "description": "Values panel on beige. Along the left edge a vertical ticker repeats one word in 90px didone capitals rotated 90 degrees, separated by thin eight-point asterisks. Beside it a large exterior photograph of a stone-and-glass house with a bathroom photo about half its size laid over its lower-right corner, square edges, no shadow or border."
+     "description": "Title card before the project grid. Blush field, nearly empty screen. A small label and a one-line serif uppercase heading about 40px sit centred at 55% height. The giant pink script returns, cropped by the bottom edge so only its top half shows and running off both sides."
     },
     {
      "role": "work",
-     "description": "Beige panel where the project title is set so large that single didone letters exceed the viewport height and are cropped top and bottom, acting as black shapes in the left half. In the right half a modest 300px-wide aerial photo floats with a bracketed year above and a centred serif caption and two-line descriptor below."
-    }
-   ],
-   "steal": [
-    "Split a two-part brand name into opposite corners of the viewport and flip one half 180 degrees so the logo enacts the name.",
-    "Break a headline into fragments on different columns and baselines, like a stair, and hang the body paragraph under one fragment only.",
-    "Scale a project title until single letters are taller than the viewport, then float a small captioned photo beside those cropped shapes."
-   ],
-   "media": "The only picture on the first screen is an interior photograph cropped to the right 20% (290px, full height), the leading edge of a pinned horizontal track that widens to about 65% on the next screen. Inside the track, overlapping pairs lay a smaller photograph over a larger full-height one, project cards widen as they reach the centre, and a photograph sits framed in a flat coral field; all 29 images have square corners and reveal by clip-path while scaling down from 1.5, and there is no video.",
-   "motion": "About 2.5s of entrance: the logo, then headline characters, then body lines rising from masks (y over 0.65-0.97s power3.out at a 0.025-0.033 stagger), then the photo and nav. One section pins for +=1150% (about 10,350px) at scrub 1 and is translated sideways; photo pairs move on scrub 0.35, a statement fills line by line on scrub 0, and project cards widen over 1s power1.inOut; a dot cursor grows with a back-out overshoot the house layer does not use."
-  },
-  {
-   "id": "opl-adam-ho",
-   "name": "Adam Ho, I.S.P.",
-   "url": "https://www.adamho.com/",
-   "source": "One Page Love",
-   "kind": "personal-portfolio",
-   "score": 7.6,
-   "idea": "A portfolio treated as a self-shuffling information system: fifty oversized coloured index numbers are scattered across the layout on each load, on top of a rigorously labelled archive.",
-   "mood": [
-    "chaotic",
-    "systematic",
-    "colourful",
-    "experimental"
-   ],
-   "archetype": "collage-scatter",
-   "hero": "White page, 8px margins. A layer of about fifty numerals at 86px (6vw) in a grotesk, each a different colour or a faint grey, is spread over the whole viewport in a rough six-column grid, overlapping everything. Beneath it: top-left a dot, the name and a three-line serif descriptor at 12px; a 200px column of small notes; top-right, filling 45% of the width, the project list set as vertical lines of text rotated 90 degrees, each tag highlighted in a marker colour under a row of coloured dots. From 36% height a hairline starts the first project: tiny labels, then square image tiles running to the right edge.",
-   "type": "ABC Oracle Plus for names, notes and the 86px numerals; AS Thermal, a dot-matrix receipt face, in uppercase for descriptions and metadata; Herbik serif for small headings. Body sizes are 10 to 13px, so the only large type is the number overlay and the about paragraph.",
-   "colour": "#fefefe #161616 #f5320b #ffee00 #1e8fff #ff8fd0 — White ground with black text; colour is applied as data: highlighter backgrounds on tags, a coloured dot per project, rainbow numerals. One flat orange-red block the full width closes the page.",
-   "imagery": "Brand identity artefacts (logos, badges on lanyards, type specimens, posters) as square or portrait tiles with square corners, butted nearly edge to edge in a row; photography, flat graphics and line drawings mixed.",
-   "layout": "Each project is a full-width band opened by a hairline and a row of tiny labels, with a narrow text column at left and three or four image tiles of equal height to the right. Bands repeat for twelve screens; an about paragraph in large grey type breaks them.",
-   "sections": [
-    {
-     "role": "work",
-     "description": "Top-right block about 650px wide. Thirty-odd project names with their discipline tags are set as single lines rotated 90 degrees to read top to bottom, packed side by side like book spines. Each tag has its own highlighter-colour background (yellow, green, pink, lilac, red), and a row of matching 12px dots runs along the top, one per line. It is a complete index in the footprint of a banner."
-    },
-    {
-     "role": "work",
-     "description": "A hairline, then a label row: an input code and a category in tiny grey bold at left, the year at far right in dot-matrix type. Next line: a coloured dot, the client name in serif, its tags on a highlighter background, and a one-sentence description starting at a second column. Below, tiles of equal height: a narrow column of dot-matrix text under a small serif numbered heading, then two or three large image squares reaching the right edge."
-    },
-    {
-     "role": "about",
-     "description": "Two justified columns of grey grotesk text at about 30px with tight leading fill the full width, far larger than anything else on the page. The name at the start is black; six or seven individual words carry pastel highlighter backgrounds in green, pink, lilac and blue, and the final short sentence is fully highlighted in bright blue like a selected link."
+     "description": "Three columns edge to edge with 4px gutters and 8px outer margins. Portrait photos about 500×580px, square corners. Under each: an uppercase sans title at 14px and a grey line of GPS coordinates. Two rows, then a full-width hairline row with a text link left and a small square arrow box at the far right."
     },
     {
      "role": "footer",
-     "description": "A solid orange-red rectangle spans the full width, about 300px tall, with the header's name and dot row printed over it in darker tones. Below on white, two short stacks of links in grey 28px grotesk under 9px labels, flush left, with most of the width left empty; a small pixel-art status widget with a blue progress bar stays pinned bottom-right."
+     "description": "Brown field. The logo glyph is enlarged to full width and about a third of the screen: blush rectangles and quarter-circle arcs with 4px gaps, forming an abstract monogram. Below: four columns of small links, a hairline, two addresses in the first two columns, another hairline, then copyright left and a small blush button right."
     }
    ],
    "steal": [
-    "Set an index as vertical lines of rotated text packed like book spines, each with a highlighter-colour tag, to fit thirty items into a banner-sized block.",
-    "Use highlighter backgrounds on single words inside a large grey paragraph as the only emphasis.",
-    "Open every project with the same tiny label row (code, category, year) above a hairline so a dense archive stays scannable."
+    "Set a wordmark edge to edge in ultra-heavy extended caps and thread a hairline script connecting word through it that overshoots the cap height both ways.",
+    "Use an oversized script word in one hot accent colour as a cropped background layer behind small, calm serif statements.",
+    "Split a tagline into two halves, flush left and flush right on the same baseline under the wordmark, instead of centring it."
+   ],
+   "media": "The lower 58% of the fold is a full-bleed interior photograph that continues for one full viewport as a five-image crossfading slideshow with a pink progress line on its bottom edge. Below: a three-up grid of 4:5 project tiles with 8px gutters sliding over a giant script marquee, a full-bleed tinted feature photograph with its title docked bottom-left, a full-bleed photograph with an inset colour card, and one giant cropped letterform as the footer's picture, the photographs oversized to 110-170% of their frames for drift and no video anywhere.",
+   "motion": "There is no visible preloader and the page is whole at 400ms; under Lenis, blocks rise 8px and fade in over 800ms ease-out at 0-260ms staggers (39 WAAPI calls), slideshow crossfades take 600ms cubic-bezier(0.7,0,0.25,1), the oversized photographs drift, and script marquees run on CSS time (90-122s per pair). Page changes use a 1s view transition on the same curve; nothing pins, and there is one reduced-motion rule."
+  },
+  {
+   "id": "opl-nia-creative",
+   "name": "Nia Creative",
+   "url": "https://niacreative.co",
+   "source": "One Page Love",
+   "kind": "agency",
+   "score": 7.4,
+   "idea": "The three-letter wordmark becomes a slot-machine reel: the name repeats vertically and its middle letter is swapped for a square of client photography or video.",
+   "mood": [
+    "warm",
+    "confident",
+    "social",
+    "polished"
+   ],
+   "archetype": "giant-wordmark",
+   "hero": "Pale grey field with a slim nav: bracketed lowercase logo top-left, four uppercase mono links centred, a black pill button top-right. The centre 43% of the width holds a vertical reel of the wordmark stacked three times in very heavy black grotesk, each row about 230px tall; in every row the middle letter is replaced by a square photo or video tile (surfers, a woman holding glasses over her eyes, a burger). The middle row is sharp; rows above and below fade out through gradient masks. A bottom strip carries a mono descriptor at left and city plus live clock at right. A plum band starts at the fold.",
+   "type": "A heavy, tightly tracked grotesk (xgnl) carries the wordmark, a 70px lowercase section word and bold 20 to 34px statements; body is the same face at 14px, bold. Geist Mono in small capitals handles nav, categories, bracketed indexes and the clock.",
+   "colour": "#f3f3f3 #574d56 #515144 #1c1c1c #b9aebd #b3b586 — Pale grey base with black type. Two muted full-width bands, dusty plum and olive, set their text in a lighter tint of the band colour rather than white. Photography supplies the saturation.",
+   "imagery": "Flash-lit hospitality and lifestyle photography plus short video: cocktails, hotel rooms, food, trail runners. Portrait tiles with one or two large rounded corners, square tiles inside the wordmark, and an edge-to-edge three-up strip.",
+   "layout": "28px side margins and a three-column grid for work. Big lowercase section words sit flush left with a small paragraph flush right. Sections alternate pale grey grids, coloured statement bands and full-bleed image strips; a black rounded nav bar pins to the top after the hero.",
+   "sections": [
+    {
+     "role": "intro",
+     "description": "Dusty plum band about one viewport tall. A bold 34px statement in pale lilac sits top-left across half the width, one phrase underlined with a hand-drawn stroke. Lower left, a small heading and eight industries in tiny uppercase mono split into two bulleted columns. At the right margin a tall portrait photo, about 20% of the width, with large rounded corners, overlaps the band's top edge and leaves the middle of the band empty."
+    },
+    {
+     "role": "work",
+     "description": "A 70px heavy lowercase word flush left with a three-line 14px paragraph flush right on the same baseline. Below, three equal columns with wide gutters: each has a portrait image narrower than its column with a large radius on the bottom-right corner only, then a 20px project name, a mono uppercase category and a four-line bold description. Rows repeat with no dividers or card backgrounds."
+    },
+    {
+     "role": "cta",
+     "description": "Three photographs or clips butt together edge to edge with no gaps, each a third of the viewport wide and about 40% of a screen tall. Immediately below, an olive band: a three-line 26px statement in pale olive at left with one underlined phrase, two lines of small copy beneath it, and a small rounded portrait image tucked into the lower right corner."
+    },
+    {
+     "role": "features",
+     "description": "Services as stacked sheets. Each is a full-width panel with a 1px outline and large top-corner radius that slides up over the previous one. The left half is empty except for a centred column: a bracketed mono index, a 26px bold title and four centred lines of sub-services. The right half is one photograph with rounded corners filling the panel height."
+    }
+   ],
+   "steal": [
+    "Drop a photo tile into the wordmark in place of one letter and run the lockup as a vertical reel with masked top and bottom rows.",
+    "On coloured bands, set type in a lighter tint of the band's own hue instead of white to keep the band calm.",
+    "Round only one corner of each image tile, the same corner every time, as a quiet signature shape."
+   ]
+  },
+  {
+   "id": "opl-rafael-derolez-2026",
+   "name": "Rafael Derolez",
+   "url": "https://derolez.dev/",
+   "source": "One Page Love",
+   "kind": "personal-portfolio",
+   "score": 7.3,
+   "idea": "A portfolio as a phone carousel: a fixed text rail on the left narrates whichever phone-shaped screen is centred on the right.",
+   "mood": [
+    "compact",
+    "dark",
+    "friendly",
+    "app-like"
+   ],
+   "archetype": "split-text-media",
+   "hero": "Dark charcoal page split by a vertical hairline at 30% width. Left rail: a 55px header row with name, slash and current section as a breadcrumb in 16px sans, plus a small cobalt ticket-shaped hire button with a perforated divider and arrow; below a hairline, four short paragraphs of 16px grey text with white links, top-aligned, leaving the lower 40% of the rail empty. Right 70%: three phone-proportioned frames with large rounded corners in a row; the centre one upright, full brightness and about 680px tall, the outer two smaller, dimmed and rotated in perspective toward the centre.",
+   "type": "Suisse at a single 16px size, weight 400, for everything; hierarchy comes only from grey versus white and from the breadcrumb. The one larger setting is a bold two-word line inside the blue contact card. No display type at all.",
+   "colour": "#18181b #030303 #969696 #173ded #ffffff — Zinc-black field with grey text and white for links and the active breadcrumb. Cobalt blue appears only on the hire button and contact card; all other colour comes from the app screenshots.",
+   "imagery": "Phone-shaped frames with large corner radius holding app screens, a selfie and short videos; side frames are dimmed to about 40% and tilted in 3D like a cover-flow.",
+   "layout": "Single viewport, no page scroll: a fixed 432px text rail with 32px padding and a media stage filling the rest. Scrolling advances the carousel and replaces the rail's text; hairlines separate rail, header and stage. On mobile the stage stacks above the rail.",
+   "sections": [
+    {
+     "role": "work",
+     "description": "Same two-part frame. The breadcrumb's last word changes to the project name; under the header sit three tiny grey meta tags (employer, platform), then two paragraphs. On the stage the centred phone shows the product screen at full brightness while neighbours show the previous and next items dimmed and tilted, so the carousel works as both navigation and preview."
+    },
+    {
+     "role": "about",
+     "description": "In the rail, a cobalt card shaped like a ticket with notched sides: tiny labels top-left and top-right, a large bold two-word heading, name and local time in small text, then a perforated lower strip with email at left and a copy button at right. Under it, a career list: company in white with dates in small grey on one line, role on the next, and a small arrow at the far right of each row."
+    }
+   ],
+   "steal": [
+    "Use a breadcrumb (name / current item) as the only heading and update its last word as the content changes.",
+    "Show work in device-shaped frames arranged as a cover-flow, with neighbours dimmed and tilted so the next item is always previewed.",
+    "Shape the contact card like a ticket with notches and a perforated strip so the one accent-colour element feels like an object."
    ]
   }
  ],

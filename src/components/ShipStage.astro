@@ -142,10 +142,10 @@ if [[ -n "$PREVIOUS" && "$PREVIOUS" != "$TAG" ]]; then
   .statements .head { margin-bottom: 2rem; }
   .step { min-height: 68vh; display: grid; align-content: center; gap: 1rem; padding-block: 2rem; }
   .step:first-of-type { min-height: 52vh; align-content: start; }
-  .statement { font-size: var(--step-statement); line-height: 1.1; letter-spacing: -0.03em; font-weight: 900; max-width: 18ch; }
+  .statement { font-size: var(--step-statement); line-height: 1.1; letter-spacing: -0.02em; font-weight: 700; max-width: 18ch; }
   .line { color: var(--muted); max-width: 40ch; }
-  .is-staged .step.is-active .statement { color: var(--turmeric); }
-  .is-staged .step.is-active .line { color: var(--ink); }
+  .is-staged .step.is-active .statement { color: var(--signal); }
+  .is-staged .step.is-active .line { color: var(--text); }
 
   .stage { grid-column: 7 / 13; position: sticky; top: 22vh; display: none; }
   .stage-inner { display: grid; }
@@ -155,17 +155,17 @@ if [[ -n "$PREVIOUS" && "$PREVIOUS" != "$TAG" ]]; then
   .stage :global(.fragment.is-active) { opacity: 1; transform: none; }
 
   /* The fragments: real code and real results, in the repos' own terms. */
-  .how :global(.fragment) { margin: 0; background: var(--surface); padding: clamp(1.25rem, 2.5vw, 2rem); display: grid; align-content: start; gap: 1rem; }
-  .how :global(pre) { margin: 0; font-size: 0.875rem; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--paper); }
+  .how :global(.fragment) { margin: 0; background: var(--ink); color: var(--enamel); padding: clamp(1.25rem, 2.5vw, 2rem); display: grid; align-content: start; gap: 1rem; }
+  .how :global(pre) { margin: 0; font-size: 0.875rem; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--enamel); }
   .how :global(.fragment) { min-width: 0; }
   .how :global(pre), .how :global(code) { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
-  .how :global(figcaption) { font-size: var(--step-small); color: var(--muted); }
+  .how :global(figcaption) { font-size: var(--step-small); color: var(--enamel-2); }
   .how :global(.checks), .how :global(.bot) { display: grid; gap: 0.35rem; margin: 0; padding: 0; }
-  .how :global(.check) { display: grid; grid-template-columns: 1fr auto; gap: 0.75rem; align-items: center; padding: 0.7rem 0.9rem; background: var(--night); font-size: var(--step-small); }
-  .how :global(.check-name) { font-weight: 700; color: var(--paper); }
-  .how :global(.check-state) { color: var(--turmeric); font-weight: 700; }
-  .how :global(.bot > div) { display: grid; grid-template-columns: 9rem 1fr; gap: 1rem; padding: 0.8rem 0.9rem; background: var(--night); font-size: var(--step-small); }
-  .how :global(.bot dt) { font-weight: 900; color: var(--turmeric); }
+  .how :global(.check) { display: grid; grid-template-columns: 1fr auto; gap: 0.75rem; align-items: center; padding: 0.7rem 0.9rem; background: var(--ink-2); font-size: var(--step-small); }
+  .how :global(.check-name) { font-weight: 600; color: var(--enamel); }
+  .how :global(.check-state) { color: var(--station); font-weight: 600; }
+  .how :global(.bot > div) { display: grid; grid-template-columns: 9rem 1fr; gap: 1rem; padding: 0.8rem 0.9rem; background: var(--ink-2); font-size: var(--step-small); }
+  .how :global(.bot dt) { font-weight: 800; color: var(--station); }
 
   @media (max-width: 63.99em) {
     .statements { grid-column: 1 / -1; }

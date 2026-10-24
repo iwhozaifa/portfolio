@@ -23,7 +23,7 @@ import BiltyStub from './BiltyStub.astro';
     <a class="button action" href={`${base}#contact`}>Start a project</a>
     <button class="menu-open strong" type="button" popovertarget="site-menu">Menu</button>
   </nav>
-  <div id="site-menu" class="menu field-turmeric" popover aria-label="Menu">
+  <div id="site-menu" class="menu field-station" popover aria-label="Menu">
     <div class="menu-head wrap">
       <span class="wordmark">Ali Huzaifa</span>
       <button class="strong" type="button" popovertarget="site-menu" popovertargetaction="hide">Close</button>
@@ -42,12 +42,12 @@ import BiltyStub from './BiltyStub.astro';
 </script>
 
 <style>
-  .site-nav { position: sticky; top: 0; z-index: 30; background: var(--night); }
+  .site-nav { position: sticky; top: 0; z-index: 30; background: var(--bg); }
   .bar { display: flex; align-items: center; gap: 2rem; min-height: 4.5rem; }
-  .wordmark { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; font-size: var(--step-lead); text-decoration: none; white-space: nowrap; }
+  .wordmark { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; letter-spacing: -0.005em; font-size: var(--step-lead); text-decoration: none; white-space: nowrap; }
   .links { display: flex; gap: 1.75rem; margin-left: auto; }
   .bar :global(.bar-stub) { min-height: 2.75rem; }
-  .link-quiet { font-weight: 700; text-decoration: none; display: inline-block; transition: transform var(--t-small) var(--ease-out); }
+  .link-quiet { font-weight: 600; text-decoration: none; display: inline-block; transition: transform var(--t-small) var(--ease-out); }
   @media (hover: hover) and (pointer: fine) {
     .link-quiet:hover { transform: translateY(-2px); }
   }
@@ -58,7 +58,7 @@ import BiltyStub from './BiltyStub.astro';
   .menu-head { display: flex; justify-content: space-between; align-items: center; min-height: 4.5rem; }
   .menu-head button { min-height: 3rem; }
   .menu-links { display: grid; gap: 0.25rem; align-self: end; padding: 2rem var(--margin) 3rem; }
-  .menu-links a { display: block; font-family: var(--font-display); font-weight: 900; text-transform: uppercase; letter-spacing: -0.04em; line-height: 1; font-size: 12vw; text-decoration: none; padding-block: 0.15em; }
+  .menu-links a { display: block; font-family: var(--font-display); font-weight: 800; text-transform: uppercase; letter-spacing: -0.005em; line-height: 1; font-size: 12vw; text-decoration: none; padding-block: 0.15em; }
 
   @media (max-width: 47.99em) {
     .links, .action { display: none; }

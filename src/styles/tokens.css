@@ -1,9 +1,18 @@
-/* Design tokens: theme "Grand Trunk" (docs/PLAN.md §3A, taste-skill sheet seed 4127).
+/* Design tokens: theme "Platform" (docs/PLAN.md §3B, taste-skill sheet seed 1953796102).
    Everything downstream references these names only. Contrast pairs are checked by scripts/contrast.mjs. */
 
 @font-face {
-  font-family: 'Chivo';
-  src: url('/fonts/chivo-latin-wght.woff2') format('woff2-variations');
+  font-family: 'Big Shoulders';
+  src: url('/fonts/big-shoulders-latin-wght.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Public Sans';
+  src: url('/fonts/public-sans-latin-wght.woff2') format('woff2-variations');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -20,34 +29,33 @@
 }
 
 :root {
-  /* Palette: colours of the painted goods truck, shared with Aaj Kya Pakayen. */
-  --night: oklch(0.19 0.025 55);    /* #1d1109 chai-dark ground */
-  --paper: oklch(0.945 0.005 85);   /* #eeede9 bone: ink on night (a low-chroma white, not cream) */
-  --turmeric: oklch(0.80 0.165 80); /* #f5b005 accent, the action */
-  --crimson: oklch(0.55 0.21 22);   /* #d01a34 truck crimson: field */
-  --peacock: oklch(0.41 0.085 205); /* deep peacock teal: field */
-  --dust: oklch(0.76 0.03 75);      /* #bdaf9d secondary text on night */
-  --night-2: oklch(0.24 0.025 55);  /* one tone step up from night, for surfaces */
-  --paper-2: oklch(0.9 0.006 85);   /* one tone step down from bone, for rows on a paper slip */
+  /* Palette: a Pakistan Railways station nameboard. Yellow enamel, black capitals, a signal red. */
+  --enamel: oklch(0.96 0.004 95);   /* #f2f2ef ground: a low-chroma white, not cream */
+  --ink: oklch(0.18 0.012 260);     /* #0e1217 text, the board's black capitals */
+  --signal: oklch(0.53 0.21 29);    /* #c9120d the one accent and the action */
+  --slate: oklch(0.42 0.012 260);   /* secondary text on enamel */
+  --station: oklch(0.86 0.17 95);   /* #f4ce23 the nameboard yellow: field */
+  --enamel-2: oklch(0.915 0.005 95); /* one tone step down from enamel, for rows and surfaces */
+  --ink-2: oklch(0.25 0.012 260);   /* one tone step up from ink, for surfaces on an ink band */
 
   /* Roles */
-  --bg: var(--night);
-  --surface: var(--night-2);
-  --ink: var(--paper);
-  --muted: var(--dust);
-  --accent: var(--turmeric);
-  --accent-ink: var(--night);
-  --focus: var(--turmeric);
+  --bg: var(--enamel);
+  --surface: var(--enamel-2);
+  --text: var(--ink);
+  --muted: var(--slate);
+  --accent: var(--signal);
+  --accent-ink: var(--enamel);
+  --focus: var(--signal);
 
   /* Fields: each sets its own ground, ink and focus colour. */
-  --field-crimson: var(--crimson);   --field-crimson-ink: var(--paper);
-  --field-peacock: var(--peacock);   --field-peacock-ink: var(--paper);
-  --field-turmeric: var(--turmeric); --field-turmeric-ink: var(--night);
-  --field-paper: var(--paper);       --field-paper-ink: var(--night);   /* accent on paper is peacock */
+  --field-station: var(--station); --field-station-ink: var(--ink);
+  --field-signal: var(--signal);   --field-signal-ink: var(--enamel);
+  --field-ink: var(--ink);         --field-ink-ink: var(--enamel);
+  --field-slate: var(--slate);     --field-slate-ink: var(--enamel);
 
-  /* Type: Chivo for everything Latin, Gulzar for Urdu. */
-  --font-display: 'Chivo', 'Arial Narrow', sans-serif;
-  --font-text: 'Chivo', 'Helvetica Neue', Arial, sans-serif;
+  /* Type: Big Shoulders for display, Public Sans for text, Gulzar for Urdu. */
+  --font-display: 'Big Shoulders', 'Arial Narrow', sans-serif;
+  --font-text: 'Public Sans', 'Helvetica Neue', Arial, sans-serif;
   --font-urdu: 'Gulzar', 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
 
   --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);

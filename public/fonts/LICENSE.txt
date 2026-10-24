@@ -1,7 +1,10 @@
-Chivo (chivo-latin-wght.woff2), from @fontsource-variable/chivo 5.3.0, and Gulzar (gulzar-urdu-subset.woff2, subset), from @fontsource/gulzar 5.3.0, are licensed under the SIL Open Font License 1.1.
+Big Shoulders (big-shoulders-latin-wght.woff2), from @fontsource-variable/big-shoulders 5.3.0, Public Sans (public-sans-latin-wght.woff2), from @fontsource-variable/public-sans 5.3.0, and Gulzar (gulzar-urdu-subset.woff2, subset), from @fontsource/gulzar 5.3.0, are licensed under the SIL Open Font License 1.1.
 
-== Chivo
-Copyright 2019 The Chivo Project Authors (https://github.com/Omnibus-Type/Chivo) Chivo-Italic[wght].ttf: Copyright 2019 The Chivo Project Authors (https://github.com/Omnibus-Type/Chivo)
+== Big Shoulders
+Copyright 2019 The Big Shoulders Project Authors (https://github.com/xotypeco/big_shoulders)
+
+== Public Sans
+Copyright 2015 The Public Sans Project Authors (https://github.com/uswds/public-sans)
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:

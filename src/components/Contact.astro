@@ -7,7 +7,7 @@ import { site, projectMailto } from '../data/site';
 ---
 <section id="contact" class="contact defer" aria-labelledby="contact-h">
   <Picture src={bus} formats={['avif', 'webp']} widths={[640, 1000, 1600, 2400]} sizes="100vw" class="contact-photo" alt="A bus painted from roof to wheels in truck-art colours and mirror work, on a street in Karachi." />
-  <div class="card field-paper">
+  <div class="card field-enamel">
     <h2 id="contact-h" class="card-title">Start a project</h2>
     <p>Freelance builds on AWS: infrastructure as code, CI/CD pipelines, serverless apps and automation.</p>
     <dl class="rows">
@@ -35,10 +35,10 @@ import { site, projectMailto } from '../data/site';
   .contact { position: relative; min-height: 100svh; display: grid; justify-items: end; align-items: start; padding: clamp(2rem, 4vw, 3.75rem) var(--margin); overflow: hidden; }
   .contact :global(.contact-photo) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 35% 60%; }
   .card { position: relative; width: min(26rem, 100%); padding: 2rem; display: grid; gap: 1.25rem; }
-  .card-title { font-size: var(--step-lead); line-height: 1; letter-spacing: -0.03em; }
+  .card-title { font-size: var(--step-lead); line-height: 1; letter-spacing: -0.005em; }
   .rows { display: grid; gap: 0.25rem; }
-  .rows > div { display: grid; grid-template-columns: 5.5rem 1fr; gap: 0.75rem; padding: 0.55rem 0.75rem; background: var(--paper-2); }
-  .rows dt { font-weight: 700; }
+  .rows > div { display: grid; grid-template-columns: 5.5rem 1fr; gap: 0.75rem; padding: 0.55rem 0.75rem; background: var(--enamel-2); }
+  .rows dt { font-weight: 600; }
   .rows dd { overflow-wrap: anywhere; }
   .card-action { width: 100%; min-height: 3.25rem; }
   @media (max-width: 47.99em) {

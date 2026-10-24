@@ -6,12 +6,12 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: 
 body {
   margin: 0;
   background: var(--bg);
-  color: var(--ink);
+  color: var(--text);
   font-family: var(--font-text);
   font-size: var(--step-body);
   font-weight: 400;
-  line-height: 1.45;
-  letter-spacing: -0.01em;
+  line-height: 1.5;
+  letter-spacing: 0;
   font-kerning: normal;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -28,12 +28,12 @@ a { color: inherit; }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
 
 /* Type roles */
-h1, h2, h3, .display, .head { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; text-wrap: balance; hyphens: none; }
-.display { font-size: var(--step-display); line-height: 0.88; letter-spacing: -0.05em; }
-.head { font-size: var(--step-head); line-height: 0.92; letter-spacing: -0.04em; }
+h1, h2, h3, .display, .head { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; text-wrap: balance; hyphens: none; }
+.display { font-size: var(--step-display); line-height: 0.88; letter-spacing: -0.005em; }
+.head { font-size: var(--step-head); line-height: 0.9; letter-spacing: -0.005em; }
 .lead { font-size: var(--step-lead); line-height: 1.3; max-width: 34ch; }
 .small { font-size: var(--step-small); line-height: 1.4; }
-.strong { font-weight: 700; }
+.strong { font-weight: 600; }
 .muted { color: var(--muted); }
 p { max-width: 62ch; text-wrap: pretty; }
 p + p { margin-top: 0.9em; }
@@ -41,11 +41,12 @@ p + p { margin-top: 0.9em; }
 .ur { font-family: var(--font-urdu); font-weight: 400; line-height: 1.9; letter-spacing: 0; text-transform: none; }
 
 /* Fields: a section takes one flat ground and the ink that reads on it. */
-.field-crimson { --bg: var(--field-crimson); --ink: var(--field-crimson-ink); --muted: var(--field-crimson-ink); --accent: var(--paper); --accent-ink: var(--crimson); --focus: var(--paper); }
-.field-peacock { --bg: var(--field-peacock); --ink: var(--field-peacock-ink); --muted: var(--field-peacock-ink); --accent: var(--turmeric); --accent-ink: var(--night); }
-.field-turmeric { --bg: var(--field-turmeric); --ink: var(--field-turmeric-ink); --muted: var(--field-turmeric-ink); --accent: var(--night); --accent-ink: var(--paper); --focus: var(--night); }
-.field-paper { --bg: var(--field-paper); --ink: var(--field-paper-ink); --muted: var(--field-paper-ink); --accent: var(--peacock); --accent-ink: var(--paper); --focus: var(--peacock); }
-[class*='field-'] { background: var(--bg); color: var(--ink); }
+.field-station { --bg: var(--field-station); --text: var(--field-station-ink); --muted: var(--field-station-ink); --surface: var(--enamel); --accent: var(--ink); --accent-ink: var(--station); --focus: var(--ink); }
+.field-signal { --bg: var(--field-signal); --text: var(--field-signal-ink); --muted: var(--field-signal-ink); --surface: var(--ink); --accent: var(--enamel); --accent-ink: var(--signal); --focus: var(--enamel); }
+.field-ink { --bg: var(--field-ink); --text: var(--field-ink-ink); --muted: var(--enamel-2); --surface: var(--ink-2); --accent: var(--station); --accent-ink: var(--ink); --focus: var(--station); }
+.field-slate { --bg: var(--field-slate); --text: var(--field-slate-ink); --muted: var(--field-slate-ink); --surface: var(--ink); --accent: var(--enamel); --accent-ink: var(--ink); --focus: var(--enamel); }
+.field-enamel { --bg: var(--enamel); --text: var(--ink); --muted: var(--slate); --surface: var(--enamel-2); --accent: var(--signal); --accent-ink: var(--enamel); --focus: var(--signal); }
+[class*='field-'] { background: var(--bg); color: var(--text); }
 
 /* Layout */
 .wrap { padding-inline: var(--margin); }
@@ -63,7 +64,7 @@ p + p { margin-top: 0.9em; }
   min-height: 3rem; padding: 0 1.5rem;
   background: var(--accent); color: var(--accent-ink);
   border-radius: var(--radius);
-  font-weight: 700; text-decoration: none; white-space: nowrap;
+  font-weight: 600; text-decoration: none; white-space: nowrap;
   transition: transform var(--t-micro) var(--ease-out);
 }
 .button:active { transform: scale(0.97); }

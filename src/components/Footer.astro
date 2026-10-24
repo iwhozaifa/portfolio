@@ -15,7 +15,7 @@ const menu = [
   { href: `${base}#contact`, label: 'Contact' },
 ];
 ---
-<footer class="footer defer">
+<footer class="footer field-ink">
   <div class="split">
     <Picture src={tiger} formats={['avif', 'webp']} widths={[640, 1000, 1600]} sizes="(min-width: 48em) 50vw, 100vw" class="footer-photo" alt="A tiger painted on a goods truck's mud flap, with Urdu lettering on either side." />
     <div class="menu-half">
@@ -39,18 +39,17 @@ const menu = [
 </footer>
 
 <style>
-  .footer { background: var(--night); }
   .split { display: grid; grid-template-columns: 1fr 1fr; min-height: 90svh; }
   .footer :global(.footer-photo) { width: 100%; height: 100%; object-fit: cover; object-position: 30% 50%; }
   .menu-half { display: grid; align-content: start; gap: 2.5rem; padding: 5rem var(--margin) 3rem calc(var(--gutter) * 2); }
-  .wordmark-small { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; }
+  .wordmark-small { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; letter-spacing: -0.005em; }
   .menu { display: grid; gap: 1.25rem; }
-  .menu a { display: inline-block; font-family: var(--font-display); font-weight: 900; text-transform: uppercase; letter-spacing: -0.04em; line-height: 1; font-size: var(--step-statement); text-decoration: none; transition: transform var(--t-small) var(--ease-out); }
+  .menu a { display: inline-block; font-family: var(--font-display); font-weight: 800; text-transform: uppercase; letter-spacing: -0.005em; line-height: 1; font-size: var(--step-statement); text-decoration: none; transition: transform var(--t-small) var(--ease-out); }
   @media (hover: hover) and (pointer: fine) {
     .menu a:hover { transform: translateX(12px); }
   }
   .blocks { display: grid; gap: 0.5rem; }
-  .name { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; letter-spacing: -0.05em; line-height: 0.85; font-size: calc((100vw - 2 * var(--margin)) / 7.4); white-space: nowrap; color: var(--turmeric); padding-top: 3rem; }
+  .name { font-family: var(--font-display); font-weight: 800; text-transform: uppercase; letter-spacing: -0.005em; line-height: 0.85; font-size: calc((100vw - 2 * var(--margin)) / 7.4); white-space: nowrap; color: var(--station); padding-top: 3rem; }
   .legal { display: grid; gap: 0.5rem; padding-block: 2rem 2.5rem; color: var(--muted); }
   .legal p { max-width: 90ch; }
   @media (max-width: 47.99em) {

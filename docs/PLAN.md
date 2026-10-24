@@ -321,3 +321,11 @@ infra change ──────► infra.yml: cdk diff posted to PR → cdk depl
 - **M2, fonts.** Gulzar subset to the Urdu actually used is 115 KB (Nastaliq keeps a large shaping
   closure); it is never preloaded and never the LCP element. Subsetting uses `subset-font` (HarfBuzz
   WASM) instead of Python fonttools, which is not installable here without sudo.
+- **Theme switch to B "Platform" (2026-10-24, issue #22).** Ali Huzaifa replaced A "Grand Trunk" with B
+  (§3B). Step 1 swaps the design system only: palette enamel `oklch(0.96 0.004 95)` (chroma lowered from
+  §3B's 0.006, which the inspector read as yellow cream), ink, signal, slate `oklch(0.42 0.012 260)`
+  (darkened from 0.46 so secondary text clears 7:1), station; fields station, signal, ink and slate;
+  Big Shoulders 800 and Public Sans, with Gulzar kept as a real webfont for the two existing Urdu strings.
+  The text role is now `--text`, because `--ink` is a palette colour. `.taste-skill/direction.json` is
+  re-dealt with seed 1953796102: type, hero and work match §3B; for how-it-works, contact and footer
+  the approved plan's choices stand over the new deal.
