@@ -15,7 +15,7 @@ const work = defineCollection({
       subtitle: z.string(),
       order: z.number(),
       year: z.number(),
-      field: z.enum(['crimson', 'peacock', 'turmeric', 'paper']),
+      field: z.enum(['station', 'signal', 'ink', 'slate']),
       fact: z.string(),
       description: z.string(),
       repo: z.url().optional(),

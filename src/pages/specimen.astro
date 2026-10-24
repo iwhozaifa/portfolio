@@ -4,25 +4,25 @@
 import Base from '../layouts/Base.astro';
 
 const fields = [
-  { cls: 'field-crimson', name: 'Crimson', role: 'Field for the first work panel and the contact card', ink: 'Bone text, 4.61:1' },
-  { cls: 'field-peacock', name: 'Peacock', role: 'Field for panels and the accent on paper', ink: 'Bone text, 7.08:1' },
-  { cls: 'field-turmeric', name: 'Turmeric', role: 'The action, the painted hero panel, the phone menu', ink: 'Night text, 9.74:1' },
-  { cls: 'field-paper', name: 'Paper', role: 'Reading sections and the last work panel', ink: 'Night text, 15.78:1' },
+  { cls: 'field-station', name: 'Station', role: 'The nameboard yellow: the work list, the phone menu, the ticket', ink: 'Ink text, 12.31:1' },
+  { cls: 'field-signal', name: 'Signal', role: 'The one accent, the action, and a case-study field', ink: 'Enamel text, 5.24:1' },
+  { cls: 'field-ink', name: 'Ink', role: 'Inverse bands: Also shipped and the footer', ink: 'Enamel text, 16.75:1' },
+  { cls: 'field-slate', name: 'Slate', role: 'A quiet case-study field', ink: 'Enamel text, 7.53:1' },
 ];
 ---
 <Base title="Type and colour · Ali Huzaifa" description="The design system of Ali Huzaifa's portfolio." noindex>
   <main id="main">
     <header class="wrap intro">
       <h1 class="display">Type and colour</h1>
-      <p class="lead">The palette, type and controls of this portfolio, taken from the painted goods trucks of Pakistan and set in Chivo and Gulzar.</p>
+      <p class="lead">The palette, type and controls of this portfolio, taken from the station nameboards of Pakistan Railways and set in Big Shoulders, Public Sans and Gulzar.</p>
     </header>
 
     <section class="wrap section ground" aria-labelledby="ground-h">
       <div class="grid">
-        <h2 id="ground-h" class="head col-head">Night and bone</h2>
+        <h2 id="ground-h" class="head col-head">Enamel and ink</h2>
         <div class="col-body">
-          <p>The page sits on night, a chai-dark brown, and runs in bone. Running text is always the full bone ink at 16px or more; dust is kept for secondary notes.</p>
-          <p class="muted">Dust on night measures 8.61:1. Bone on night measures 15.78:1.</p>
+          <p>The page sits on enamel, a low-chroma white, and runs in ink, the black of the board's capitals. Running text is always full ink at 16px or more; slate is kept for secondary notes.</p>
+          <p class="muted">Slate on enamel measures 7.53:1. Ink on enamel measures 16.75:1.</p>
         </div>
       </div>
     </section>
@@ -43,15 +43,15 @@ const fields = [
       <h2 id="type-h" class="head">Type</h2>
       <div class="grid steps">
         <p class="display col-wide" aria-hidden="true">Ali Huzaifa</p>
-        <p class="head col-wide" aria-hidden="true">On the road</p>
+        <p class="head col-wide" aria-hidden="true">Departures</p>
         <p class="lead col-half">I build cloud systems on AWS and the pipelines that ship them.</p>
-        <p class="col-half">Body text is Chivo at 17 to 19px with leading 1.45, held to about 62 characters a line. Headlines are Chivo Black in capitals, tracked in at −0.05em, two lines at most at every width.</p>
+        <p class="col-half">Body text is Public Sans at 17 to 19px with leading 1.5, held to about 62 characters a line. Headlines are Big Shoulders ExtraBold in capitals, the civic signage gothic, set close at −0.005em, two lines at most at every width.</p>
         <p class="small col-half">Small notes and credits sit at 13 to 14px, never smaller.</p>
         <p class="ur urdu col-half" lang="ur" dir="rtl">آج کیا پکائیں؟ رات کا کھانا، طے!</p>
       </div>
     </section>
 
-    <section class="wrap section controls field-turmeric" aria-labelledby="controls-h">
+    <section class="wrap section controls field-station" aria-labelledby="controls-h">
       <h2 id="controls-h" class="head">Controls</h2>
       <div class="row">
         <a class="button" href="#main">Start a project</a>

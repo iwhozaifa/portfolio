@@ -5,7 +5,7 @@ import { consignment, status } from '../lib/bilty';
 interface Props { class?: string }
 const { class: cls = '' } = Astro.props;
 ---
-<button class:list={['stub', 'field-paper', cls]} type="button" popovertarget="bilty-sheet" aria-haspopup="dialog">
+<button class:list={['stub', 'field-station', cls]} type="button" popovertarget="bilty-sheet" aria-haspopup="dialog">
   <span class="stub-no">Bilty {consignment}</span>
   <span class="stub-status" data-bilty-status>{status}</span>
 </button>
@@ -20,7 +20,7 @@ const { class: cls = '' } = Astro.props;
     line-height: 1.15;
     transition: transform var(--t-micro) var(--ease-out);
   }
-  .stub-no { font-weight: 900; text-transform: uppercase; letter-spacing: -0.02em; font-size: var(--step-small); white-space: nowrap; }
+  .stub-no { font-weight: 800; text-transform: uppercase; letter-spacing: 0.01em; font-size: var(--step-small); white-space: nowrap; }
   .stub-status { font-size: var(--step-small); white-space: nowrap; }
   @media (hover: hover) and (pointer: fine) {
     .stub:hover { transform: translateY(-2px); }

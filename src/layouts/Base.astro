@@ -37,7 +37,7 @@ const graph = jsonld ? [person, { '@context': 'https://schema.org', ...jsonld }]
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex" />}
-    <meta name="theme-color" content="#1d1109" />
+    <meta name="theme-color" content="#f2f2ef" />
     <meta property="og:type" content={jsonld ? 'article' : 'website'} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -50,7 +50,7 @@ const graph = jsonld ? [person, { '@context': 'https://schema.org', ...jsonld }]
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="preload" href="/fonts/chivo-latin-wght.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/big-shoulders-latin-wght.woff2" as="font" type="font/woff2" crossorigin />
     <script is:inline>document.documentElement.classList.add('js');</script>
     <script type="application/ld+json" set:html={JSON.stringify(graph)} />
   </head>
